@@ -1,0 +1,20 @@
+Using kubectl to Switch between Kubernetes Contexts
+Once multiple Kubernetes contexts have been added to the kubectl configuration, you can use kubectl to switch between them.
+
+View the config info
+	kubectl config view
+	
+Check the currently loaded context:
+	kubectl config current-context
+
+View available contexts:
+	kubectl config get-contexts
+
+Switch to a different Kubernetes context:
+	kubectl config use-context context-name
+
+delete cluster context
+	kubectl config delete-cluster <my-cluster>
+
+delete user info
+	kubectl config unset users.<username>

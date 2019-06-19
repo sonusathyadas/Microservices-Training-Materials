@@ -1,0 +1,117 @@
+[
+  {
+    "name": "Sekhar",
+    "location": "Chennai",
+    "marks": [
+      50,
+      74,
+      61,
+      70
+    ]
+  },
+  {
+    "name": "Ganesh",
+    "location": "Madurai",
+    "marks": [
+      50,
+      61,
+      70
+    ]
+  },
+  {
+    "name": "Karthik",
+    "location": "Chennai",
+    "marks": [
+      80,
+      63,
+      76,
+      64,
+      72,
+      81
+    ]
+  },
+  {
+    "name": "Arti",
+    "location": "Mumbai",
+    "marks": [
+      40,
+      81,
+      50,
+      72,
+      49,
+      51
+    ]
+  },
+  {
+    "name": "Srikesh",
+    "location": "Pune",
+    "marks": [
+      58,
+      62,
+      54,
+      64,
+      65,
+      54
+    ]
+  },
+  {
+    "name": "Jayesh",
+    "location": "Madurai",
+    "marks": [
+      50,
+      81,
+      72,
+      75,
+      55,
+      65
+    ]
+  },
+  {
+    "name": "Pavan",
+    "location": "Madurai",
+    "marks": [
+      60,
+      64,
+      76,
+      84,
+      72,
+      71
+    ]
+  },
+  {
+    "name": "Gopal",
+    "location": "Mumbai",
+    "marks": [
+      40,
+      89,
+      50,
+      72,
+      49,
+      71
+    ]
+  },
+  {
+    "name": "James",
+    "location": "Mumbai",
+    "marks": [
+      56,
+      42,
+      54,
+      60
+    ]
+  },
+  {
+    "name": "Bhuvanesh",
+    "location": "Chennai",
+    "marks": [
+      56,
+      49,
+      64,
+      70
+    ]
+  },
+  {
+    "name": "Kishore",
+    "location": "Chennai"
+  }
+]

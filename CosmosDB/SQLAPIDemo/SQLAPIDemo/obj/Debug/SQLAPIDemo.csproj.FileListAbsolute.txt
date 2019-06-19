@@ -1,0 +1,14 @@
+C:\Users\Sonu Sathyadas\Desktop\SQLAPIDemo\SQLAPIDemo\bin\Debug\Microsoft.Azure.Documents.ServiceInterop.dll
+C:\Users\Sonu Sathyadas\Desktop\SQLAPIDemo\SQLAPIDemo\bin\Debug\DocumentDB.Spatial.Sql.dll
+C:\Users\Sonu Sathyadas\Desktop\SQLAPIDemo\SQLAPIDemo\bin\Debug\SQLAPIDemo.exe.config
+C:\Users\Sonu Sathyadas\Desktop\SQLAPIDemo\SQLAPIDemo\bin\Debug\SQLAPIDemo.exe
+C:\Users\Sonu Sathyadas\Desktop\SQLAPIDemo\SQLAPIDemo\bin\Debug\SQLAPIDemo.pdb
+C:\Users\Sonu Sathyadas\Desktop\SQLAPIDemo\SQLAPIDemo\bin\Debug\Microsoft.Azure.Documents.Client.dll
+C:\Users\Sonu Sathyadas\Desktop\SQLAPIDemo\SQLAPIDemo\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Sonu Sathyadas\Desktop\SQLAPIDemo\SQLAPIDemo\bin\Debug\Microsoft.Azure.Documents.Client.xml
+C:\Users\Sonu Sathyadas\Desktop\SQLAPIDemo\SQLAPIDemo\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Sonu Sathyadas\Desktop\SQLAPIDemo\SQLAPIDemo\obj\Debug\SQLAPIDemo.csprojAssemblyReference.cache
+C:\Users\Sonu Sathyadas\Desktop\SQLAPIDemo\SQLAPIDemo\obj\Debug\SQLAPIDemo.csproj.CoreCompileInputs.cache
+C:\Users\Sonu Sathyadas\Desktop\SQLAPIDemo\SQLAPIDemo\obj\Debug\SQLAPIDemo.csproj.CopyComplete
+C:\Users\Sonu Sathyadas\Desktop\SQLAPIDemo\SQLAPIDemo\obj\Debug\SQLAPIDemo.exe
+C:\Users\Sonu Sathyadas\Desktop\SQLAPIDemo\SQLAPIDemo\obj\Debug\SQLAPIDemo.pdb

@@ -1,0 +1,23 @@
+
+MongoDB aggregation
+===================
+	Aggregation operations process data records and return computed results. 
+    Aggregation operations group values from multiple documents together, and can 
+    perform a variety of operations on the grouped data to return a single result. 
+    MongoDB provides three ways to perform aggregation: 
+	> aggregation pipeline
+	> map-reduce function
+	> single purpose aggregation methods
+
+Aggregation Pipeline
+====================
+	MongoDB’s aggregation framework is modeled on the concept of data processing pipelines. 
+    Documents enter a multi-stage pipeline that transforms the documents into an aggregated 
+    result. The most basic pipeline stages provide filters that operate like queries and 
+    document transformations that modify the form of the output document. Other pipeline 
+    operations provide tools for grouping and sorting documents by specific field or fields 
+    as well as tools for aggregating the contents of arrays, including arrays of documents. 
+    In addition, pipeline stages can use operators for tasks such as calculating the average
+     or concatenating a string.
+
+	

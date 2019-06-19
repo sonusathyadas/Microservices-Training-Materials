@@ -1,0 +1,55 @@
+//Insert new record
+db.books.insert({
+	title:"MongoDB Tutorials",
+	isbn:"A545-3625-455-128",
+	price:136.00,
+	author:[
+		"Sankar Mohan",
+		"Ashish Vidyarthi"
+	]
+});
+
+//Query all records
+db.books.find();
+
+//Query filtered records
+db.books.find({price:{$gt:150}});
+
+//Query and projection
+db.books.find(
+	{price:{$lt:150}},
+	{title:1,authors:1}
+);
+
+db.books.find().limit(2);
+
+db.books.find({},{title:1, price:1, isbn:1, authors:1}).limit(5);
+
+db.books.find().sort({title:1});
+
+db.books.count({price:{$gt:150}});
+
+
+
+db.books.find({},{
+	isbn:0,  //excluding field from result
+	_id:0
+});
+
+db.books.find({},{
+	title:1,    //including  in result 
+	price:1,
+	authors:1
+});
+
+db.books.find({},{
+  	_id:0,
+	title:1,    //including  in result 
+	price:1,
+	authors:1
+});
+
+
+
+
+

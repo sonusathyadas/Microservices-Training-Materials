@@ -1,0 +1,31 @@
+ 
+db.states.aggregate([
+    {$group:{_id:"$region", statescount:{$sum:1}, states:{$push:"$name"}}}
+]);
+
+
+db.states.find({ name:"Kerala"})
+
+db.states.aggregate([
+    {$match:{name:"Kerala"}},
+    {$unwind:"$population"},
+    {$sort:{"population.year":1}},
+    {$group:{_id:"$name","pop1991":{$first:"$population.population"},
+        "pop2011":{$last:"$population.population"} }}
+    ])
+
+
+db.states.aggregate([
+    {$unwind:"$population"},
+    {$project:{name:1,code:1, population:1}},
+    {$sort:{name:1, "population.year":-1}},
+    {$group:{_id:"$name", pop2011:{$first:"$population.population"}, pop1991:{$last:"$population.population"}}},
+    {$project:{
+        "_id":0,
+        "state":"$_id",
+        "pop1991":1,
+        "pop2011":1,
+        "delta":{$subtract:[ "$pop2011","$pop1991"]}
+    }},
+    {$sort:{_id:1}}
+]);

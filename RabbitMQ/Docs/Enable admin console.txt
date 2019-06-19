@@ -1,0 +1,21 @@
+
+Enabling rabbitmq management console
+
+	1) Open start menu and search for rabbitmq Command promot	
+	2) Install the mangement plugin
+		rabbitmq-plugins enable rabbitmq_management
+	3) Stop rabbitmq server
+		rabbitmqctl.bat stop
+	4) Start the server 
+		rabbitmq-server.bat -detached
+	5) Open browser and navigate to http://localhost:15672
+	6) Login with the deafault user name and password 
+		username: guest
+		password: guest
+	7) To change the guest password
+		a) Open admin tab
+		b) Select guest user from users list
+		c) Scroll down and select "update this user"
+		d) type password and confirm password and save
+
+		

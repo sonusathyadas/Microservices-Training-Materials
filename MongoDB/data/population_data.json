@@ -1,0 +1,1649 @@
+[
+  {
+    "label": "State",
+    "code": "AP",
+    "name": "Andhra Pradesh",
+    "area": 162970,
+    "areaunit": "km/sq",
+    "region": "South",
+    "population": [
+      {
+        "year": 1991,
+        "population": 66508170
+      },
+      {
+        "year": 2001,
+        "population": 75728400
+      },
+      {
+        "year": 2011,
+        "population": 49386799,
+        "growth": 9,
+        "density": 308
+      }
+    ],
+    "districts": [
+      "Anantapur",
+      "Chittoor",
+      "East Godavari",
+      "Guntur",
+      "Krishna",
+      "Kurnool",
+      "Nellore",
+      "Prakasam",
+      "Srikakulam",
+      "Visakhapatnam",
+      "Vizianagaram",
+      "West Godavari",
+      "YSR Kadapa"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "AR",
+    "name": "Arunachal Pradesh",
+    "area": 83743,
+    "areaunit": "km/sq",
+    "region": "NorthEast",
+    "population": [
+      {
+        "year": 1991,
+        "population": 865900
+      },
+      {
+        "year": 2001,
+        "population": 1098328
+      },
+      {
+        "year": 2011,
+        "population": 1383727,
+        "growth": 26,
+        "density": 17
+      }
+    ],
+    "districts": [
+      "Tawang",
+      "West Kameng",
+      "East Kameng",
+      "Papum Pare",
+      "Kurung Kumey",
+      "Kra Daadi",
+      "Lower Subansiri",
+      "Upper Subansiri",
+      "West Siang",
+      "East Siang",
+      "Siang",
+      "Upper Siang",
+      "Lower Siang",
+      "Lower Dibang Valley",
+      "Dibang Valley",
+      "Anjaw",
+      "Lohit",
+      "Namsai",
+      "Changlang",
+      "Tirap",
+      "Longding"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "AS",
+    "name": "Assam",
+    "area": 78438,
+    "areaunit": "km/sq",
+    "region": "NorthEast",
+    "population": [
+      {
+        "year": 1991,
+        "population": 22414320
+      },
+      {
+        "year": 2001,
+        "population": 26638600
+      },
+      {
+        "year": 2011,
+        "population": 31205576,
+        "growth": 17.1,
+        "density": 398
+      }
+    ],
+    "districts": [
+      "Baksa",
+      "Barpeta",
+      "Biswanath",
+      "Bongaigaon",
+      "Cachar",
+      "Charaideo",
+      "Chirang",
+      "Darrang",
+      "Dhemaji",
+      "Dhubri",
+      "Dibrugarh",
+      "Goalpara",
+      "Golaghat",
+      "Hailakandi",
+      "Hojai",
+      "Jorhat",
+      "Kamrup Metropolitan",
+      "Kamrup",
+      "Karbi Anglong",
+      "Karimganj",
+      "Kokrajhar",
+      "Lakhimpur",
+      "Majuli",
+      "Morigaon",
+      "Nagaon",
+      "Nalbari",
+      "Dima Hasao",
+      "Sivasagar",
+      "Sonitpur",
+      "South Salmara-Mankachar",
+      "Tinsukia",
+      "Udalguri",
+      "West Karbi Anglong"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "BR",
+    "name": "Bihar",
+    "area": 94163,
+    "areaunit": "km/sq",
+    "region": "East",
+    "population": [
+      {
+        "year": 1991,
+        "population": 64531200
+      },
+      {
+        "year": 2001,
+        "population": 82879910
+      },
+      {
+        "year": 2011,
+        "population": 104099452,
+        "growth": 25.4,
+        "density": 1106
+      }
+    ],
+    "districts": [
+      "Araria",
+      "Arwal",
+      "Aurangabad",
+      "Banka",
+      "Begusarai",
+      "Bhagalpur",
+      "Bhojpur",
+      "Buxar",
+      "Darbhanga",
+      "East Champaran (Motihari)",
+      "Gaya",
+      "Gopalganj",
+      "Jamui",
+      "Jehanabad",
+      "Kaimur (Bhabua)",
+      "Katihar",
+      "Khagaria",
+      "Kishanganj",
+      "Lakhisarai",
+      "Madhepura",
+      "Madhubani",
+      "Munger (Monghyr)",
+      "Muzaffarpur",
+      "Nalanda",
+      "Nawada",
+      "Patna",
+      "Purnia (Purnea)",
+      "Rohtas",
+      "Saharsa",
+      "Samastipur",
+      "Saran",
+      "Sheikhpura",
+      "Sheohar",
+      "Sitamarhi",
+      "Siwan",
+      "Supaul",
+      "Vaishali",
+      "West Champaran"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "CH",
+    "name": "Chhattisgarh",
+    "area": 135191,
+    "areaunit": "km/sq",
+    "region": "Central",
+    "population": [
+      {
+        "year": 1991,
+        "population": 17615600
+      },
+      {
+        "year": 2001,
+        "population": 20834530
+      },
+      {
+        "year": 2011,
+        "population": 25545198,
+        "growth": 22.6,
+        "density": 189
+      }
+    ],
+    "districts": [
+      "Balod",
+      "Baloda Bazar",
+      "Balrampur",
+      "Bastar",
+      "Bemetara",
+      "Bijapur",
+      "Bilaspur",
+      "Dantewada (South Bastar)",
+      "Dhamtari",
+      "Durg",
+      "Gariyaband",
+      "Janjgir-Champa",
+      "Jashpur",
+      "Kabirdham (Kawardha)",
+      "Kanker (North Bastar)",
+      "Kondagaon",
+      "Korba",
+      "Korea (Koriya)",
+      "Mahasamund",
+      "Mungeli",
+      "Narayanpur",
+      "Raigarh",
+      "Raipur",
+      "Rajnandgaon",
+      "Sukma",
+      "Surajpur  ",
+      "Surguja"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "GA",
+    "name": "Goa",
+    "area": 3702,
+    "areaunit": "km/sq",
+    "region": "West",
+    "population": [
+      {
+        "year": 1991,
+        "population": 1170115
+      },
+      {
+        "year": 2001,
+        "population": 1348900
+      },
+      {
+        "year": 2011,
+        "population": 1458545,
+        "growth": 8.2,
+        "density": 394
+      }
+    ],
+    "districts": [
+      "North Goa",
+      "South Goa"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "GJ",
+    "name": "Gujarat",
+    "area": 196024,
+    "areaunit": "km/sq",
+    "region": "West",
+    "population": [
+      {
+        "year": 1991,
+        "population": 41309580
+      },
+      {
+        "year": 2001,
+        "population": 50597200
+      },
+      {
+        "year": 2011,
+        "population": 60439692,
+        "growth": 19.3,
+        "density": 308
+      }
+    ],
+    "districts": [
+      "Ahmedabad",
+      "Amreli",
+      "Anand",
+      "Aravalli",
+      "Banaskantha (Palanpur)",
+      "Bharuch",
+      "Bhavnagar",
+      "Botad",
+      "Chhota Udepur",
+      "Dahod",
+      "Dangs (Ahwa)",
+      "Devbhoomi Dwarka",
+      "Gandhinagar",
+      "Gir Somnath",
+      "Jamnagar",
+      "Junagadh",
+      "Kachchh",
+      "Kheda (Nadiad)",
+      "Mahisagar",
+      "Mehsana",
+      "Morbi",
+      "Narmada (Rajpipla)",
+      "Navsari",
+      "Panchmahal (Godhra)",
+      "Patan",
+      "Porbandar",
+      "Rajkot",
+      "Sabarkantha (Himmatnagar)",
+      "Surat",
+      "Surendranagar",
+      "Tapi (Vyara)",
+      "Vadodara",
+      "Valsad"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "HR",
+    "name": "Haryana",
+    "area": 44212,
+    "areaunit": "km/sq",
+    "region": "North",
+    "population": [
+      {
+        "year": 1991,
+        "population": 16464600
+      },
+      {
+        "year": 2001,
+        "population": 21083900
+      },
+      {
+        "year": 2011,
+        "population": 25351462,
+        "growth": 19.9,
+        "density": 573
+      }
+    ],
+    "districts": [
+      "Ambala",
+      "Bhiwani",
+      "Charkhi Dadri",
+      "Faridabad",
+      "Fatehabad",
+      "Gurgaon",
+      "Hisar",
+      "Jhajjar",
+      "Jind",
+      "Kaithal",
+      "Karnal",
+      "Kurukshetra",
+      "Mahendragarh",
+      "Mewat",
+      "Palwal",
+      "Panchkula",
+      "Panipat",
+      "Rewari",
+      "Rohtak",
+      "Sirsa",
+      "Sonipat",
+      "Yamunanagar"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "HP",
+    "name": "Himachal Pradesh",
+    "area": 55673,
+    "areaunit": "km/sq",
+    "region": "North",
+    "population": [
+      {
+        "year": 1991,
+        "population": 5170877
+      },
+      {
+        "year": 2001,
+        "population": 6077453
+      },
+      {
+        "year": 2011,
+        "population": 6864602,
+        "growth": 12.9,
+        "density": 123
+      }
+    ],
+    "districts": [
+      "Bilaspur",
+      "Chamba",
+      "Hamirpur",
+      "Kangra",
+      "Kinnaur",
+      "Kullu",
+      "Lahaul &amp; Spiti",
+      "Mandi",
+      "Shimla",
+      "Sirmaur (Sirmour)",
+      "Solan",
+      "Una"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "JK",
+    "name": "Jammu & Kashmir",
+    "area": 222236,
+    "areaunit": "km/sq",
+    "region": "North",
+    "population": [
+      {
+        "year": 1991,
+        "population": 7718700
+      },
+      {
+        "year": 2001,
+        "population": 10070300
+      },
+      {
+        "year": 2011,
+        "population": 12541302,
+        "growth": 23.6,
+        "density": 56
+      }
+    ],
+    "districts": [
+      "Anantnag",
+      "Bandipore",
+      "Baramulla",
+      "Budgam",
+      "Doda",
+      "Ganderbal",
+      "Jammu",
+      "Kargil",
+      "Kathua",
+      "Kishtwar",
+      "Kulgam",
+      "Kupwara",
+      "Leh",
+      "Poonch",
+      "Pulwama",
+      "Rajouri",
+      "Ramban",
+      "Reasi",
+      "Samba",
+      "Shopian",
+      "Srinagar",
+      "Udhampur"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "JH",
+    "name": "Jharkhand",
+    "area": 79714,
+    "areaunit": "km/sq",
+    "region": "East",
+    "population": [
+      {
+        "year": 1991,
+        "population": 21844550
+      },
+      {
+        "year": 2001,
+        "population": 26946070
+      },
+      {
+        "year": 2011,
+        "population": 32988134,
+        "growth": 22.4,
+        "density": 414
+      }
+    ],
+    "districts": [
+      "Bokaro",
+      "Chatra",
+      "Deoghar",
+      "Dhanbad",
+      "Dumka",
+      "East Singhbhum",
+      "Garhwa",
+      "Giridih",
+      "Godda",
+      "Gumla",
+      "Hazaribag",
+      "Jamtara",
+      "Khunti",
+      "Koderma",
+      "Latehar",
+      "Lohardaga",
+      "Pakur",
+      "Palamu",
+      "Ramgarh",
+      "Ranchi",
+      "Sahibganj",
+      "Seraikela-Kharsawan",
+      "Simdega",
+      "West Singhbhum"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "KA",
+    "name": "Karnataka",
+    "area": 191791,
+    "areaunit": "km/sq",
+    "region": "South",
+    "population": [
+      {
+        "year": 1991,
+        "population": 44977200
+      },
+      {
+        "year": 2001,
+        "population": 52734986
+      },
+      {
+        "year": 2011,
+        "population": 61095297,
+        "growth": 15.6,
+        "density": 319
+      }
+    ],
+    "districts": [
+      "Bagalkot",
+      "Ballari (Bellary)",
+      "Belagavi (Belgaum)",
+      "Bengaluru (Bangalore) Rural",
+      "Bengaluru (Bangalore) Urban",
+      "Bidar",
+      "Chamarajanagar",
+      "Chikballapur",
+      "Chikkamagaluru (Chikmagalur)",
+      "Chitradurga",
+      "Dakshina Kannada",
+      "Davangere",
+      "Dharwad",
+      "Gadag",
+      "Hassan",
+      "Haveri",
+      "Kalaburagi (Gulbarga)",
+      "Kodagu",
+      "Kolar",
+      "Koppal",
+      "Mandya",
+      "Mysuru (Mysore)",
+      "Raichur",
+      "Ramanagara",
+      "Shivamogga (Shimoga)",
+      "Tumakuru (Tumkur)",
+      "Udupi",
+      "Uttara Kannada (Karwar)",
+      "Vijayapura (Bijapur)",
+      "Yadgir"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "KL",
+    "name": "Kerala",
+    "area": 38863,
+    "areaunit": "km/sq",
+    "region": "South",
+    "population": [
+      {
+        "year": 1991,
+        "population": 29098523
+      },
+      {
+        "year": 2001,
+        "population": 31839000
+      },
+      {
+        "year": 2011,
+        "population": 33406061,
+        "growth": 4.9,
+        "density": 860
+      }
+    ],
+    "districts": [
+      "Alappuzha",
+      "Ernakulam",
+      "Idukki",
+      "Kannur",
+      "Kasaragod",
+      "Kollam",
+      "Kottayam",
+      "Kozhikode",
+      "Malappuram",
+      "Palakkad",
+      "Pathanamthitta",
+      "Thiruvananthapuram",
+      "Thrissur",
+      "Wayanad"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "MP",
+    "name": "Madhya Pradesh",
+    "area": 308252,
+    "areaunit": "km/sq",
+    "region": "Central",
+    "population": [
+      {
+        "year": 1991,
+        "population": 48566800
+      },
+      {
+        "year": 2001,
+        "population": 60385090
+      },
+      {
+        "year": 2011,
+        "population": 72626809,
+        "growth": 20.3,
+        "density": 236
+      }
+    ],
+    "districts": [
+      "Agar Malwa",
+      "Alirajpur",
+      "Anuppur",
+      "Ashoknagar",
+      "Balaghat",
+      "Barwani",
+      "Betul",
+      "Bhind",
+      "Bhopal",
+      "Burhanpur",
+      "Chhatarpur",
+      "Chhindwara",
+      "Damoh",
+      "Datia",
+      "Dewas",
+      "Dhar",
+      "Dindori",
+      "Guna",
+      "Gwalior",
+      "Harda",
+      "Hoshangabad",
+      "Indore",
+      "Jabalpur",
+      "Jhabua",
+      "Katni",
+      "Khandwa",
+      "Khargone",
+      "Mandla",
+      "Mandsaur",
+      "Morena",
+      "Narsinghpur",
+      "Neemuch",
+      "Panna",
+      "Raisen",
+      "Rajgarh",
+      "Ratlam",
+      "Rewa",
+      "Sagar",
+      "Satna",
+      "Sehore",
+      "Seoni",
+      "Shahdol",
+      "Shajapur",
+      "Sheopur",
+      "Shivpuri",
+      "Sidhi",
+      "Singrauli",
+      "Tikamgarh",
+      "Ujjain",
+      "Umaria",
+      "Vidisha"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "MH",
+    "name": "Maharashtra",
+    "area": 307713,
+    "areaunit": "km/sq",
+    "region": "West",
+    "population": [
+      {
+        "year": 1991,
+        "population": 78937190
+      },
+      {
+        "year": 2001,
+        "population": 96752500
+      },
+      {
+        "year": 2011,
+        "population": 112374333,
+        "growth": 16,
+        "density": 365
+      }
+    ],
+    "districts": [
+      "Ahmednagar",
+      "Akola",
+      "Amravati",
+      "Aurangabad",
+      "Beed",
+      "Bhandara",
+      "Buldhana",
+      "Chandrapur",
+      "Dhule",
+      "Gadchiroli",
+      "Gondia",
+      "Hingoli",
+      "Jalgaon",
+      "Jalna",
+      "Kolhapur",
+      "Latur",
+      "Mumbai City",
+      "Mumbai Suburban",
+      "Nagpur",
+      "Nanded",
+      "Nandurbar",
+      "Nashik",
+      "Osmanabad",
+      "Palghar",
+      "Parbhani",
+      "Pune",
+      "Raigad",
+      "Ratnagiri",
+      "Sangli",
+      "Satara",
+      "Sindhudurg",
+      "Solapur",
+      "Thane",
+      "Wardha",
+      "Washim",
+      "Yavatmal"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "MN",
+    "name": "Manipur",
+    "area": 22327,
+    "areaunit": "km/sq",
+    "region": "NorthEast",
+    "population": [
+      {
+        "year": 1991,
+        "population": 1837900
+      },
+      {
+        "year": 2001,
+        "population": 2294480
+      },
+      {
+        "year": 2011,
+        "population": 2855794,
+        "growth": 31.8,
+        "density": 128
+      }
+    ],
+    "districts": [
+      "Bishnupur",
+      "Chandel",
+      "Churachandpur",
+      "Imphal East",
+      "Imphal West",
+      "Jiribam",
+      "Kakching",
+      "Kamjong",
+      "Kangpokpi",
+      "Noney",
+      "Pherzawl",
+      "Senapati",
+      "Tamenglong",
+      "Tengnoupal",
+      "Thoubal",
+      "Ukhrul"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "ML",
+    "name": "Meghalaya",
+    "area": 22429,
+    "areaunit": "km/sq",
+    "region": "NorthEast",
+    "population": [
+      {
+        "year": 1991,
+        "population": 1774778
+      },
+      {
+        "year": 2001,
+        "population": 2306540
+      },
+      {
+        "year": 2011,
+        "population": 2966889,
+        "growth": 27.9,
+        "density": 132
+      }
+    ],
+    "districts": [
+      "East Garo Hills",
+      "East Jaintia Hills",
+      "East Khasi Hills",
+      "North Garo Hills",
+      "Ri Bhoi",
+      "South Garo Hills",
+      "South West Garo Hills ",
+      "South West Khasi Hills",
+      "West Garo Hills",
+      "West Jaintia Hills",
+      "West Khasi Hills"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "MZ",
+    "name": "Mizoram",
+    "area": 21087,
+    "areaunit": "km/sq",
+    "region": "NorthEast",
+    "population": [
+      {
+        "year": 1991,
+        "population": 690963
+      },
+      {
+        "year": 2001,
+        "population": 889690
+      },
+      {
+        "year": 2011,
+        "population": 1097206,
+        "growth": 23.5,
+        "density": 52
+      }
+    ],
+    "districts": [
+      "Aizawl",
+      "Champhai",
+      "Kolasib",
+      "Lawngtlai",
+      "Lunglei",
+      "Mamit",
+      "Saiha",
+      "Serchhip"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "NL",
+    "name": "Nagaland",
+    "area": 16579,
+    "areaunit": "km/sq",
+    "region": "NorthEast",
+    "population": [
+      {
+        "year": 1991,
+        "population": 1210492
+      },
+      {
+        "year": 2001,
+        "population": 1990275
+      },
+      {
+        "year": 2011,
+        "population": 1978502,
+        "growth": -0.6,
+        "density": 119
+      }
+    ],
+    "districts": [
+      "Dimapur",
+      "Kiphire",
+      "Kohima",
+      "Longleng",
+      "Mokokchung",
+      "Mon",
+      "Peren",
+      "Phek",
+      "Tuensang",
+      "Wokha",
+      "Zunheboto"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "OR",
+    "name": "Odisha",
+    "area": 155707,
+    "areaunit": "km/sq",
+    "region": "East",
+    "population": [
+      {
+        "year": 1991,
+        "population": 31659740
+      },
+      {
+        "year": 2001,
+        "population": 36707900
+      },
+      {
+        "year": 2011,
+        "population": 41974218,
+        "growth": 14,
+        "density": 270
+      }
+    ],
+    "districts": [
+      "Angul",
+      "Balangir",
+      "Balasore",
+      "Bargarh",
+      "Bhadrak",
+      "Boudh",
+      "Cuttack",
+      "Deogarh",
+      "Dhenkanal",
+      "Gajapati",
+      "Ganjam",
+      "Jagatsinghapur",
+      "Jajpur",
+      "Jharsuguda",
+      "Kalahandi",
+      "Kandhamal",
+      "Kendrapara",
+      "Kendujhar (Keonjhar)",
+      "Khordha",
+      "Koraput",
+      "Malkangiri",
+      "Mayurbhanj",
+      "Nabarangpur",
+      "Nayagarh",
+      "Nuapada",
+      "Puri",
+      "Rayagada",
+      "Sambalpur",
+      "Sonepur",
+      "Sundargarh"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "PB",
+    "name": "Punjab",
+    "area": 355591,
+    "areaunit": "km/sq",
+    "region": "North",
+    "population": [
+      {
+        "year": 1991,
+        "population": 20281971
+      },
+      {
+        "year": 2001,
+        "population": 24289130
+      },
+      {
+        "year": 2011,
+        "population": 27743338,
+        "growth": 13.9,
+        "density": 551
+      }
+    ],
+    "districts": [
+      "Amritsar",
+      "Barnala",
+      "Bathinda",
+      "Faridkot",
+      "Fatehgarh Sahib",
+      "Fazilka",
+      "Ferozepur",
+      "Gurdaspur",
+      "Hoshiarpur",
+      "Jalandhar",
+      "Kapurthala",
+      "Ludhiana",
+      "Mansa",
+      "Moga",
+      "Muktsar",
+      "Nawanshahr (Shahid Bhagat Singh Nagar)",
+      "Pathankot",
+      "Patiala",
+      "Rupnagar",
+      "Sahibzada Ajit Singh Nagar (Mohali)",
+      "Sangrur",
+      "Tarn Taran"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "RJ",
+    "name": "Rajasthan",
+    "area": 342239,
+    "areaunit": "km/sq",
+    "region": "North",
+    "population": [
+      {
+        "year": 1991,
+        "population": 44005990
+      },
+      {
+        "year": 2001,
+        "population": 56473300
+      },
+      {
+        "year": 2011,
+        "population": 68548437,
+        "growth": 21.3,
+        "density": 200
+      }
+    ],
+    "districts": [
+      "Ajmer",
+      "Alwar",
+      "Banswara",
+      "Baran",
+      "Barmer",
+      "Bharatpur",
+      "Bhilwara",
+      "Bikaner",
+      "Bundi",
+      "Chittorgarh",
+      "Churu",
+      "Dausa",
+      "Dholpur",
+      "Dungarpur",
+      "Hanumangarh",
+      "Jaipur",
+      "Jaisalmer",
+      "Jalore",
+      "Jhalawar",
+      "Jhunjhunu",
+      "Jodhpur",
+      "Karauli",
+      "Kota",
+      "Nagaur",
+      "Pali",
+      "Pratapgarh",
+      "Rajsamand",
+      "Sawai Madhopur",
+      "Sikar",
+      "Sirohi",
+      "Sri Ganganagar",
+      "Tonk",
+      "Udaipur"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "SK",
+    "name": "Sikkim",
+    "area": 7096,
+    "areaunit": "km/sq",
+    "region": "NorthEast",
+    "population": [
+      {
+        "year": 1991,
+        "population": 406000
+      },
+      {
+        "year": 2001,
+        "population": 541902
+      },
+      {
+        "year": 2011,
+        "population": 610577,
+        "growth": 12.9,
+        "density": 86
+      }
+    ],
+    "districts": [
+      "East Sikkim",
+      "North Sikkim",
+      "South Sikkim",
+      "West Sikkim"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "TN",
+    "name": "Tamil Nadu",
+    "area": 130060,
+    "areaunit": "km/sq",
+    "region": "South",
+    "population": [
+      {
+        "year": 1991,
+        "population": 55859300
+      },
+      {
+        "year": 2001,
+        "population": 62111390
+      },
+      {
+        "year": 2011,
+        "population": 72147030,
+        "growth": 15.6,
+        "density": 555
+      }
+    ],
+    "districts": [
+      "Ariyalur",
+      "Chennai",
+      "Coimbatore",
+      "Cuddalore",
+      "Dharmapuri",
+      "Dindigul",
+      "Erode",
+      "Kanchipuram",
+      "Kanyakumari",
+      "Karur",
+      "Krishnagiri",
+      "Madurai",
+      "Nagapattinam",
+      "Namakkal",
+      "Nilgiris",
+      "Perambalur",
+      "Pudukkottai",
+      "Ramanathapuram",
+      "Salem",
+      "Sivaganga",
+      "Thanjavur",
+      "Theni",
+      "Thoothukudi (Tuticorin)",
+      "Tiruchirappalli",
+      "Tirunelveli",
+      "Tiruppur",
+      "Tiruvallur",
+      "Tiruvannamalai",
+      "Tiruvarur",
+      "Vellore",
+      "Viluppuram",
+      "Virudhunagar"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "TS",
+    "name": "Telangana",
+    "area": 112077,
+    "areaunit": "km/sq",
+    "region": "South",
+    "population": [
+      {
+        "year": 2011,
+        "population": 35193978,
+        "growth": 13.6,
+        "density": 306
+      }
+    ],
+    "districts": [
+      "Adilabad",
+      "Bhadradri Kothagudem",
+      "Hyderabad",
+      "Jagtial",
+      "Jangaon",
+      "Jayashankar Bhoopalpally",
+      "Jogulamba Gadwal",
+      "Kamareddy",
+      "Karimnagar",
+      "Khammam",
+      "Komaram Bheem Asifabad",
+      "Mahabubabad",
+      "Mahabubnagar",
+      "Mancherial",
+      "Medak",
+      "Medchal",
+      "Nagarkurnool",
+      "Nalgonda",
+      "Nirmal",
+      "Nizamabad",
+      "Peddapalli",
+      "Rajanna Sircilla",
+      "Rangareddy",
+      "Sangareddy",
+      "Siddipet",
+      "Suryapet",
+      "Vikarabad",
+      "Wanaparthy",
+      "Warangal (Rural)",
+      "Warangal (Urban)",
+      "Yadadri Bhuvanagiri"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "TR",
+    "name": "Tripura",
+    "area": 10491.69,
+    "areaunit": "km/sq",
+    "region": "NorthEast",
+    "population": [
+      {
+        "year": 1991,
+        "population": 2757205
+      },
+      {
+        "year": 2001,
+        "population": 3191880
+      },
+      {
+        "year": 2011,
+        "population": 3673917,
+        "growth": 14.8,
+        "density": 350
+      }
+    ],
+    "districts": [
+      "Dhalai",
+      "Gomati",
+      "Khowai",
+      "North Tripura",
+      "Sepahijala",
+      "South Tripura",
+      "Unakoti",
+      "West Tripura"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "UK",
+    "name": "Uttarakhand",
+    "area": 53483,
+    "areaunit": "km/sq",
+    "region": "Central",
+    "population": [
+      {
+        "year": 1991,
+        "population": 7051600
+      },
+      {
+        "year": 2001,
+        "population": 8489100
+      },
+      {
+        "year": 2011,
+        "population": 10086292,
+        "growth": 18.8,
+        "density": 189
+      }
+    ],
+    "districts": [
+      "Almora",
+      "Bageshwar",
+      "Chamoli",
+      "Champawat",
+      "Dehradun",
+      "Haridwar",
+      "Nainital",
+      "Pauri Garhwal",
+      "Pithoragarh",
+      "Rudraprayag",
+      "Tehri Garhwal",
+      "Udham Singh Nagar",
+      "Uttarkashi"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "UP",
+    "name": "Uttar Pradesh",
+    "area": 243290,
+    "areaunit": "km/sq",
+    "region": "Central",
+    "population": [
+      {
+        "year": 1991,
+        "population": 132062800
+      },
+      {
+        "year": 2001,
+        "population": 166053600
+      },
+      {
+        "year": 2011,
+        "population": 199812341,
+        "growth": 20.2,
+        "density": 829
+      }
+    ],
+    "districts": [
+      "Agra",
+      "Aligarh",
+      "Allahabad",
+      "Ambedkar Nagar",
+      "Amethi (Chatrapati Sahuji Mahraj Nagar)",
+      "Amroha (J.P. Nagar)",
+      "Auraiya",
+      "Azamgarh",
+      "Baghpat",
+      "Bahraich",
+      "Ballia",
+      "Balrampur",
+      "Banda",
+      "Barabanki",
+      "Bareilly",
+      "Basti",
+      "Bhadohi",
+      "Bijnor",
+      "Budaun",
+      "Bulandshahr",
+      "Chandauli",
+      "Chitrakoot",
+      "Deoria",
+      "Etah",
+      "Etawah",
+      "Faizabad",
+      "Farrukhabad",
+      "Fatehpur",
+      "Firozabad",
+      "Gautam Buddha Nagar",
+      "Ghaziabad",
+      "Ghazipur",
+      "Gonda",
+      "Gorakhpur",
+      "Hamirpur",
+      "Hapur (Panchsheel Nagar)",
+      "Hardoi",
+      "Hathras",
+      "Jalaun",
+      "Jaunpur",
+      "Jhansi",
+      "Kannauj",
+      "Kanpur Dehat",
+      "Kanpur Nagar",
+      "Kanshiram Nagar (Kasganj)",
+      "Kaushambi",
+      "Kushinagar (Padrauna)",
+      "Lakhimpur - Kheri",
+      "Lalitpur",
+      "Lucknow",
+      "Maharajganj",
+      "Mahoba",
+      "Mainpuri",
+      "Mathura",
+      "Mau",
+      "Meerut",
+      "Mirzapur",
+      "Moradabad",
+      "Muzaffarnagar",
+      "Pilibhit",
+      "Pratapgarh",
+      "RaeBareli",
+      "Rampur",
+      "Saharanpur",
+      "Sambhal (Bhim Nagar)",
+      "Sant Kabir Nagar",
+      "Shahjahanpur",
+      "Shamali (Prabuddh Nagar)",
+      "Shravasti",
+      "Siddharth Nagar",
+      "Sitapur",
+      "Sonbhadra",
+      "Sultanpur",
+      "Unnao",
+      "Varanasi"
+    ]
+  },
+  {
+    "label": "State",
+    "code": "WB",
+    "name": "West Bengal",
+    "area": 88752,
+    "areaunit": "km/sq",
+    "region": "East",
+    "population": [
+      {
+        "year": 1991,
+        "population": 68077970
+      },
+      {
+        "year": 2001,
+        "population": 80221300
+      },
+      {
+        "year": 2011,
+        "population": 91276115,
+        "growth": 13.8,
+        "density": 1028
+      }
+    ],
+    "districts": [
+      "Alipurduar",
+      "Bankura",
+      "Birbhum",
+      "Burdwan (Bardhaman)",
+      "Cooch Behar",
+      "Dakshin Dinajpur (South Dinajpur)",
+      "Darjeeling",
+      "Hooghly",
+      "Howrah",
+      "Jalpaiguri",
+      "Kalimpong",
+      "Kolkata",
+      "Malda",
+      "Murshidabad",
+      "Nadia",
+      "North 24 Parganas",
+      "Paschim Medinipur (West Medinipur)",
+      "Purba Medinipur (East Medinipur)",
+      "Purulia",
+      "South 24 Parganas",
+      "Uttar Dinajpur (North Dinajpur)"
+    ]
+  },
+  {
+    "label": "Union Territory",
+    "name": "Andaman & Nicobar Island",
+    "area": 8250,
+    "areaunit": "km/sq",
+    "region": "South",
+    "population": [
+      {
+        "year": 1991,
+        "population": 281990
+      },
+      {
+        "year": 2001,
+        "population": 356650
+      },
+      {
+        "year": 2011,
+        "population": 380581,
+        "growth": 6.9,
+        "density": 46
+      }
+    ]
+  },
+  {
+    "label": "Union Territory",
+    "code": "CG",
+    "name": "Chandigarh",
+    "area": 114,
+    "areaunit": "km/sq",
+    "region": "North",
+    "population": [
+      {
+        "year": 1991,
+        "population": 642374
+      },
+      {
+        "year": 2001,
+        "population": 901080
+      },
+      {
+        "year": 2011,
+        "population": 1055450,
+        "growth": 17.2,
+        "density": 9258
+      }
+    ],
+    "districts": [
+      "Chandigarh"
+    ]
+  },
+  {
+    "label": "Union Territory",
+    "code": "DH",
+    "name": "Dadra & Nagar Haveli",
+    "area": 491,
+    "areaunit": "km/sq",
+    "region": "West",
+    "population": [
+      {
+        "year": 1991,
+        "population": 138290
+      },
+      {
+        "year": 2001,
+        "population": 220963
+      },
+      {
+        "year": 2011,
+        "population": 343709,
+        "growth": 55.9,
+        "density": 700
+      }
+    ],
+    "districts": [
+      "Dadra & Nagar Haveli"
+    ]
+  },
+  {
+    "label": "Union Territory",
+    "code": "DD",
+    "name": "Daman & Diu",
+    "area": 112,
+    "areaunit": "km/sq",
+    "region": "West",
+    "population": [
+      {
+        "year": 1991,
+        "population": 102110
+      },
+      {
+        "year": 2001,
+        "population": 158080
+      },
+      {
+        "year": 2011,
+        "population": 243247,
+        "growth": 53.8,
+        "density": 2191
+      }
+    ],
+    "districts": [
+      "Daman",
+      "Diu"
+    ]
+  },
+  {
+    "label": "Union Territory",
+    "code": "DL",
+    "name": "Delhi",
+    "area": 1484,
+    "areaunit": "km/sq",
+    "region": "North",
+    "population": [
+      {
+        "year": 1991,
+        "population": 9421311
+      },
+      {
+        "year": 2001,
+        "population": 13851503
+      },
+      {
+        "year": 2011,
+        "population": 16787941,
+        "growth": 21.2,
+        "density": 11320
+      }
+    ],
+    "districts": [
+      "Central Delhi",
+      "East Delhi",
+      "New Delhi",
+      "North Delhi",
+      "North East  Delhi",
+      "North West  Delhi",
+      "Shahdara",
+      "South Delhi",
+      "South East Delhi",
+      "South West  Delhi",
+      "West Delhi"
+    ]
+  },
+  {
+    "label": "Union Territory",
+    "code": "LD",
+    "name": "Lakshadweep",
+    "area": 32.69,
+    "areaunit": "km/sq",
+    "region": "South",
+    "population": [
+      {
+        "year": 1991,
+        "population": 52820
+      },
+      {
+        "year": 2001,
+        "population": 61300
+      },
+      {
+        "year": 2011,
+        "population": 64473,
+        "growth": 6.3,
+        "density": 2149
+      }
+    ],
+    "districts": [
+      "Agatti",
+      "Amini",
+      "Androth",
+      "Bithra",
+      "Chethlath",
+      "Kavaratti",
+      "Kadmath",
+      "Kalpeni",
+      "Kilthan",
+      "Minicoy"
+    ]
+  },
+  {
+    "label": "Union Territory",
+    "code": "PY",
+    "name": "Puducherry",
+    "area": 562,
+    "areaunit": "km/sq",
+    "region": "South",
+    "population": [
+      {
+        "year": 1991,
+        "population": 808117
+      },
+      {
+        "year": 2001,
+        "population": 974820
+      },
+      {
+        "year": 2011,
+        "population": 1244464,
+        "growth": 12,
+        "density": 2200
+      }
+    ],
+    "districts": [
+      "Karaikal",
+      "Mahe",
+      "Pondicherry",
+      "Yanam"
+    ]
+  }
+]

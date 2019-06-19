@@ -1,0 +1,77 @@
+ 
+//Aggregation pipeline
+
+//Grouping
+//Find the states in each region
+db.states.aggregate([
+    {"$group": { "_id":"$region", "count":{$sum:1}  }}
+]);
+
+//Find the total area of the country
+db.states.aggregate([
+    { "$group": {
+        "_id":null,
+        "totalArea":{$sum:"$area"},
+        "averageArea":{$avg:"$area"}
+    }}
+])
+
+//Group based on region and fidn area, avg area, number of states and state list
+db.states.aggregate([
+    { "$group": {
+        "_id":"$region",
+        "totalArea":{$sum:"$area"},
+        "averageArea":{$avg:"$area"},
+        "totalStates":{$sum:1},
+        "states":{$push:"$name"}
+    }}
+])
+
+//Unwind
+//Get the flatten list of states with population
+db.states.aggregate([
+    {"$unwind":"$population"}    
+]);
+
+//Group records based on the year to calculate total population
+db.states.aggregate([
+    
+    {$unwind: "$population"},
+    {$group: {
+        "_id":"$region",
+        "totalPopulation":{"$sum":"$population.population"},
+        "avgPopulation":{"$avg":"$population.population"}
+    }},
+    {$sort: {"totalPopulation":1}}
+]);
+
+//Match
+db.states.aggregate([
+    {$match: {"region": "South"}},
+    {$unwind: "$population" },
+    {$group:{
+        "_id":"$population.year",
+        "totalPopulation":{$sum:"$population.population"}
+    } },
+    {$sort:{"_id":1}}
+]);
+
+//First and last and project
+db.states.aggregate([
+    {$unwind: "$population" },
+    {$sort:{"population.year":1}},
+    {$group:{
+        "_id":"$name",
+        "pop1991":{$first:"$population.population"},
+        "pop2011":{$last:"$population.population"}
+    } },
+    {$project:{
+        "_id":0,
+        "state":"$_id",
+        "pop1991":1,
+        "pop2011":1,
+        "delta":{$subtract:[ "$pop2011","$pop1991"]}
+    }},
+    {$sort:{"state":1}}
+])
+

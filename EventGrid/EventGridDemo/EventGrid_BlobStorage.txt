@@ -1,0 +1,10 @@
+
+Try the following code In Azure CLI
+
+storageid=$(az storage account show --name bstdatastorage  --resource-group HexGroup --query id --output tsv)
+endpoint=https://bsteventgrid.azurewebsites.net/api/events/
+
+az eventgrid event-subscription create \
+  --resource-id $storageid \
+  --name mysub \
+  --endpoint $endpoint

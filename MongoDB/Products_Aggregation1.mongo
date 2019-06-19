@@ -1,0 +1,30 @@
+
+db.createCollection("orders");
+
+db.orders.find();
+
+//count the records in aggregation
+db.orders.aggregate([
+    {$group:{_id:"$userid",totalOrders:{$sum:1} }}
+])
+
+//display the total number of orders which is delivered with total amount for each user
+db.orders.aggregate([
+    {$match:{status:"Delivered"}},
+    {$group:{_id:"$userid", totalOrders:{$sum:1}, totalAmount:{$sum:"$amount"}}}    
+]);
+
+//Get distict values
+db.orders.aggregate([{
+    $group: { _id:"$userid", orderItems: {$addToSet: "$orders"}}
+}])
+
+
+db.runCommand({distinct:"orders", key:"userid"})
+
+//count the documents with a total amount greater than 15000
+db.runCommand({count:"orders", query:{
+    "amount":{$gte:15000}
+}})
+
+

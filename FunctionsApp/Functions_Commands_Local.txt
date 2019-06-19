@@ -1,0 +1,45 @@
+Install the Azure function tools Locally
+	V1: npm i -g azure-functions-core-tools@1
+	V2: npm i -g azure-functions-core-tools --unsafe-perm true
+	
+Create a new Function App project
+	func init
+	Choose language from the promted menu
+	
+Create a new Function inside the function app
+	func new 
+	Choose trigger from the prompted menu
+	Provide the project name or go with defailt name
+	
+To install extensions for function apps
+	
+	func extensions install
+	
+To run the app locally
+
+	func host start
+	
+To list the functions in a function app on azure
+
+	func azure functionapp list-functions <functionapp-name>
+	
+To list the functions with the keys of http triggered functions
+	
+	func azure functionapp list-functions <functionapp-name> --show-keys
+	
+To publish a function app to azure (App settings in local.settings.json will not be updated in azure)
+
+	func azure functionapp publish <functionapp-name>
+	
+Publish the Function app with the settings in the local.settings.json file (With overwrite confirmation)
+
+	func azure functionapp publish <functionapp-name> -i
+	OR
+	func azure functionapp publish <functionapp-name> --publish-local-settings
+	
+Publish the Function app with the settings in the local.settings.json file (Without overwrite confirmation)
+	
+	func azure functionapp publish <functionapp-name> -i -y
+	OR
+	func azure functionapp publish <functionapp-name> --publish-local-settings --overwrite-settings
+	

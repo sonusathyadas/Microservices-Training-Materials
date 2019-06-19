@@ -1,0 +1,23 @@
+
+RabbitMQ
+----------
+	- It is a message broker that implements the Advanced Message Queuing Protocol(AMQP)
+	- RabbitMQ standardizes the messaging by defining Producers, brokers and Consumers
+	- Messaging increases the loose coupling and scalability.
+	- A producer generates the message, but it does not directly iteracts with Queue. 
+	Instead it uses an 'Exchange' that adds the message to the Queue. The consumer consumes the message from the queue.
+	- An exchange connected to queue using a binding and binding key.
+	- Producer uses and exchange key and the exchange compares it with binding key to forward the message to a queue.
+	- There are different types of message forwarding systems
+		- Fanout
+		- Direct
+		- Topic
+		- Header
+		- Default (nameless) exchange
+	- In fanout the exchange broadcasts the message to all the queues.
+	- In direct the exchange forward the message to one or more queues whose binding key matches the routing key.
+	- A topic matches a partial key matching. eg: "red.*" matches to "red.green" and "red.blue".
+	- Header uses the message header to forward the message to the queue instead of routing key.
+	- The default (nameless) exchange uses the routing key that matches with the queue name.
+	
+	

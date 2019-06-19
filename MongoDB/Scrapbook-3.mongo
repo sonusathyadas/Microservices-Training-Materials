@@ -1,0 +1,28 @@
+
+//Single purpose aggregations
+db.students.count();
+db.students.distinct("location");
+
+//Aggregate
+db.students.aggregate([
+    {$unwind:"$marks"}
+])
+db.students.aggregate([
+    {$match:{location:"Chennai"}},
+    {$unwind:"$marks"}    
+])
+db.students.aggregate([
+    {$match:{location:"Chennai"}},
+    {$unwind:"$marks"},    
+    {$group:{_id:"$name", totalMark:{$sum:"$marks"} }}
+])
+
+db.students.aggregate([
+    {$match:{location:"Chennai"}},
+    {$unwind:"$marks"},    
+    {$group:{_id:"$name", totalMark:{$sum:"$marks"} }},
+    {$project:{name:"$_id", _id:0, totalMark:1}},
+    {$sort:{totalMark:1}}
+])
+
+

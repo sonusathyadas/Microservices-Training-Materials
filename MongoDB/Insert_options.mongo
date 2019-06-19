@@ -1,0 +1,45 @@
+//if sampledb does not exists still you can go ahead and use it, when first collection is created, it also creates the sampledb.
+use sampledb;
+//To get the list of collections inside the database use getCollectionNames()
+db.getCollectionNames();
+
+//creating new collection
+db.createCollection("employees");
+
+//inserting a new document to collection, we can directly insert without creating collection, it automatically creates it
+db.employees.insert({
+  	'id':101,
+  	'name':'Ajay kumar',
+  	'age':29,
+  	'address':{
+  	  	'houseno':302,
+  	  	'street':'Hallroad',
+  	  	'city':'Mumbai'
+  	},
+  	'mobile':9846496648,
+  	'email':'ajay@gmail.com'
+});
+
+//retrieve data
+db.employees.find();
+
+//insert some more documents
+db.employees.insert({
+  	"id":102,
+  	"name":"Mohan kumar",
+  	"email":"mohan@live.com",
+  	"mobile":"9685745869",
+	"address":{
+	  	"houseno":304,
+	  	"city":"mumbai",
+	  	"street":"marol maroshi road",
+	  	"pincode":"695847"
+	}  	
+});
+
+//list all collections
+db.getCollectionNames();
+
+
+db.system.indexes.find();
+

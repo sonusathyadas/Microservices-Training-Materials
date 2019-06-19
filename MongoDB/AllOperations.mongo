@@ -1,0 +1,68 @@
+
+//show help
+db.help()
+db.stats()
+	
+//create a collection	
+db.createCollection("products")
+
+//list all collections
+db.getCollectionNames();
+
+//create databases and collection
+db.customers.insertOne({"name":"sonu", "age":25, "email":"sonu@gmail.com"});
+db.customers.save({"name":"sonu", "age":25, "email":"sonu@gmail.com"})
+	
+//insert multiple documents
+db.customers.insertMany([
+    {"name":"sonu2", "age":22, "email":"sonu2@gmail.com"},
+    {"name":"sonu4", "age":42, "email":"sonu4@gmail.com"}
+]);
+
+
+//List all records
+db.customers.find()	
+
+//Find with condition
+db.customers.find({"age":25})
+db.customers.find({"age":{$gt:25}})
+
+//Get the count of records
+db.books.count();
+
+//First record
+db.books.findOne();
+
+//Get the single record
+db.books.findOne({price:{$gt:150}});
+
+//include selected columns in projection
+db.customers.find({}, {name:1, email:1})
+	
+//print in sorted order
+db.products.find().sort({name:1}) //Ascending
+db.products.find().sort({name:-1}) //descending
+	
+//print in pretty format
+db.customers.find().pretty()
+
+//skip and limit
+db.products.find().skip(2);
+db.products.find().limit(2);
+db.products.find().skip(2).limit(2);
+db.products.find().limit(2).skip(2);
+	
+//filter with and and or
+db.products.find({
+	$and:[{price:{$lt:90}}, {quantity:{$gt:100}}]
+});
+db.products.find({
+	$or:[{price:{$lt:90}}, {quantity:{$gt:100}}]
+});
+
+//update documents
+db.products.update({id:1}, {$set:{"name":"Custard apple", "color":"green"}});
+db.products.update({id:1}, {$unset:{"color":"green"}});
+	
+//delete documents
+db.products.remove({id:4})

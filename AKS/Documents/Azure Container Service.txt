@@ -1,0 +1,215 @@
+Test the springboot app using maven
+	mvn package spring-boot:run
+
+Create a resource group
+	Name : siemens-kubernets-RG
+	Location:Southeast Asia
+	Sub: Active Subscription	
+	
+	az group create --name=KubernetsContainerServiceRG --location=southeastasia
+
+Create azure container registry
+	az acr create --admin-enabled --resource-group KubernetsContainerServiceRG --location southeastasia --name syndemoregistry --sku Basic
+
+Set a service principal for the Container registry
+	az ad sp create-for-rbac --scopes /subscriptions/31455576-2160-407a-8363-0b842921ef7f/resourcegroups/KubernetsContainerServiceRG/providers/Microsoft.ContainerRegistry/registries/syndemoregistry --role Owner --password sonu@2016
+
+List the credentials
+
+	az acr credential show -n syndemoregistry
+	
+
+Retrieve the password for the container registry from CLI
+	az acr credential show --name syndemoregistry --query passwords[0]
+	
+	{
+		"name": "password",
+		"value": "=/+b2+k77KsjM7vED4xC=nviVA4QYnTg"
+	}
+
+Opens the settings.xml from the maven installation directory using text editor.Add your Azure Container Registry id and password to a new <server> collection in the settings.xml file. The id and username are the name of the registry. Use the password value from the previous command
+		<servers>
+			<server>
+				<id>syndemoregistry</id>
+				<username>syndemoregistry</username>
+				<password>=/+b2+k77KsjM7vED4xC=nviVA4QYnTg</password>
+			</server>
+		</servers>
+		
+Navigate to the completed project directory for your Spring Boot application and opens the pom.xml file using text editor. Update the <properties> collection in the pom.xml file with the login server value for your Azure Container Registry.
+	<properties>
+        <docker.image.prefix>syndemoregistry.azurecr.io</docker.image.prefix>
+        <java.version>1.8</java.version>
+    </properties>
+	
+Update the <plugins> collection in the pom.xml file so that the <plugin> contains the login server address and registry name for your Azure Container Registry.
+	<plugin>
+	   <groupId>com.spotify</groupId>
+	   <artifactId>docker-maven-plugin</artifactId>
+	   <version>0.4.11</version>
+	   <configuration>
+		  <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+		  <dockerDirectory>src/main/docker</dockerDirectory>
+		  <resources>
+			 <resource>
+				<targetPath>/</targetPath>
+				<directory>${project.build.directory}</directory>
+				<include>${project.build.finalName}.jar</include>
+			 </resource>
+		  </resources>
+		  <serverId>syndemoregistry</serverId>
+		  <registryUrl>https://syndemoregistry.azurecr.io</registryUrl>
+	   </configuration>
+	</plugin>
+	
+Navigate to the completed project directory for your Spring Boot application and run the following command to build the Docker container and push the image to the registry
+	
+	mvn package docker:build -DpushImage
+	
+NOTE: 
+	You may receive an error message that is similar to one of the following when Maven pushes the image to Azure:
+	[ERROR] Failed to execute goal com.spotify:docker-maven-plugin:0.4.11:build (default-cli) on project gs-spring-boot-docker: Exception caught: no basic auth credentials
+	
+	[ERROR] Failed to execute goal com.spotify:docker-maven-plugin:0.4.11:build (default-cli) on project gs-spring-boot-docker: Exception caught: Incomplete Docker registry authorization credentials. Please provide all of username, password, and email or none.
+	
+	If you get this error, log in to Azure from the Docker command line.
+		docker login -u syndemoregistry -p "5//b=aG3Oo+/+ZBQhQSXCc=FEHA/Fv9w" syndemoregistry.azurecr.io
+	
+	Build the image 
+		docker build -t syndemoregistry.azurecr.io/sample .
+		
+	Then push your container:
+		docker tag currentimagename syndemoregistry.azurecr.io/sample
+		docker push syndemoregistry.azurecr.io/sample
+	
+	Test the image by running 
+		docker run -it --rm -p 8010:8089 syndemoregistry.azurecr.io/sample
+		Open browser and navigate to http://localhost:8010/greet
+		
+	List the images in ACR
+		az acr repository list --name syndemoregistry --username syndemoregistry --password 5//b=aG3Oo+/+ZBQhQSXCc=FEHA/Fv9w --output table
+	
+	Show tags
+		az acr repository show-tags --name <acrName> --username <acrName> --password <acrPassword> --repository azure-vote-front --output table
+		eg:
+		az acr repository show-tags --name syndemoregistry --username syndemoregistry --password 5//b=aG3Oo+/+ZBQhQSXCc=FEHA/Fv9w --repository sample --output table
+		
+Managing through Kubernetes
+	Requirements
+	1) Install Azure CLI 2.0 on windows
+		https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
+		https://aka.ms/InstallAzureCliWindows
+		
+	2) Install kubectl.exe
+		https://storage.googleapis.com/kubernetes-release/release/v1.7.0/bin/windows/amd64/kubectl.exe
+		or use the following command to install online
+		az acs kubernetes install-cli
+		Add the kubectl.exe path in Environment variable PATH
+		
+
+	
+	
+Login to Azure using Azure CLI 2.0
+
+	az login 
+	
+Create a Kubernetes cluster in Azure Container Service. Resource group must be an empty group if you do through portal
+	az acs create --orchestrator-type=kubernetes \
+			--resource-group=KubernetsContainerServiceRG \
+			--name=syn-acs 
+			--dns-prefix=synapp-kubernetes \
+			--generate-ssh-keys
+	
+Download the cluster configuration information so you can manage your cluster from the Kubernetes web interface and kubectl
+	
+	az acs kubernetes get-credentials --resource-group=KubernetsContainerServiceRG --name=syn-acs
+	
+Open the configuration website for your Kubernetes cluster in your default browser
+	
+	az acs kubernetes browse --resource-group=KubernetsContainerServiceRG --name=synapp-containerservice
+	
+	If an error 'Can not find kubectl executable in PATH' is displayed use 'az acs kubernetes install-cli' to install kubectl and add the downloaded kubectl.exe path to the environment variable PATH.
+	When the Kubernetes configuration website opens in your browser, click the link to deploy a containerized app:
+
+
+
+You can deploy using kubectl.exe command
+
+List the repositories on registry
+	az acr repository list -n syndemoregistry -o json
+
+We need to deploy from Azure container registry, it is a private registry. So need to create a secret for deployment
+
+	kubectl create secret docker-registry <Keyname> --docker-server=<acr registryname> --docker-username=<acr registry name>  --docker-password=<registrypassword> --docker-email=<email>
+	USe 'az acr credential show --name syndemoregistry' to get the password of registry
+	
+	Sample cmd to create secret:
+		kubectl create secret docker-registry mysamplekey --docker-server=syndemoregistry.azurecr.io --docker-username=syndemoregistry --docker-password=5//b=aG3Oo+/+ZBQhQSXCc=FEHA/Fv9w --docker-email=sonusathyadas@hotmail.com
+	
+	To list the secrets names
+		kubectl get secrets
+		
+	Create deployment.yaml and pods.yaml
+	enter the credentials in the yaml file
+	run the following commands to deploy and create pods
+		kubectl create -f deployment.yaml
+		kubectl create -f pods.yaml
+	
+	
+	Expose the ports for deployment by running (Sample is the name of the deployment)
+		kubectl expose deployment sample --type=LoadBalancer --port=8010 --target-port=8089
+
+	OR
+	
+	kubectl run sample --image=<public repo>/sample:latest
+	
+Describe the service
+	 kubectl describe services account-service
+	 
+get the list of pods
+	kubectl get pods --selector="run=account-service" --output=wide
+	Selector can be a filter statement, it can be get from services label (use kubectl describe services command)
+	
+manual Scale the deployment
+	kubectl scale --current-replicas=1 --replicas=3 deployment/sample
+	
+	--current-replicas means currently how many available
+	--replicas means how many we needs, ie:target 
+	
+Horizontal Pod autoscale
+	
+	List existing horizontal pod autoscalers
+		kubectl get hpa
+		
+	delete horizontal pod autoscalers
+		kubectl delete hpa
+		
+	Detailed description about HPA
+		kubectl describe hpa
+		
+	there is a special kubectl autoscale command for easy creation of a Horizontal Pod Autoscaler.
+		kubectl autoscale rc foo --min=2 --max=5 --cpu-percent=80
+		
+		kubectl autoscale deployment sample --min=2 --max=10 --cpu-percent=70
+		
+		
+Deploying new version 
+	kubectl set image  deployment/sample=syndemoregistry.azurecr.io/sample:2.0
+	
+
+
+
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
