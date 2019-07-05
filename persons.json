@@ -1,0 +1,8 @@
+{
+	"persons": [
+        { "id":1, "firstName": "Amitab", "lastName": "Bachchan", "age": 72, "profession": "Actor", "imageUrl": "assets/amitab.jpg" },
+        { "id":2, "firstName": "Virat", "lastName": "Kohli", "age": 31, "profession": "Cricket", "imageUrl": "assets/virat-kohli.jpg" },
+        { "id":3, "firstName": "Shreya", "lastName": "Ghoshal", "age": 36, "profession": "Singer", "imageUrl": "" },
+        { "id":4, "firstName": "Sourav", "lastName": "Ganguly", "age": 45, "profession": "Cricket", "imageUrl": "assets/ganguly.jpg" }
+    ]
+}
