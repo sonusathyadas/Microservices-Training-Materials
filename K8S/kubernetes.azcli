@@ -1,0 +1,75 @@
+
+#login to azure
+az login
+
+#Check the latest version of Kubernetes available in Azure
+az aks get-versions -l "Southeastasia" --query "orchestrators[-1].orchestratorVersion" -o tsv
+
+#Create a new resource group
+az group create -n "MyAKSGroup" -l "Southeastasia"
+
+#Create the AKS cluster
+az aks create -g "MyAKSGroup" -l "Southeastasia" -n "sonuakscluster" --enable-addons monitoring --kubernetes-version 1.13.5 --generate-ssh-keys --node-count 2 --node-vm-size Standard_D1
+
+#Install kubectl
+az aks install-cli
+
+#Get the credentials of cluster to connect
+az aks get-credentials -g MyAKSGroup -n sonuakscluster --overwrite-existing
+
+#View the Cluster context config
+kubectl config view
+
+#View all nodes
+kubectl get nodes
+
+#List the pods
+kubectl get pods
+
+#Create SQL Server SA Password as Secret
+kubectl create secret generic mssql --from-literal=SA_PASSWORD="Labuser@123456"
+
+#List the secret
+kubectl get secret
+
+#Create the PVC for SQLServer
+kubectl apply -f "./yaml/sqlserver-pvc.yaml"
+
+#List the PVC
+kubectl get pvc
+
+#Deploy SQLServer
+kubectl apply -f "./yaml/sqlserver-deploy.yaml"
+
+#Delete the existing deployment
+kubectl delete deploy sqlserver
+
+#Deploy the Service for SQL Server
+kubectl apply -f "./yaml/sqlserver-service.yaml"
+
+#Delete service
+kubectl delete svc mssql
+
+#List all services and pods
+kubectl get pods
+kubectl get svc
+
+# Open kubernetes dashboard
+az aks browse -g MyAKSGroup -n sonuakscluster
+
+# Set dashboard permissions
+kubectl apply -f "./yaml/dashboard-admin.yaml"
+
+#Deploy Identity API Pods
+kubectl apply -f "./yaml/identity-deploy.yaml"
+
+#Deploy identity service
+kubectl apply -f "./yaml/identity-service.yaml"
+
+#Deploy event api pods
+kubectl apply -f "./yaml/event-deploy.yaml"
+
+#Deploy event service
+kubectl apply -f "./yaml/event-service.yaml"
+
+#https://github.com/sonusathyadas/hexa

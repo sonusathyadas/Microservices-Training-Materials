@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: event-deploy
+spec:
+  replicas: 2 
+  selector:
+    matchLabels:
+      app: event
+  template:
+    metadata:
+      labels:
+        app: event
+    spec:           
+      containers:
+      - name: eventapi
+        image: sonusathyadas/eventapi:latest        
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+        env:
+        - name: ConnectionStrings__SqlConnection
+          value: "Data Source=mssql;Initial Catalog=EventDB;Persist Security Info=True;User ID=sa;Password=Labuser@123456"
+        - name: Jwt__Secret
+          value: "thisismylengthykeyforencryption"
+        - name: Jwt__Issuer
+          value: "http://identitysvc"
+        - name: Jwt__Audience
+          value: "http://eventsvc"
