@@ -725,9 +725,537 @@ MongoDB
 			- PM  : Update-database
 			- CLI : dotnet ef database update
 
+	- WebAPI 
+		- Documentation tools
+			- OpenAPI specification
+				- Swashbuckle Swagger - Use this
+				- NSwag
+		- Client Access
+			- Mobile
+			- JS Apps (Angular/React/ Ember/VueJs)
+			- MVC apps
+			- Other Server side apps
+			- API can be hosted in a domain such as https://hexaapi.com
 			
-					
-					
-					
-					
-					
+			- Angular Client app hosted on https://client.app.com
+			- the API block all external requests coming from other domains 
+			- Cross Origin Request 
+			- CORS policies (Cross Origin Resource Sharing)
+				- Provide access based on domain
+					- Allow access only to *.microsoft.com, *.synergetics-india.com
+					- Also provide access to all domain using *
+				- Allow access only to certain Http methods
+					- Allowed method - GET, PUT , POST
+				- Allow certain request headers
+		- Custom Formatter
+			- Inherit the class from TextOutputFormatter
+		- Custom Filter
+			- Exception filter
+		
+		- Authentication
+			- Forms Authentication
+			- Windows Authentication
+			- OAuth authentication
+				- Google, Facebook, Twitter, Microsoft
+			- JWT authentication
+			
+	- RabbitMQ
+		- Communication types
+			- Synchronous 
+				- RESTful
+			- Asynchronous
+				- Messaging Queue service
+				- Event driven architecture
+		
+		- RESTful communication
+			- Synchronous type
+			- One to one communication
+			- Sender and receiver must be online
+			- Receiver is always sending a response to sender
+			- Sender and reciver is well aware about what is sending and how to process it.
+		- Queue messaging
+			- Asynchronous
+			- One to many is possible
+			- No immediate processing of request, request will be stored in queue get processed later
+			- No response expected.
+			- Sender and receiver can be offline.
+			- There is no proxy or gateway issues. 
+			
+		- Queue messaging
+			- AMQP protocol - Advanced Message Queuing Protocol
+				- RabbitMQ - Pivotal
+				- Service Bus - Azure
+				
+			- RabbitMQ Architecture
+				- Producer - One who send the message
+				- Exchange - A component where the messages are sent
+				- Queue - Temporary storage of message, Exchange is forwarding message to queue.
+				- Consumer - The one who consumes the message from queue
+				- Binding - Connection between producer and exchange. A Binding key is used.
+				- Subscription - How the queue is connected to exchange
+					- Direct
+					- Fanout
+					- Topic					
+				
+
+		
+		
+Azure Cloud
+	- On-Premise servers
+		- Infrastructure Cost
+		- Backup
+		- Scaling 
+		- Security
+		- mangement cost/activites/ monitoring
+		- automation
+	- Cloud	
+		- No need to invest on infrastructure
+		- Automated backup (SLA)
+		- Global access 
+		- Scaling (Pool of resources)
+		- automatic monitoring and management
+		- Security
+		- Geo-fencing that runs apps within taxation boundary
+		- Pay As You Go
+		
+	- Types of Cloud
+		- Private Cloud - 
+		- Public Cloud - Azure , AWS, Google
+		- Hybrid Cloud - 
+	- Public Cloud (Azure)
+		- Cloud Service Models
+			- IaaS - Infrastructure as a Servcie
+				- Cloud vendor provides only the infrastructure - Compute , storage and network
+				- Customer has to create the resource such as VM
+				- He will get full control over the resource
+				- This model is used by IT Pro
+			- PaaS - Platform as as Servcie
+				- Cloud vendor gives you a preconfigured platform.
+				- Developer is getting a connection string or url to use the app or data.
+				- User have less control over the infrastructure
+			- SaaS - Software as a Servcie
+				- App and data is also provided by cloud vendor
+				- user have not control over the app and data
+				- Eg: Office 365, Dynamics, Skype, facebook, gmail, onedrive, dropbox
+			
+	- Azure 
+		- Subscription
+			- Free
+				- Free trails - 1 month (Rs 13300/ $200)
+				- Sponsorships
+				- MCT subscriptions
+			- Paid 
+				- Pay As You Go
+				- Enterprise Agreement
+		- Resource Manager
+			- ASM - (old ) - Azure Service Management
+			- ARM - (new) - Azure Resource Manager
+				- https://portal.azure.com
+				- Resource Group
+					- A logical grouping of resources
+					- A container for related services
+					- Create, delete and update resources as a group.
+					- Group wise billing
+					- Set permission in group level
+					- Resource Manager Template Deployment (ARM Template) - JSON file
+		- How to interact with Azure? (How to create/manage resources in Azure?)
+			- Using the Portal (Web UI)
+			- Command Line 
+				- Azure PowerShell
+				- Azure CLI 
+			- Azure SDK - C#, Java, Python, JS 
+			- ARM template (JSON file)
+			- RESTful API
+		
+		- Storage Account
+			- Storage servcie.
+			- Used to store unstructured blobs, messages, key-value data storages.
+			- Storage account provides 4 services 
+				- Blob
+					- Unstructured blob files such as video, audio, images, text files and other files
+					- Files are stored inside a container (just like a folder)
+					- You can set permission for the container
+						- Private (Allow access only with proper credentials such as token or key)
+						- Container level - Anonymous access allowed for blobs, directory browsing also allowed
+						- Blob level - Anonymous access allowed.
+					- https://<storageaccountname>.blob.core.windows.net/<containername>/<blobname>
+				- Queue
+					- Basic queue for application integration.
+					- One app can send message another app can receive message.
+					- Message is in text format with max of 64kb size.
+					- Max TTL for message is 7 days
+				- Table
+					- Store data in key-value format.
+					- Its a nosql storage.
+					- Every document/item stored is called an entity.
+					- Every entity will have a partition key, row key and a timestamp. 
+					- User can add additional attributes.
+					- maximum 256 attributes allowed.
+				- FileShare
+					- Is also used for storing unstructured blob storage.
+					- Uses SMB 3.0 protocol
+					- This can be mapped as a network drive.
+			- Storage Keys
+				- Provides a primary key and secodnary key ( Key1 and Key2)
+				- Can connect to storage account using the name and key
+			- SAS token
+				- Provide granular permissions
+				- 
+			- Blobs
+				- Block Blob (Image, Audio, Video etc) (Written as 4 MB blocks)
+				- Page Blob (ISO file, VM Disk) (100MB)
+				- Append Blob- Block blob with Append feature
+		
+		- CosmosDB
+			- Planet-scale, multi-model database for real-time, mission critical applications.
+				- Replicate anywhere in the world, any number copies.
+				- CosmosDB offers TableAPI, MongoAPI, SQL APi (DocumentDB), Cassandra, Graph API
+					- CosmosDB with SQL Api (DocumentDB) - Document
+					- CosmosDB with MongoAPI - Document
+					- CosmosDB with Cassandra - Column family
+					- ComsmosDB with Table API - Key-value pair
+					- CosmosDB with Graph API (Gremlin) - Graph
+				- Application modernization
+			- SLA
+				- High Availability (99.99%)
+				- Latency (99.99%)
+				- throughput (99.99%)
+				- consistency (99.99%)
+			- RU (Request Unit)
+				- One read of 1 kb data is considered as 1 RU.
+				- Capacity planner helps you to calculate the RU reqired and the COST/month
+				- Factors affect costing
+					- region
+					- Thoughput allocated (ru)
+					- no of read/writes
+					- storage size
+					- document size
+				- Thoughput can be allocated to Database or individual collections.
+					- EshopDB (1000 RU) - shared throughput
+						- orders 
+						- payments
+						- stocks
+						- items (1500) - dedicated throughput
+				
+			- Turn key global distribution
+			- Consistency levels
+				- Eventual			- Least consitent
+				- Consitent Prefix
+				- Session			- Default consitent
+				- Bounded Staleness
+				- Strong			- Strongest consistent
+				
+			- Mongodb - mongoexport/mongodump and mongoimport
+			- Emulator
+				- Provides only one cosmosdb account
+				- Supports all APIs such as SQL, Mongodb, Cassandra, Table API, Gremlin
+				- But provides the client UI only SQL api.
+				- No georeplication
+				- No consistency levels
+				- VNET support not available
+	- Azure AppService
+		- App Service is a compute service.
+		- App Service provides platform for deploying Web Apps, API Apps, and Mobile Apps.
+			- PaaS service with buit in support for PHP, Java, .NET, Nodejs 
+			- https://<appname>.azurewebsites.net (URL)  = > Map to a custom domain (https://helloapp.in)
+		- App Service Plan
+			- Where to deploy the apps? (Location)
+			- Pricing tier 
+				- Free (No SLA, Used for Dev/test, no custom domain mapping, max 10 free apps, Shared Infra)
+				- Shared (No SLA, Shared Infra, Used for Dev/Test, support custom domain mapping, charged)
+				- Basic (SLA of 99.95%, Dedicated CPU, Charged, not reccommended for production, No deployment slots )
+				- Standard (Recommened for Production, 5 Deployment slots, 10 times backup in a day)
+					- S1(1 CPU 1.75 GB RAM) , S2 (2 CPU 3.5 GB RAM), S3 (4 CPU 7 GB RAM) - A Series
+				- Premium (Costly than Standard, 20 deployment slots, 50 times backup in a day)
+					- P1(1 CPU 1.75 GB RAM) , P2 (2 CPU 3.5 GB RAM), P3 (4 CPU 7 GB RAM) - A Series
+					- P1V2(1 CPU 1.75 GB RAM) , P2V2 (2 CPU 3.5 GB RAM), P3V2 (4 CPU 7 GB RAM) - D Series
+				- Isolated (ASE)
+		
+			- Deployment
+				- Web Deploy
+				- FTP
+				- Public Repos- CI/CD (Github)
+			- Deployment Slots
+				- Helps you to redeploy the modified version of app without downtime.
+				- Helps you to deploy the application for UAT without affecting the production.
+				- Rollback of the new version of app if not satisfied.
+		
+			- Scaling
+				- Scale Up - Vertical Scaling (Increase the instance size)
+				- Scale out - Horizontal Scaling ( Create more instances )
+					- When more than one instance is created the App Service adds a LB to distribute the workload.
+					- Manual scaling 
+					- Automatic scaling
+						- Scales based on a condition
+						- Condition can be set based on a metric
+						- Metric can be appservice metric or external resource metric
+		
+	- API Management Gateway
+		- Policies 
+			- Product level 
+			- API level
+			- Operations level
+			
+		- Version and Revisions
+	
+	- serverless applications
+		- Logic Apps
+		- Azure Functions
+		- Azure Contianer Instances (ACI)
+				
+	- Logic Apps
+		- Integration Platform as a Service (IPaaS)
+		- Define workflow
+		- While defining the workflow we can integrate multiple SaaS apps
+		= Connectors
+			- Triggers 
+				- Polling trigger
+				- Pushing trigger
+				- Reccurance trigger
+			- Actions
+		- How to create a workflow?
+			- Simple demo
+		- Integration Account
+			- Biztalk application
+				- Orachestrating workflow
+				- JSON to XML
+				- XML to Json
+				- EDIFACT to JSON
+			- Biztalk is used for B2C and B2B integration.
+			- stores the schema, maps , agreements, licences, partners etc which is used for b2b or b2c integration in Logic app. 
+	- Azure Function App
+		- It is also a serverless computing service.
+		- Logic app is for workflow creation and function is for atomic operations (modular)
+		- Logic app provides visual designer but function app need to be coded.
+		- You can use C# or JS to write functions.
+		- Function can be developed using Portal, VS Code or Visual Studio.
+		- For local development using VS Code or VS you can use 'azure function tools' package.
+		- In portal you can write C# scripts (csx), or js files.
+		- If you are developing locally you can publish to Function App.
+		- A function App is a collection of multiple functions.
+		- Two version of Function App available (function app runtime)
+			Version 1.0  (.NET Framework)
+			Version 2.0 (.NET Core)
+		- Pricing models
+			- Consumption plan
+				- Function max duration is 5 minutes by default. Update to max 10 minutes. 
+			- App Service plan
+				- Use an existing app service plan.
+				- No time limit 
+		- Bindings
+			- Bindings allow your function to connect to different azure services.
+			- There are 3 types of bindings in function.
+				- Input binding
+					- Trigger binding. - Storage queue, it is a type of input binding
+				- Output bindings
+		- Timer Trigger 
+			- CRON expression ( * * * * * )
+				
+Docker
+	- Deployment of apps
+		- need to make changes in the systen 
+			- Install framework, set environment vars, fs changes etc
+			- reinstall or upgrade existing installations
+		- Version conflits/compatability issues with other apps
+			- resolve conflits and compatability issues by creating VMs
+		
+	- VM (Hardware Virtualization) disadvantages
+		- Need to allocate CPU, RAM, HDD from Host machine
+		- Less number of VMs can be created in a host 
+		- Takes more time to create the vm
+		- More time required to up and ready the application, not suitable for scaling
+		- Resource utilization is not optimal
+	- Containerization
+		- Package the application and runtime in a logical container
+		- No dependencies need to be installed in Host machine.
+		- Containers uses the CPU and RAM from host machine.
+		- Host machine requires a container engine to run the containers
+			- Container engines can be Docker, LXD, LXC, RKT
+	- Docker 
+		- Docker supports multiple platforms whereas others support only linux.
+		- You can develop containerized apps in Windows, Mac and Linux.
+		- Docker supports 2 types of containers 
+			- Linux containers 
+			- Windows containers
+		- Linux container
+			- The Guest OS will be Linux
+			- Linux containers can run only on Linux Host
+		- Windows container
+			- The Guest OS will be windows (nanoserver, servercore)
+			- Windows containers are not supported in Linux Host
+		- If you install Docker Desktop for Windows you can develop and test Linux and Windows containers.
+		- To install docker on windows - enable the following features 
+			- Hyper-V
+			- Containers 
+	- Docker concepts
+		- Images
+		- Containers
+		- fs Layers
+		- registries
+		- Docker-compose
+		- YAML configuration
+		- Dockerfile
+		
+		
+	- Eshop image ( image id, image name, a set of layers)
+		- Eshop container 1	( container id, container name, network config)
+		- Eshop container 2
+		
+	- Storage location of image is called registry or repository
+		- Local repository - In local machine storage
+		- Cloud repository - Publicly accessible internet location
+			- Pvt repository - ACR, GCR, ECR
+			- Public repository - DockerHub
+	- Dockerfile
+		- Is a docker image config file that contains the instructions to build an image.
+		Commands for Docker file
+			
+			FROM <base image name>
+			WORKDIR <dir path in image>
+			COPY <local file path/pattern> <image folder>
+			LABEL author sonusathyadas
+			LABEL creationDate 2019-09-12
+			RUN <cmd args>
+				- Specify the commands that needs to run at the time of building the image.
+			CMD <cmd args>
+				- Specify the commands that needs to run at the time of running  the image.
+			EXPOSE <port number>
+			ENTRYPOINT <cmd args>
+				- Specify the commands that needs to run at the time of running  the image but typically this is used to run commands that start the application.
+				
+		- run the following command to build the image
+			docker build -t <imagename> <path of dockerfile>
+			Tag name: is the image name. in the format of <imagename:version>
+			sampleapp:v1
+			mymvcapp:1.0
+			mydemoapp  - default tag 'latest' is used here
+			
+			eg: docker build -t sampleapp:latest .
+		
+		- Run the docker image as a container
+			docker run --name="containername" -p 5000:80 -d -it --rm <imagename>
+			
+			docker run -p 5000:80 sampleapp:latest
+		-Tag the images
+			docker tag <source image> <alias name>
+			
+			docker tag sampleapp:latest sonusathyadas/sampleapp:latest
+			
+			Tagging does not creates a new image. 
+			
+	- .dockerignore file
+		- Ignore files and folders that you need to ignore from copying to the docker image.
+	- Multi-stage build process
+		- docker build -t insuranceportal .
+		
+		
+	- Run containers on Azure
+		- Web App for Containers - App Service
+		- Azure Container Instances - Serverless
+		- Azure Kubernetes Servcie (AKS) - Clustered Service
+		- Azure Service Fabric (SF) - Clustered servcie
+			
+	- ACI
+		- Serverless computing
+		- A single container is running in one ACI
+		- Queick and easy 
+			
+	- Docker compose
+		- Multi container deployment.
+		- Use a YAML config file to specify the list of services you want to deploy.
+		- Run the 'docker-compose up' command to run all services in one go.
+
+AKS
+----
+	Azure Kubernetes Service
+	Kubernetes
+		- K8S is an orchestrator for manging the containers in a cluster.
+		- It takes care of creation, deletion, upgrades and scaling of containers inside a cluster.
+		- AKS is an Azure Service that provides preconfigured Kubernets in a cluster.
+			- Amazon - EKS - Elastic Kubernets Service
+			- Google - GKS - Google Kubernetes Service (GCS)
+		
+		- Docker Swarm, DC/OS , Kubernetes
+		- Components of Kuberntes cluster
+			- Worker nodes (Nodes which deploys the containers)		
+				- Kubernetes agent is installed in workers (kublet)
+			- Master node (K8S orchestrator is installed )
+				- Inside the master the apiServer service allows users to connect to master 
+			
+		- AKS is a preconfigured cluster
+			- Managed master.
+			- User need not to create the master. Azure will automatically create and manage it.
+			- the ACS service is charging for master also.
+				
+Event Grid
+	- Communication methods
+		- Sync - REST Api
+		- Asynchronous
+			- Message
+			- Event based 
+				- One to may 
+				- Asynchronous
+				- Real time
+		- Custom topics
+		
+Azure DevOps
+	- Stake holders of project dev
+		- Top managers
+		- Project managers
+		- Team leads
+		- Developers
+		- Designers
+		- Database engineers
+		- Testers
+		- Deployment engineers
+	
+	- Azure DevOps componetns
+		- Boards - Top managers / project managers
+		- Repos - Dev team 
+		- Tests - Testers
+		- Pipelines - Deployment engineers
+		- Artefacts - Project manger
+	
+	- Pipelines
+		- Build pipeline
+		- Release pipeline
+	
+Service Fabric
+	- What is Azure Service Fabric?
+		- SF is a cloud platofrm for deploying microservices. (Its a cluster for Microservices)
+		- SF is an SDK for developing Microservices. (Programming model).
+	- Developing SF applications.
+		- K8S cluster can deploy only Containerized apps.
+		- K8S cluster can deploy monolithic as well as microservice apps in containerized format.
+		
+		- SF cluster is used for deploying only microservices developed using SF SDK.
+		- It can deploy code based apps and containerized apps. 
+		
+	- Service Fabric app types
+		- Reliable Actor
+			- Actor patterns
+			- Jobs or Task in background.
+		- Reliable Statefull Services
+			- Store the user state and app state in worker node.
+		- Reliable Stateless Services
+			- Web app - MVC/WebAPI
+		- Containers
+			- Deploy existing docker containers.
+			- No need to make code changes.
+		- Guest-executable
+			- Is used to deploy java, nodejs, php , python apps
+	- Emulator
+		- SF Local cluster
+			- 1 Node 
+			- 5 Node cluster.
+			
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
