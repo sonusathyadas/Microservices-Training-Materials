@@ -1,0 +1,103 @@
+
+.NET Core
+-----------
+	1) Cross platform support
+	2) Open source
+	3) Build in DI support.
+	3) Nuget package based.
+	4) Light weight
+	5) No dependency on IIS module.
+	6) Current stable version 2.2.x supports only ASP.NET Core and UWP applications.
+	7) Dotnet CLI support
+	
+Current IT trend
+	- Microservices web apps
+	- Docker and containerization
+	- Cloud based deployed (apps)
+	
+	- Dotnet CLI
+		- dotnet --version
+		- dotnet new templatename -n "ProjectName" -o "Outputfolder"
+		- dotnet restore
+		- dotnet build 
+		- dotnet run 
+		- dotnet <dll name>
+		- dotnet publish -c <Release/debug> -o <out folder>
+		- dotnet add package <package name>
+	
+	-NET Core Project struture
+		- Dotnet metapackage
+			- .NET Core project uses a metapackage called Microsoft.AspNetCore.App
+			- .NET Core 2.0 metapackage name was Microsoft.AspNetCore.All.
+			- From 2.1 onwards they changed the name to Microsoft.AspNetCore.App
+		- Program.cs
+			- Create and start the Web Host (Kestral server starts)
+		- Startup.cs
+			- ConfigureServices()
+				- Configure the services required for the ASP.NET Core applications
+					eg: Mvc Service, Cors Service, Database Service, Caching Service.
+			- Configure()
+				- Preparing the request pipeline
+		- AppSettings.json or appsettings.*.json
+			- Store the app configuration such as connection string and other key value pairs.
+		- wwwroot
+			- This directory contains the static files for the web apps such as css, js , images, html files etc
+
+	- .NET Core Application lifecycle
+		- Application server is started with Main method (Program.cs)
+			- WebHostBuilder will start the web application in kestral server.
+			- Configuring the configuration sources
+			- Configuring the logging
+			- Configuring static file server location.
+			- Configuring the Host (Kestral config)
+		- Startup class -> ConfigureServices() 
+			- Register the services in IServicesCollection.
+			- Every service is registered as a DI service.
+		- Startup class -> Configure()
+			- Configure the request pipeline 
+			- Configuring the middleware.
+			- Middleware is configured in the IApplicationBuilder object.
+		- Filters and Actions
+		- Result filters 
+		- Send the response to client (View result/jsonresult etc)
+		
+	- Middleware
+		- Request pipeline is created with a set of middleware (Configure())
+		- Middleware is a function that executes when request comes and response goes.
+		- Middleware can be applied using Use method, Run method, Map method, mapWhen method.
+		- Run()
+			- This is the request terminator.
+		- Use()
+			- Configure a middleware that executes for reqeust and response.
+	- Built-in middleware
+		- StaticFiles
+		- DirectoryBrowser
+		- DefaultFiles
+		- FileServer
+		- Server side Exception Handling - Status Code >= 500
+			- Development
+				UseDeveloperExceptionPage()
+			- Production
+				UseExceptionHandler()
+					- With exception handler path (Home/Error)
+					- With custom exception handler pipeline 
+		- Client side error (status code between 400 and 499)
+			- UseStatusCodePages()
+			- UseStatusCodePagesWithRedirect()
+			- UseStatusCodePagesWithReExecute()
+			
+		
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+			
