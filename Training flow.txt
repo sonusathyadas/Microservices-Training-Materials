@@ -86,18 +86,72 @@ Current IT trend
 			- UseStatusCodePagesWithRedirect()
 			- UseStatusCodePagesWithReExecute()
 			
+	- EF
+		- What is EF?
+		- ORM
+		- Approaches
+			- Database First
+			- Code First
+		- Code First 
+			- Create models 
+			- Create DbContext
+			- Register DbContext as a Service
+				- In-memory Database
+				- Sql server database 
+			- Code first migrations commands
+				VS PS: Add-Migration "InitialCreate"
+				CLI  : dotnet ef migrations add "InitialCreate"
+					- Create the migrations files
+				VS PS: Update-Database
+				CLI  : dotnet ef database update
+					- Create database and tables
+				
+				
+ 				
+				
+Microservices
+	- Monolithic applications.
+	- Disadvantages
+		- Tightly coupled
+		- Scaling of individual module is not possible
+		- Security
+		- Choice of language and frameworks
+		- Resileincy is less 
+		- Redeployment of individual modules not possible.
+		- Difficult to use polyglot persistance.
 		
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-			
+	- Microservices
+		- A Service that can be developed independently, tested independently, and deployed independently without affecting other modules of the application.
+		- Distributed architectured.
+		- All services are accessible using well defined communication endpoints such as REST endpoints.
+			- Other communication strategies also used
+				- Message based communication
+				- Event driven architecture
+		- Microservices communication
+			- Synchronous
+				- REST Calls
+					- Both sender and receiver must be online.
+					- Its a real time communication
+					- Always a response send back to the sender 
+					- Always one to one communication
+			- Asynchronous
+				- Message based communication (Queue)
+					- It is not mandatory that sender and receiver to be online.
+					- Its not a real time communication
+					- It may not send a response back to the sender.
+					- Messages are stored in queues with in the message broker service.
+					- You can use broadcasting of messages to achieve one to many communication
+				- Event Driven architecture
+					- It is real time.
+					- One to many is possible.
+					- not mandatory to send a response/subscribe the event
+		
+Web API
+	- Base class is ControllerBase
+	- [ApiController] attribute
+		- Automatically set the content type header as application/json
+		- Typically in API actions we use [FromBody], [FromRoute] kind of attributes
+	- By default JSonFormatter only supported for input and output
+	- 
+		
+		
