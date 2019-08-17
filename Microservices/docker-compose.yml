@@ -1,0 +1,50 @@
+version: "3"
+
+networks: 
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+
+services: 
+  sqlsvc:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    container_name: mssql
+    ports: 
+      - "1434:1433"
+    networks: 
+      - backend
+    environment: 
+      SA_PASSWORD: ${SA_PASSWORD}
+      ACCEPT_EULA: ${ACCEPT_EULA}
+
+  identitysvc:
+    build: ./IdentityAPI/IdentityAPI/
+    container_name: identity
+    ports: 
+      - "5000:80"    
+    depends_on: 
+      - sqlsvc
+    networks: 
+      - backend
+    environment:
+      - ConnectionStrings:IdentitySqlConnection=${IDENTITY_CONNECTION_STRING}
+      - Jwt:Secret=${JWT_SECRET}
+      - Jwt:Issuer=${JWT_ISSUER}
+      - Jwt:Audience=${JWT_AUDIENCE}
+
+  eventsvc:
+    build: ./EventAPI/EventAPI/
+    container_name: eventapi
+    ports: 
+      - "5001:80"    
+    depends_on: 
+      - sqlsvc
+      - identitysvc
+    networks: 
+      - backend
+    environment:
+      - ConnectionStrings:EventSqlConnection=${EVENT_CONNECTION_STRING}
+      - Jwt:Secret=${JWT_SECRET}
+      - Jwt:Issuer=${JWT_ISSUER}
+      - Jwt:Audience=${JWT_AUDIENCE}
