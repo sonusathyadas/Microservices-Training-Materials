@@ -9,7 +9,7 @@ az aks get-versions -l "Southeastasia" --query "orchestrators[-1].orchestratorVe
 az group create -n "MyAKSGroup" -l "Southeastasia"
 
 #Create the AKS cluster
-az aks create -g "MyAKSGroup" -l "Southeastasia" -n "sonuakscluster" --enable-addons monitoring --kubernetes-version 1.13.5 --generate-ssh-keys --node-count 2 --node-vm-size Standard_D1
+az aks create -g "MyAKSGroup" -l "Southeastasia" -n "sonuakscluster" --enable-addons monitoring --kubernetes-version 1.13.5 --generate-ssh-keys --node-count 2 
 
 #Install kubectl
 az aks install-cli

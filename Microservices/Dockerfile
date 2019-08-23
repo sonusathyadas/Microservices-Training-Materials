@@ -3,16 +3,19 @@ FROM mcr.microsoft.com/dotnet/core/sdk:latest AS build
 WORKDIR /src
 COPY *.csproj ./
 RUN dotnet restore
-COPY ./ ./
-RUN dotnet build 
-RUN dotnet publish -c Release -o dist
+COPY . .
+RUN dotnet build
+RUN dotnet publish -c Release -o out
 
 #Stage 2
-FROM mcr.microsoft.com/dotnet/core/aspnet:latest AS publish
+FROM mcr.microsoft.com/dotnet/core/aspnet:latest AS runtime
 WORKDIR /app
-COPY --from=build /src/dist/ ./
+COPY --from=build /src/out .
 EXPOSE 80
-ENV ASPNETCORE_ENVIRONMENT=Production
-ENV ConnectionStrings:EventSqlConnection="Data Source=mssql;Initial Catalog=HexaDB;Persist Security Info=True;User ID=sa;Password=Password@123"
-ENTRYPOINT [ "dotnet", "EventManagementApplication.dll" ]
 
+ENV ConnectionStrings:EventSqlConnection="Constr"
+ENV Jwt:Secret="thisislengthysecretkey"
+ENV Jwt:Issuer="http://localhost:5000"
+ENV Jwt:Audience="http://localhost:5001"
+
+ENTRYPOINT [ "dotnet", "EventAPI.dll" ]
