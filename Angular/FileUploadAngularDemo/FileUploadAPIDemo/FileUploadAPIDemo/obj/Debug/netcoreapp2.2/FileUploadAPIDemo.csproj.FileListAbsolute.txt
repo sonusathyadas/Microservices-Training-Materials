@@ -1,0 +1,14 @@
+C:\Users\sonus\Desktop\FileUploadAPIDemo\FileUploadAPIDemo\bin\Debug\netcoreapp2.2\FileUploadAPIDemo.deps.json
+C:\Users\sonus\Desktop\FileUploadAPIDemo\FileUploadAPIDemo\bin\Debug\netcoreapp2.2\FileUploadAPIDemo.runtimeconfig.json
+C:\Users\sonus\Desktop\FileUploadAPIDemo\FileUploadAPIDemo\bin\Debug\netcoreapp2.2\FileUploadAPIDemo.runtimeconfig.dev.json
+C:\Users\sonus\Desktop\FileUploadAPIDemo\FileUploadAPIDemo\bin\Debug\netcoreapp2.2\FileUploadAPIDemo.dll
+C:\Users\sonus\Desktop\FileUploadAPIDemo\FileUploadAPIDemo\obj\Debug\netcoreapp2.2\FileUploadAPIDemo.csprojAssemblyReference.cache
+C:\Users\sonus\Desktop\FileUploadAPIDemo\FileUploadAPIDemo\obj\Debug\netcoreapp2.2\FileUploadAPIDemo.csproj.CoreCompileInputs.cache
+C:\Users\sonus\Desktop\FileUploadAPIDemo\FileUploadAPIDemo\obj\Debug\netcoreapp2.2\FileUploadAPIDemo.RazorAssemblyInfo.cache
+C:\Users\sonus\Desktop\FileUploadAPIDemo\FileUploadAPIDemo\obj\Debug\netcoreapp2.2\FileUploadAPIDemo.RazorAssemblyInfo.cs
+C:\Users\sonus\Desktop\FileUploadAPIDemo\FileUploadAPIDemo\obj\Debug\netcoreapp2.2\FileUploadAPIDemo.AssemblyInfoInputs.cache
+C:\Users\sonus\Desktop\FileUploadAPIDemo\FileUploadAPIDemo\obj\Debug\netcoreapp2.2\FileUploadAPIDemo.AssemblyInfo.cs
+C:\Users\sonus\Desktop\FileUploadAPIDemo\FileUploadAPIDemo\obj\Debug\netcoreapp2.2\FileUploadAPIDemo.RazorTargetAssemblyInfo.cache
+C:\Users\sonus\Desktop\FileUploadAPIDemo\FileUploadAPIDemo\bin\Debug\netcoreapp2.2\FileUploadAPIDemo.pdb
+C:\Users\sonus\Desktop\FileUploadAPIDemo\FileUploadAPIDemo\obj\Debug\netcoreapp2.2\FileUploadAPIDemo.dll
+C:\Users\sonus\Desktop\FileUploadAPIDemo\FileUploadAPIDemo\obj\Debug\netcoreapp2.2\FileUploadAPIDemo.pdb
