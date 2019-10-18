@@ -1,0 +1,265 @@
+
+ECMAScript
+	- Also called as ES
+	- ES1, ES2, ES3, ES4, ES5, ES6 (ES2015). ES7(ES2016)
+	
+	- let keyword
+		- local scoped
+		
+		for(let i=0;i<10;i++)
+		{
+			let name="sonu";
+			//use variable i here
+		}
+		
+	- Class
+		- constructor
+		- member methods
+		- properties
+	- template strings
+		let message = `Hello friends this is sample text
+					  This is some text comes in middle.
+					  Hello how are you?
+					  This is second line of paragraph`;
+		let name="Sonu";
+		let age = 35;
+		let message = `My name is ${sonu} and I am ${age} years old`;
+							 
+	- Arrow functions
+		var sum = (x,y)=>x+y;
+		var doSomething= (x,y)=>{
+			//multiple lines of code here
+			return x+y;
+		};	
+		let result=sum(3,4);
+		
+	- rest and spread operators
+	
+Http
+	- Http methods
+		- GET - Get data from server
+		- POST - Posting data back to server. Create a new resource.
+		- PUT  - Update existing data. Replaced by a new entry.
+		- DELETE - Delete an existing entry.
+		- PATCH - Updating existing data. Update partially.
+	- Http Headers
+		- Every request and response have a set of Headers.
+			- Content-Type - Request- The type of data you are sending to server.
+			- Content-Type - Response- Data sent by the server.
+			- Accept - Reqeusting to server to send the response in specific type.
+				- MIME format.
+				- majortype/minortype
+					text - 
+						plain - text/plain
+						xml   - text/xml
+						json  - text/json
+						html  - text/html
+						javascript - text/javascript
+						css   - text/css
+					image
+						image/jpg
+						image/png
+						image/bmp						
+					audio
+						audio/mp3
+						audio/ogg
+						audio/wav
+						audio/midi
+					video
+						video/mp4
+						video/ogg
+						video/wmv
+					application
+			- Authorization : "Scheme Value"			
+				- Basic auth => "basic 8438dfhjgdgdg"
+				- Token auth -> "Bearer tokenvalue"
+			
+	- Http Status Codes
+		- 2xx
+			- 200 OK
+			- 201 Created
+			- 204 No Content			
+		- 3xx
+			- Redirection
+			
+		- 4xx - Client Error
+			- 400 - Bad Request
+			- 401 - Unauthorized
+			- 403 - Access Denied
+			- 404 - not found
+		- 5xx - Server Error
+			- 500 - Internal server error
+			- Timeout
+Bootstrap
+	- Responsive UI
+	- Get Bootstrap using
+		- Source files
+		- CDN urls
+		- package managers - npm, nuget, yarn, bower etc.
+		
+	- Dependencies and DevDependencies
+		- npm install --save <package1@version> <package2> <package3> 
+			npm i -S package[@version]
+		- npm install --save-dev <package1@version> <package2> <package3> 
+			npm i -D package[@version]
+		
+TypeScript
+	- What is TypeScript?
+		- Is a superset of JavaScript
+		- It is compiled language 
+		- It is typesafe
+		- Fully compatible to ES6 features.
+		- File extension is .ts
+		- When compiled using 'tsc' it generate the JS files.
+		- Control the compiler configurations using tsconfig.json
+			- set the target version of JS in tsconfig.json.
+			- set whether source map file is required or not.
+		- Install typescript globally
+			npm install -g typescript
+		
+	- Module
+		- A typescript file that contains a set of exported members
+		- A exported member can be class, interface, function, constant.
+		- Export the members using export keyword and import them into 
+			another module using import keyword.
+		- Barrel is a way of importing modules into another files.
+		- A barrel use an index.ts file that exports a set of modules from a directory
+		and it can be imported using a single line. 
+	
+Angular
+	- What is SPA?
+	- How It works?
+	- Angular Cli
+		- npm install -g @angular/cli
+		- ng --version
+		- Use to create, test, run , build and deploy the project.
+	- Create the project
+		ng new <project-name>
+	- Angular module	
+		- it encapsulates the 
+			- components - UI for the application 
+				- home.component.ts
+				- home.component.html
+				- home.component.css
+				- home.component.spec.ts
+			- directives
+				- Used to add/remove behaviour of a DOM element.
+				- Used to change the appearance 
+			- pipes
+				- Used to format the data while printing in template file. 
+			- services
+				- These are injectable objects (Angular DI sytem creates and manages the service object)
+				- Reuable function codes.
+			- import submodules(builtin/custom)
+		- A module is a typescript class decorated with @NgModule()
+	- Run the application
+		ng serve -o 
+		ng s -o
+	- Creating components
+		ng generate component <components/nameofcomponent>
+		ng g c components/home
+	- Directives
+		- Structural directives
+			- starts with a * symbol.
+			- *ngFor, *ngIf, *ngSwitch
+		- Attribute directives
+		- Components
+		
+	- Bindings
+		- Interpolation - {{variable}}
+		- Property binding - input binding - []
+			eg: [value]="variable"
+		- Event binding - Output binding - ()
+			eg: (click)="show()"
+		- Two way binding -  [( )]
+	- Pipes
+		- Pipes are used for formating data in templates.
+		- pipes are applied using the pipe symbol - |
+		- Left side of the pipesymbol is the input value (Arg) for the pipe function.
+			eg: {{ value|pipename[:args] }}
+			eg: {{ name|uppercase}}
+				{{ today|date:'dd-MMM-yyyy'}}
+				{{ salary|currency:'INR':true:'5.2-3'}}
+		- Built-in pipes
+			- uppercase
+			- lowercase
+			- titlecase
+			- json
+			- number
+			- currency
+			- date
+			- async
+		- Custom pipes
+			- ng generate pipe [pipes/pipename]
+			- ng g p [pipes/pipename]
+		- Create project	
+			ng new <projectname> [options]
+			ng new eshop-spa --minimal --skip-tests
+		- Create models
+			ng g interface models/product
+			ng g interface models/category
+		- Create services
+			ng generate service services/servciename
+			ng g s services/product
+				- product.service.ts
+			- Services can be registered glboally and locally.
+			- Register globally in AppModule provider section. 
+	
+	- Observables and Promises
+		- Used for Asynchronous programming.
+		- Promises	
+			- It is a builtin feature of JavaScript
+			- USes request-response pattern			
+		- Observables
+			- Used for real-time data updations
+			- follows publish subscribe pattern
+			- Subscribe for the data once and it updates the changes utill you unsubscribe.
+			- Need to use RxJs library (ReactiveX ) 
+			
+	- Forms in Angular
+		- Two approaches for form creation: Template driven forms and Reactive Forms
+		- You can do Forms validation and submission.
+		- Template driven forms
+			- Import FormsModule into AppModule from '@angular/forms' package.
+			- We use HTML 5 valdiation attributes.
+			- Need to use ngModel directive for two way data binding.
+			- Every form control must have a name attribute if we use ngModel 
+			- A reference variable can also be used to access the form control.
+			- Every control have some properties that defines the state.
+				valid - invalid
+				dirty - pristine
+				touched - untouched
+			- Forms also have valid and invalid properties.
+		- Reactive Forms
+			- We use ReactiveFormsModule from '@angular/forms'
+			- We use services like FormBuilder to create a FormGroup
+			- A formGroup is a class used to create model for the form.
+			- We need to use the directives like formGroup and formControlName
+			- Valdiations are done in the model object (FormGroup) using Valdiations class.
+			- Form and control properties are applicable here also.
+Json Server
+	- npm install -g json-server
+	- json-server --port 3400 --watch eshop.json
+	
+Http Services
+	- We need to use the HttpClientModule that provides the HttpClient service.
+	- HttpClientModule is provided by @angular/common/http package.
+	- It allows you to connect and fetch data from backend API server.
+	- It provides GET, POST, PUT, DELETE ad PATCH methods
+	- These methods are generic methods and it returns observable objects
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			
