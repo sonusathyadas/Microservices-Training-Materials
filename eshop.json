@@ -1,0 +1,39 @@
+{
+	"categories":[
+        { "id": 101, "name": "Mobiles", "description": "Smartphones and feature phones" },
+        { "id": 102, "name": "Televisions", "description": "Smart Tv and normal Tv" },
+        { "id": 103, "name": "Laptops", "description": "Top brand laptops and notebooks" }
+    ],
+	"products":[
+        {
+            "id":1, "name":"Mi 7", "brand":"Xiaomi", 
+			"categoryId":101, "price":21999, "quantity":25, 
+			"taxRate":8, "manufacturingDate":"2019-08-24", 
+			"reorderLevel":10, "imageUrl":""
+        },
+        {
+            "id":2, "name":"Redmi Note 7", "brand":"Xiaomi", 
+			"categoryId":101, "price":17699, "quantity":0, 
+			"taxRate":8,"manufacturingDate":"2019-8-15", 
+			"reorderLevel":5, "imageUrl":""
+        },
+        {
+            "id":3, "name":"Envy 13", "brand":"HP", 
+			"categoryId":103, "price":72000, "quantity":10, 
+			"taxRate":8,"manufacturingDate":"2018-6-15", 
+			"reorderLevel":3, "imageUrl":""
+        }
+    ],
+	"users":[
+		{ 
+			"id":1, "fullname":"Sonu Sathyadas", 
+			"username":"sonusathyadas", "password":"Password@123",
+			"email":"sonusathyadas@gmail.com", "mobile":"8943089425"
+		},
+		{ 
+			"id":2, "fullname":"Aditya Kumar", 
+			"username":"aditya", "password":"Password@123",
+			"email":"aditya@gmail.com", "mobile":"8169252569"
+		}
+	]
+}
