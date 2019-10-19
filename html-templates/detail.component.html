@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-6 col-lg-6 mx-auto">
+        <div class="card" style="padding:5px">
+            <div class="embed-responsive embed-responsive-16by9">
+                <img src="{{product.imageUrl|image:'default-image.jpg'}}" class="card-img-top embed-responsive-item"
+                    alt="{{product.name}}">
+            </div>
+            <div class="card-body">
+                <table class="table table-striped table-sm">
+                    <tr>
+                        <th>Name</th>
+                        <th>{{product.name}}</th>
+                    </tr>
+                    <tr>
+                        <th>Brand</th>
+                        <th>{{product.brand}}</th>
+                    </tr>
+                    <tr>
+                        <th>Price</th>
+                        <th>{{product.price|currency:'INR'}}</th>
+                    </tr>
+                    <tr>
+                        <th>Availability</th>
+                        <th [ngClass]="{'text-success':product.quantity>0, 'text-danger':product.quantity<=0}">
+                            {{product.quantity|availability}}</th>
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="text-left">
+                            <button class="btn btn-success" [disabled]="product.quantity<=0">Add to Cart</button>
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
