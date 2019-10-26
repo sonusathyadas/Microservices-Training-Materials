@@ -1,0 +1,567 @@
+
+ECMAScript
+	- Also called as ES
+	- ES1, ES2, ES3, ES4, ES5, ES6 (ES2015). ES7(ES2016)
+	
+	- let keyword
+		- local scoped
+		
+		for(let i=0;i<10;i++)
+		{
+			let name="sonu";
+			//use variable i here
+		}
+		
+	- Class
+		- constructor
+		- member methods
+		- properties
+	- template strings
+		let message = `Hello friends this is sample text
+					  This is some text comes in middle.
+					  Hello how are you?
+					  This is second line of paragraph`;
+		let name="Sonu";
+		let age = 35;
+		let message = `My name is ${sonu} and I am ${age} years old`;
+							 
+	- Arrow functions
+		var sum = (x,y)=>x+y;
+		var doSomething= (x,y)=>{
+			//multiple lines of code here
+			return x+y;
+		};	
+		let result=sum(3,4);
+		
+	- rest and spread operators
+	
+Http
+	- Http methods
+		- GET - Get data from server
+		- POST - Posting data back to server. Create a new resource.
+		- PUT  - Update existing data. Replaced by a new entry.
+		- DELETE - Delete an existing entry.
+		- PATCH - Updating existing data. Update partially.
+	- Http Headers
+		- Every request and response have a set of Headers.
+			- Content-Type - Request- The type of data you are sending to server.
+			- Content-Type - Response- Data sent by the server.
+			- Accept - Reqeusting to server to send the response in specific type.
+				- MIME format.
+				- majortype/minortype
+					text - 
+						plain - text/plain
+						xml   - text/xml
+						json  - text/json
+						html  - text/html
+						javascript - text/javascript
+						css   - text/css
+					image
+						image/jpg
+						image/png
+						image/bmp						
+					audio
+						audio/mp3
+						audio/ogg
+						audio/wav
+						audio/midi
+					video
+						video/mp4
+						video/ogg
+						video/wmv
+					application
+			- Authorization : "Scheme Value"			
+				- Basic auth => "basic 8438dfhjgdgdg"
+				- Token auth -> "Bearer tokenvalue"
+			
+	- Http Status Codes
+		- 2xx
+			- 200 OK
+			- 201 Created
+			- 204 No Content			
+		- 3xx
+			- Redirection
+			
+		- 4xx - Client Error
+			- 400 - Bad Request
+			- 401 - Unauthorized
+			- 403 - Access Denied
+			- 404 - not found
+		- 5xx - Server Error
+			- 500 - Internal server error
+			- Timeout
+Bootstrap
+	- Responsive UI
+	- Get Bootstrap using
+		- Source files
+		- CDN urls
+		- package managers - npm, nuget, yarn, bower etc.
+		
+	- Dependencies and DevDependencies
+		- npm install --save <package1@version> <package2> <package3> 
+			npm i -S package[@version]
+		- npm install --save-dev <package1@version> <package2> <package3> 
+			npm i -D package[@version]
+		
+TypeScript
+	- What is TypeScript?
+		- Is a superset of JavaScript
+		- It is compiled language 
+		- It is typesafe
+		- Fully compatible to ES6 features.
+		- File extension is .ts
+		- When compiled using 'tsc' it generate the JS files.
+		- Control the compiler configurations using tsconfig.json
+			- set the target version of JS in tsconfig.json.
+			- set whether source map file is required or not.
+		- Install typescript globally
+			npm install -g typescript
+		
+	- Module
+		- A typescript file that contains a set of exported members
+		- A exported member can be class, interface, function, constant.
+		- Export the members using export keyword and import them into 
+			another module using import keyword.
+		- Barrel is a way of importing modules into another files.
+		- A barrel use an index.ts file that exports a set of modules from a directory
+		and it can be imported using a single line. 
+	
+Angular
+	- What is SPA?
+	- How It works?
+	- Angular Cli
+		- npm install -g @angular/cli
+		- ng --version
+		- Use to create, test, run , build and deploy the project.
+	- Create the project
+		ng new <project-name>
+	- Angular module	
+		- it encapsulates the 
+			- components - UI for the application 
+				- home.component.ts
+				- home.component.html
+				- home.component.css
+				- home.component.spec.ts
+			- directives
+				- Used to add/remove behaviour of a DOM element.
+				- Used to change the appearance 
+			- pipes
+				- Used to format the data while printing in template file. 
+			- services
+				- These are injectable objects (Angular DI sytem creates and manages the service object)
+				- Reuable function codes.
+			- import submodules(builtin/custom)
+		- A module is a typescript class decorated with @NgModule()
+	- Run the application
+		ng serve -o 
+		ng s -o
+	- Creating components
+		ng generate component <components/nameofcomponent>
+		ng g c components/home
+	- Directives
+		- Structural directives
+			- starts with a * symbol.
+			- *ngFor, *ngIf, *ngSwitch
+		- Attribute directives
+		- Components
+		
+	- Bindings
+		- Interpolation - {{variable}}
+		- Property binding - input binding - []
+			eg: [value]="variable"
+		- Event binding - Output binding - ()
+			eg: (click)="show()"
+		- Two way binding -  [( )]
+	- Pipes
+		- Pipes are used for formating data in templates.
+		- pipes are applied using the pipe symbol - |
+		- Left side of the pipesymbol is the input value (Arg) for the pipe function.
+			eg: {{ value|pipename[:args] }}
+			eg: {{ name|uppercase}}
+				{{ today|date:'dd-MMM-yyyy'}}
+				{{ salary|currency:'INR':true:'5.2-3'}}
+		- Built-in pipes
+			- uppercase
+			- lowercase
+			- titlecase
+			- json
+			- number
+			- currency
+			- date
+			- async
+		- Custom pipes
+			- ng generate pipe [pipes/pipename]
+			- ng g p [pipes/pipename]
+		- Create project	
+			ng new <projectname> [options]
+			ng new eshop-spa --minimal --skip-tests
+		- Create models
+			ng g interface models/product
+			ng g interface models/category
+		- Create services
+			ng generate service services/servciename
+			ng g s services/product
+				- product.service.ts
+			- Services can be registered glboally and locally.
+			- Register globally in AppModule provider section. 
+	
+	- Observables and Promises
+		- Used for Asynchronous programming.
+		- Promises	
+			- It is a builtin feature of JavaScript
+			- USes request-response pattern			
+		- Observables
+			- Used for real-time data updations
+			- follows publish subscribe pattern
+			- Subscribe for the data once and it updates the changes utill you unsubscribe.
+			- Need to use RxJs library (ReactiveX ) 
+			
+	- Forms in Angular
+		- Two approaches for form creation: Template driven forms and Reactive Forms
+		- You can do Forms validation and submission.
+		- Template driven forms
+			- Import FormsModule into AppModule from '@angular/forms' package.
+			- We use HTML 5 valdiation attributes.
+			- Need to use ngModel directive for two way data binding.
+			- Every form control must have a name attribute if we use ngModel 
+			- A reference variable can also be used to access the form control.
+			- Every control have some properties that defines the state.
+				valid - invalid
+				dirty - pristine
+				touched - untouched
+			- Forms also have valid and invalid properties.
+		- Reactive Forms
+			- We use ReactiveFormsModule from '@angular/forms'
+			- We use services like FormBuilder to create a FormGroup
+			- A formGroup is a class used to create model for the form.
+			- We need to use the directives like formGroup and formControlName
+			- Valdiations are done in the model object (FormGroup) using Valdiations class.
+			- Form and control properties are applicable here also.
+Json Server
+	- npm install -g json-server
+	- json-server --port 3400 --watch eshop.json
+	
+Http Services
+	- We need to use the HttpClientModule that provides the HttpClient service.
+	- HttpClientModule is provided by @angular/common/http package.
+	- It allows you to connect and fetch data from backend API server.
+	- It provides GET, POST, PUT, DELETE ad PATCH methods
+	- These methods are generic methods and it returns observable objects
+	
+Lazy Loading
+
+	ng generate module customers --route customer-route --module app.module
+	
+	ng g c customers/components/profile
+	
+	ng g c customers/components/orders
+	
+		http://localhost:4200/customers  -> Home page of customer
+		http://localhost:4200/customers/profile  -> Profile page of customer
+		http://localhost:4200/customers/orders
+	
+MongoDB
+-----------
+	- Is a unstructured, NoSQL database.
+	- Stores the data in JSON format.
+	- Unstructured Data 
+		- Documents (JSON) - MongoDB, SQL API(DocumentDB)
+		- Key-Value Pair   - Azure Table API, Redis Database
+		- Graph	  		   - Gremlin, Neo4j
+		- Column family    - Cassandra
+	- MongoDB is open-source driven by MongoDB community.
+	- Onpremise NoSQL Database that follows documents data storage.
+	- Supports data indexing and partitioning (Sharding) for better performance.
+	- Highly secured
+	- It use BSON (Binary JSON) as the data storage format and JavaScript as procedure and fucntions.
+Installing MongoDB
+	- Install Binary file (Installable), Run as a windows Service.
+	- Portable executable is available, Download zip and extract. Need to run explicitly.
+	- In the bin folder we can see mongodb server and client.
+		- Server      - mongod.exe
+		- Client Tool - mongo.exe (CUI)
+		- GUI Client  - VS Code CosmosDB plugin, NoSQL Booster for MongoDB, MongoCompass
+		- Migration tools
+			- mongoexport.exe
+			- mongoimport.exe
+			- mongodump.exe
+			- mongorestore.exe
+			
+	- mongodb://[hostname/ipaddress]:27017
+	- mongodb://localhost:27017
+	
+	Relational Db vs NoSQL
+	database 	- database
+	Table		- Collection/Container
+	Row			- Document
+	Columns		- Attributes
+	- Every mongodb document have a unique identifier with the name _id.
+	- A unique identifier is a GUID objectId.
+	- MongoDB aggregation
+		- Combine data from multiple documents.
+		- 3 types of aggregation
+			- Single purpose aggregation functions.
+				count()
+				distinct()
+			- Aggregation pipeline.
+				- An array of operation that executes one after another.
+				- Result of one operation is the input of next operation.
+				- We use operators like $match, $project, $group, $sort, $unwind etc
+			- Map-Reduce Function (JavaScript code)
+	
+.NET Core
+-------------
+	- .NET Core Versions
+		- Version 1.0
+		- Version 1.1
+		- Version 2.0
+		- Version 2.1
+		- Version 2.2 (LTS)
+		- Version 3.0 (Current)
+	- .NET Core 
+		- Light weight
+		- Cross-platform support
+		- CLI support 
+		- Support various IDEs.
+		- Support developing Console, ASP.NET (MVC, Web API, SPA), Class Lib, UWP
+			- No Web forms
+			- No WPF and Winforms
+			- No WCF and WF
+			- In 3.0 version, it supports wpf 
+		- Built-in DI system.
+			- We can replace Built-in DI system with 3rd party DI system (Autofac).
+		- Tag Helpers are used instead of HTML helpers
+			- HTML helpers are not replaced.
+			<a action="Index" controller="Home" route-params="" area="" class="nav-item">Click Me</a>
+		- Razor page in .NET Core 2.0
+			Blazor in used in 3.0 version
+		- Configuration is JSON based.
+			- appSettings.json file.
+			- .NET Core can read config parameters from:
+				- Environment variables.
+				- Command line args
+				- JSON files.
+				- XML files
+				- INI files
+				- Key Vault 
+				- KeyPerFile
+		- Completely compatible to cloud deployment.
+
+Application templates	
+	- Console
+	- ASP.NET
+		- MVC
+		- Web API
+		- SPA
+	- Class library
+		- Standard libraries can be used with .NET Framework and .NET Core
+	- UWP
+	
+ASP.NET MVC
+	- .NET Core Web applications uses a builtin web server called Kestral.
+	- Kestral is a cross-platform lightweight web server.
+	
+	- Program.CS
+		- Contains a main method that starts the Host for MVC app.
+		- Creates and Starts a Web Host object.
+		- Web Host is resposible to host the application code.
+		- Type of Host in .NET Core
+			- WebHost (ASP.NET MVC, Web API)
+			- Generic Host - No Http request pipeline, used for Web Jobs
+	- Startup.cs
+		- Configrue the services for the application.
+			- ConfigureServices() method is used to configure the services required in the app.
+		- Creates a request pipeline for handling requests.
+			- Configure() method is used to configure the request pipeline.
+			- Request pipeline defines how to handle the Http Reqeust.
+			- It contains a set of middleware fucntions that process the reqeust and response.
+	- appsettings.json
+		- Configuration file that contains the appsettings and connection strings.
+	- wwwroot
+		- This folder is the default static files folder.
+	- .csproj file
+		- contains the framework version and package informations.
+		- Metapackage  - Microsoft.AspNetCore.App
+			- When developing MVC and API apps we need to use a bunch of dependencies.
+			- These packages are bundled into a virtual package(metapackage)
+			- Metapackage name is Microsoft.AspNetCore.App
+	- Controllers
+		- MVC controller and Web API controllers are created here.
+	- Models
+		- Database models and View Models are created here.
+	- Views
+		- All html templates(cshtml) are created here.
+		- _ViewImports.cshtml contains the common import statements required for views.
+		
+Middleware
+	- Can be cared using 
+		- Use() method
+			- Used to created custom middleware.
+			- It takes a function as arg, that has two params - httpcontext, ReqeustDelegate
+		- Run() method
+			- Request terminator ( Short-circuit middleware)
+		- Map() method
+			- Used to execute a pipline based on a route template.
+		- MapWhen() method
+	- Built-in middleware
+		- UseDeveloperExceptionPage()
+			- Used to display detailed error page while running in Development.
+			- Apply this middleware conditionally, while running in Development.
+		- UseExceptionHandler()
+			- Redirect the error responses to an error page.
+			- It can be used to send custom error details.
+		- UseHsts()
+			- Enable HTTP Strict Transport Security Protocol
+		- UseHttpsRedirection()
+			- Automatically redirects all HTTP requests to HTTPS.
+		- UseCookiePolicy()
+			- Adds one layer of security for cookie usage.
+			- Asks the user to allow or deny cookie creation.
+		- UseMvc() OR UseMvcWithDefaultRoute()
+			- Executes the Controller actions based on the route requested.
+			- Checks the Route Table and decides which controller and action need to be executed.
+			- Routing Url templates can be defined in the middleware.
+			- UseMvcWithDefaultRoute() applies a middleware with default route template.
+			- UseMvc() applies a routing middleware that allows custom routing template.
+		- UseStaticFiles()
+			- Is required to server the static files for the application.
+			- Default static file folder is wwwroot.
+			- This can be used multiple times in a request pipeline.
+			- Use parameters to define static file directories and options other than wwwroot.
+		- UseDirectoryBrowser()
+			- Enable directory browsing for a directory.
+		- UseDefaultFiles()
+			- Serve the default file when root URL is reqeusted.
+			- Can configure custom default documents also.
+		- UseFileServer()
+			- Is the combination of StaticFiles, DefaultDocuments and Directorybrowsing.
+	
+Services
+	- Services are reusable codes in an application.
+	- Services need to be registed in ConfigureServices method of Startup class.
+	- .NET Core DI System creates and inject the instance of a service whereever is required.
+	- IoC container will take care of the object life time and scope.
+	- Services are registered in the ServicesCollection object (services)
+	- Services can be registered with the following scopes and life time:
+		- Singleton
+			- A single instance of service is created and maintained till the end of application.
+			- services.AddSingleton() method to register a service as singleton.
+		- Scoped
+			- A single instance per request scope.			
+		- Transient
+			- It creates a new instance everytime whereever it is requested.
+			- Short lived objects.
+	- Builtin DI system can be replaced by third party IoC containers (eg: Autofac)
+
+Configuration Sources
+	- Configuration means the parameters passed to the application for exectuion.
+	- Such as application settings, Connection Strings etc
+	- Passed as Key-Value pair format.
+	- We have many configuration sources in .NET Core App:
+		- Command Line Args
+		- Environment variables
+		- In-Memory collections
+		- AppSettings.json (JSON files)
+		- XML files
+		- INI files
+		- Key Per File 
+		- Azure Key Vault
+	- When the Default WebHost Builder created a Web Host, it comes with some preconfigured
+	 configuration sources such as Cmd Line args, Env variables and Appsettings.json.
+
+Caching
+
+Statemanagement
+	- Query Strings
+	- Hidden fields
+	- Cookies
+	- TempData
+	- Session
+	- DI
+	- Cache
+	- HttpContext.Items
+	
+.NET Core App Deployment Types
+	- FDD - Framework Dependent Deployment.
+		- dotnet app.dll
+		- Shared libraries and framework are not part of app deployment.
+		- Runtime must be installed in machine
+		- Application can be run using "dotnet myapp.dll" command
+	- SCD - Self-Contained Deployment
+		- Runtime is also published into the deployment folder.
+		- No runtime required in the machine. 
+		- Specify the RID in the .csproj file.
+			<RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
+		- Publish using the following command.
+			syntax: dotnet publish -c Release -r <rid-value>
+			example: dotnet publish -c Release -r win10-x64
+	- FDE - Framework Dependent Executables
+		- Shared libraries and framework are not part of app deployment.
+		- Runtime must be installed in machine
+		- It creates a self executable exe file in the publish folder. 
+		- It can be run directly by command prompt or double click.
+		
+Entity Framework Core	
+	- Entity classes and DbContext class.
+	- Configure the DbContext Service in ConfigureServices method.
+	- For production we use SqlServer as database.
+	- Database sources:
+		- In-memory
+		- SqlServer
+	- Microsoft.EntityframeworkCore namespace.
+	
+---------------------------------------------------
+
+Developing Microservices
+----------------------
+	- What is monolithic architecture?
+		- All application modules are part of single project
+		- Features:	
+			- Old and easy approaches
+			- No headache of implementing communication
+			- Easy to deploy and develop.
+			- Tightly coupled
+			- Choice of languages and frameworks are less.
+			- Every time we need to redeploy the app when a change comes in any one module.
+			- Scaling of individual modules not possible.
+			- limitted/complex polyglot persistance
+		- SOA 
+			- Create each module of app is created as individually deployable projects
+			- We use a communication channel which is used by all modules. 
+				- ESB - Enterprise Service Bus (ESB Mule)
+			- All modules shares a common database.
+			
+		- Microservices
+			- Indivually developed, tested and deployed.
+			- They never share the database.
+			- Any service can communicate to any other service directly.
+			- Every service is exposing a well defiened end point - REST endpoint
+			- Communication pattersns:
+				- HTTP based - REST
+				- Message based - Queues
+				
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+	
+
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+			
