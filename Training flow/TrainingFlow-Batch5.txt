@@ -539,9 +539,471 @@ Developing Microservices
 			- Communication pattersns:
 				- HTTP based - REST
 				- Message based - Queues
+	- Microservices 
+		- Communication patterns:
+			- REST based (HTTP)
+				- Nearly Real time 
+				- Synchrnous in nature
+				- One to one communication.
+				- For every request there is a response received.
+			- Queue based
+				- Not real time communication.
+				- Asynchronous in nature.
+				- One to many and one to one are supported
+				- No response required for message based 
+			- Event Based
+				- Nearly real time 
+				- Asynchronous
+				- One way communication
+				- No response received .
+				- One or more event handlers can catch the event data.
+		- Choice of languages and frameworks
+		- Database not shared 
+		- Independetly developed, deployed and tested.
+		- Independetly scalable services.
+	- .NET Core Web API	
+		- Every controller is inheriting from ControllerBase
+		- ControllerBase is a base class for MVC controller and Web API controller
+		- Every controller is decorated with [ApiController] attribute.
+		- No RoutePrefix for controller, Route() is used instead for defining prefix.
+		- No Route() attribute required for action, Http Method selector attribute
+		can define the template and Route name.
+		- Method return type:
+			- Void 
+			- Specific types such as string, boolen, integer etc
+			- HttpResponseMessage
+			- ActionResult<T> - Recommended
+			
+	- CORS Policies
+		- Cross Origin Resource Sharing 
+		- Defines a set of rules that tells the API to allow certain domain, methods and headers.		
+	- Open API Documentation
+		- For Web services we get service documentation using WSDL file.
+		- For RESTful services we can use Open API specification doc (Swagger doc).
+		- We can use Swashbucle.AspNetCore package to configure the Swagger Doc.
+		
+	- Enable Xml serializer
+		- Use the AddXmlDataContactSerilizerFormatters() method with services.AddMvc()		
+	- Authentication for Web API
+		- No Login GUI is provided for APIs
+		- Use tokens for authentication. (OAuth Token, JWT Token)
+		- A token is an encrypted text that contains the audience (api), issuer(identity provider), 
+		  claims (roles and other info), expiry time, Algorithm and secret code 
+	- Custom formatters
+	
+RabbitMQ
+	- Communication patterns:
+		- RESTful services - Synchrnous
+		- Message Based - Asynchronous, one to Many, Not real-time
+		- Event driven architecture - Asynchronous, one to many, real-time
+		
+	- Messaging
+		- Two applications can communicate asynchronously.
+		- A small text message is sent to a Message Broker. 
+		- A message broker is an agent that provides message based communication.
+			- Features:
+				- Provides storage for messages.
+				- Different message delivery patterns 
+					- Direct - One to one
+					- Topic - Pattern based (multicast)
+					- Fanout - Broadcasting to everyone
+				- Deliver message when recepient comes online.
+				- TTL - Time to Live - Undelivered messages can be moved to Dead letter queue.
+		- Azure Servcie Bus, Azure Storage Queue, RabbitMQ 		
+		rabbitmq-plugins enable rabbitmq_management
+		
+Docker
+	- Images and containers
+		- Containerized application is called image.
+		- Image is used to create instances of application
+		- the running instance is called container.
+		- Every container have a unique name and ID
+		- Every image also have unique name and ID
+		- Image name must be in <imagename>:<tag> format
+			- Tag is a version identifier or unique value that can be used to identify image.
+			eg: eshop-web:1.0
+				eshop-web:2.2
+				eshop-web:3.0
+		- If tag name is not supplied at the time of image creation, it will be assigned 
+			to 'latest' by default.
+			eg: eshop-web:latest
+		- An image contains a set of layers.
+			Every layer has unique iD
+	- Repositories (registries)
+		- Is a storage place for code and data.
+		- A docker image repository is a place to store images.
+		- Repositories can be:
+			Local
+				- Store locally in Dev machine.
+				- Local repo images name can be anything, without repo name
+				- local image=> calculator:latest
+			Cloud 
+				- Publiclly accessible repository.
+				- Anyone can access it from here.
+				- Two types:
+					- Public 
+						- When uploading into a public repo it is accessible to all without any credentials.
+						- DockerHub is an example for Public repo
+						- sonusathyadas/calculator:latest is uploaded by sonusathyadas
+						- chandan/calculator:latest uploaded by chandan.
+						= docker pull sonusathyadas/calculator:latest
+					- Private
+						- Secured repository
+						- It needs credentials to push and pull images.
+						- Azure Container Registry (ACR), Elastic Container Registry (ECR)
+	
+			
+	- Docker commands
+		docker images
+	- List all images located in local repo
+	
+	docker run -p host-port:container-port -d --name nameofcontainer --rm imagename
+	- --name = used to assign a name for the running container. If not used docker will asign
+	a random name to the container.
+	- -d = detached mode. 
+	- --rm = remove the container when stoped.
+	- -p  = map host machine port number to container app port.
+	
+	docker ps
+		List all running containers
+	
+	docker stop <containerID/container name>
+		- STop a running container
+	
+	docker ps -a
+		- List all running and stopped containers
+	
+	docker rm <containerID/name>
+		- Remove the stopped containers
+	
+	docker rm -f <containerID/name>
+		- Stop and remove running containers
+
+	Building images
+		- A set of commands need to be executed
+		- Commands can be written into a fiel called "Dockerfile"
+		- The instruction to build an image may start with the following keywords:
+			- FROM <baseimagename>
+				- Specify the base image for our application.
+				- eg: FROM nginx:latest
 				
+			- LABEL <key>=<value>
+				- USed to add meta information for image, such as author info, version, company etc
+				- LABEL author "Sonu Sathyadas"
+				- LABEL version 1.2.0
 			
+			- RUN <cmd> <args>
+				- Execute a command while building the image. 
+				- RUN dotnet restore && dotnet build && dotnet publish 
+			- WORKDIR <dir_path>
+				- Set the curret working directory inside the container.
+				= WORKDIR /usr/app
+				- WORKDIR C:\Users\myapp
+				
+			- COPY [-from <stage>]<source files/pattern> <dest_path>
+				- Copy files from local machine to docker image path.
+				- COPY ./*.jpg  /usr/app/		
+				
+			- ENV <envvariablename> <value>
+				- Used to set the environment variable value for the app.
+				
+			- EXPOSE <port-number>
+				- Specify the port number to opened
+				
+			- CMD <command> <args>
+				- Execute commands when the container is created.
+				- When image is running.
+				
+			- ENTRYPOINT <cmd> <args>
+				- Execute commands when the container is created.
+				- When image is running.
+				- It is used to specify the starting command of application. 
 			
+	- Building docker images
+		- docker build -t <imagename:tag> <dockerfilepath>
+		
+	- Containerizing .NET Core apps
+		- Download SDK and runtime images
+			docker pull mcr.microsoft.com/dotnet/core/aspnet:2.2.7-bionic
+			docker pull mcr.microsoft.com/dotnet/core/sdk:2.2.402-bionic
+		
+	- Remove docker images
+		docker rmi <imageid/name> 
+		docker rmi [-f] <imageid/name>
+		
+
+On-premise 
+	- Infrastructure cost - Compute, storage and network
+	- scaling
+		- Scale up - increase the size of existing instance.
+		- Scale out - increase the number of instances
+	- backup
+		- Explicit backup policies need tobe implemented.
+	- Security
+		- Security for application and network need to be configured explicitly.
+	- monitoring 
+		- configure monitoring services
+	- complaince to specifications
+
+Cloud
+	- No need to buy infrastructure - No Infra Cost.
+	- Scaling of app instances happens quickly.
+	- Backup - Inbuilt backup policies implemented.
+	- All levels security is enabled
+	- Monitoing is by default enabled.
+	- complaince - All kinds of apps can be deployed.
+	- Pay As you Go Model
+	- New frameworks and technologies are adopted .
+	
+Type of Clouds
+	- Private cloud
+		- Cloud infrastructure for a single customer.
+		- Cloud vendor provide service only for a single customer.		
+	- Public Cloud
+		- Any body can register and create an account.
+		- You can buy the subscription and start creating services.
+		- Multiple users share the same infrastructure.
+		- Cheaper compared to PRivate cloud.
+	- Hybrid cloud
+		- Combination of public and private cloud.
+		
+Cloud Models
+	- Cloud services include DB services, compute services, messaging services, serverless servcies
+		Storage services, Identity services, AI services, analytics servies and more
+	
+	- Three cloud service models
+		- IaaS - Infrastructure as a Service
+			- Cloud vendor offers infra services like compute (CPU, RAM), Storage, Network 
+			- You can set up your own app infrastructure using the IaaS servcies.
+			- This services are used by Admins (IT Pros)
+		- PaaS - Platform as a Service
+			- This is used by developers
+			- Developers will get a preconfigured platform where server, database and security is already configured.
+		- SaaS - Software as a Service.
+			- It is used by end users 
+			- Software is also provided by the cloud vendor.
+			- End user need to login and start using the application.
+		
+Azure Cloud
+	- Provides IaaS and PaaS services.
+	- Azure is having Datacenters in more than 50 regions. 
+	- Azure Subscription
+		- Free subscription
+			- Free trail - 13000Rs / 200$ for a month.
+			- MSDN subscription
+			- Azure Pass
+		- Pay As Yo Go	- Monthly bill
+		- Coportate accounts
+		
+	- Connecting Azure services
+		- Web Portal (https://portal.azure.com)
+		- Command line options
+			- PowerShell
+				- Powershell for Azure (Only for Windows) - AureRm Module
+				- PowerShell Core (Cross platform) - Az module
+			- Azure CLI - Cross platform 
+		- Azure SDK for Programming languages
+		- ARM templates (JSON file - declarative model) 
+		- REST Api
+	- Azure Resource Manager Model (ARM)
+		- Resource Group
+			- Grouping resources 
+			- Group wise deployment, Group deletion
+			- Assign permision for group of resouces (RBAC)
+			- Group wise billing
+	- ARM template
+		- JSON file that contains the list of resources need to be deployed.
+		- Sections:
+			- Parameters
+				- Any dynamic value accepeted from user at the time of deployment.
+			- Variables
+				- Used to store intermediate and reusable values.
+			- Resources
+				- The Azure resources such as VM, VNET , Storage acc, DB etc 
+			- Output
+				- Output need to be printed in the screen after the template execution.
+		
+	- Storage Account
+		- PaaS servcie for storing unstructured data/files in Azure.
+		- One Storage account can store maximum 500TB data.
+		- Maximum of 200 storage accounts per subscription.
+		- Every storage account has a unique name that is globally unique.
+			https://mystorageacc.blob.core.windows.net/
+		- A Storage account provides four types of storage options:
+			- Blob (Containers)
+				- Unstructured blob files such as audio, video, image, text files, documents etc
+			- File Share
+				- Used for storing unstructured files 
+				- It is possible to map a file share as a network drive in your machine. 
+				- It uses SMB 3.0 protocol				
+			- Queue
+				- It is used for message based communication between apps.
+				- One message max size is 64 Kb
+				- Message max TTL is 7 days.
+			- Table storage
+				- Key-value pair unstructured data storage (NoSQL)
+		- Replication 
+			- It always takes minimum 2 copies of storage account data.
+			- SLA of 99.99  on Availability
+			- Methods:
+				- LRS - Locally redundant storage
+				- ZRS - Zone Redundant storage
+				- GRS - Geo Redundant storage
+				- RA-GRS - Read Access - Geo Redundant storage
+				
+		- Kind
+			- Storage V1
+				- All four services are available
+				- Storage media as Standard/Premium
+				- No option for selecting Hot/Cool
+			- Storage V2
+				- Blob + Storage V1
+				- All service types are supported
+				- Hot and Cool is available
+				- Standard and Premium is available
+			- Blob
+				- Only blob type is allowed
+				- Hot and Cool is available
+				- No Premium support 
+		- Access tier
+			- Hot
+			- Cool
+			
+		- Media
+			- Standard (HDD)
+			- Premium  (SSD)
+		- Security 
+			- Access Keys
+				- Key1 and Key 2 is available
+				- Both the keys have admin privillages.
+			- SAS Tokens
+				- Shared Access Singnature 
+				- Granular pemission over the storage account
+			
+		- Blobs
+			- Page Blobs
+			- Block blobs 
+			- Append Blobs
+		- Queue
+			- Asynchronous message based communication.
+			- Message max size is 64 Kb
+			- One message max TTL is 7 Days
+		- Table
+			- Unstructured Key-Value storage.
+			- Data is stored as Entities.
+			- Every entity has a row key and a partition Key.
+			- An entity can have max of 256 keys
+			- For every entity there will 3 built-in keys- Row key, partition key and timestamp.
+			- Row key and partition key is used to uniquly identify a record
+		- File Share
+			- Is used to create Network file shares that can be mapped to your machine.
+			- It is used as an extended storage for your machine.
+			- It used the Blob storage concept behind .
+			- It used the SMB 3.0 protocol that provides network mapping facility.
+	
+	- Azure App Service
+		- Is a compute service.
+		- Is a PaaS service used to deploy Web, API and Mobile Apps.
+		- App Service Web App
+			- Is used to deploy web applications such as MVC, Web Forms etc.
+		- App Service API App
+			- used to deploy RESTful services and Web Services.
+		- App Service Mobile App
+			- Mobile App Backed service is deployed.
+			- Push notifications can be sent to mobile frontend.
+		- URL: https://[appservicename.azurewebsites.net
+		- Custom domain mapping
+		- Provides SLA of 99.9% on Availability
+		- App Service Plan.
+			- Defines the SKU (Capacity) + Location
+			- SKU (Plan)
+				- Free Plan
+					- No SLA  available
+					- Used for Testing purposes.
+					- No Custom domain mapping
+					- Shared infrastructure.
+				- Shared Plan
+					- No SLA
+					- Shared Infrastructure
+					- Custom Domain mapping supported.
+					- A minimal charge monthly.
+				- Basic (B1, B2) 
+					- SLA available
+					- Dedicated machine
+					- Custom domain mapping available
+					- Manual Scaling possible.
+					- Not recommended for production (uses a low machine)
+				- Standard
+					- Recommended for production
+					- All features of Basic included.
+					- Automatic scaling support.
+					- Staging slots support. (5 slots)
+					- Daily 10 times backup
+				- Premium
+					- More backup timing( 50 times in a day)
+					- Maximum 20 additional slots 
+				- ASE (App Service Environment)(Isolated)
+					- VM is created in an isolated network.
+	
+		- Deployment 
+			- Deploy from VS/VS Code
+			- Deployment Center
+				- FTP
+				- Github
+				- DropBox
+				- OneDrive
+		- Scale web apps
+			- Scale out - Horizontal scaling
+				- Increase the number of instances of the application.	
+				- Manual Scaling
+				- Automatic scaling - Scale based on some metric
+			- Scale Up - Vertical scaling
+				- Instance size is increased than the number
+				- Changing the App Service Plan
+		- Deployment slots
+			- Slots are created for testing, and staging environments.
+			- By default a production slot only available.
+			- We can created additional slots in Standard and Premium plans.
+			
+	- CosmosDB
+		- Database PaaS service.
+		- A multi-model, planet scale database that supports multiple database engines.
+			- Document Types
+				- DocumentDB (SQL API)
+				- MongoDB API
+			- Key-Value Pair
+				- Azure Table API
+			- Column-family 
+				- Cassandra
+			- Graph
+				- Gremlin
+		- It uses only SSD disk
+		- SLA - 99.9999999%
+			- Availability
+			- Durability
+			- Consistency
+			- Latency
+			
+		- CosmosDB Account
+			- Select DB model
+			- Database
+				- Collection/Containers
+					- Document/Data item
+		- Throughput
+			- Performance unit for a database and collection.
+			- RU - Request Unit
+			- 1 RU = One read of 1 KB data
+		- Multi-homing API
+		- Failover 
+			- Automatic failover.
+		- Consistency levels
+
+			
+		
+
+				
+
+		
 			
 			
 			
