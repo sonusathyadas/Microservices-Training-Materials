@@ -1,0 +1,1029 @@
+
+ECMAScript
+	- Also called as ES
+	- ES1, ES2, ES3, ES4, ES5, ES6 (ES2015). ES7(ES2016)
+	
+	- let keyword
+		- local scoped
+		
+		for(let i=0;i<10;i++)
+		{
+			let name="sonu";
+			//use variable i here
+		}
+		
+	- Class
+		- constructor
+		- member methods
+		- properties
+	- template strings
+		let message = `Hello friends this is sample text
+					  This is some text comes in middle.
+					  Hello how are you?
+					  This is second line of paragraph`;
+		let name="Sonu";
+		let age = 35;
+		let message = `My name is ${sonu} and I am ${age} years old`;
+							 
+	- Arrow functions
+		var sum = (x,y)=>x+y;
+		var doSomething= (x,y)=>{
+			//multiple lines of code here
+			return x+y;
+		};	
+		let result=sum(3,4);
+		
+	- rest and spread operators
+	
+Http
+	- Http methods
+		- GET - Get data from server
+		- POST - Posting data back to server. Create a new resource.
+		- PUT  - Update existing data. Replaced by a new entry.
+		- DELETE - Delete an existing entry.
+		- PATCH - Updating existing data. Update partially.
+	- Http Headers
+		- Every request and response have a set of Headers.
+			- Content-Type - Request- The type of data you are sending to server.
+			- Content-Type - Response- Data sent by the server.
+			- Accept - Reqeusting to server to send the response in specific type.
+				- MIME format.
+				- majortype/minortype
+					text - 
+						plain - text/plain
+						xml   - text/xml
+						json  - text/json
+						html  - text/html
+						javascript - text/javascript
+						css   - text/css
+					image
+						image/jpg
+						image/png
+						image/bmp						
+					audio
+						audio/mp3
+						audio/ogg
+						audio/wav
+						audio/midi
+					video
+						video/mp4
+						video/ogg
+						video/wmv
+					application
+			- Authorization : "Scheme Value"			
+				- Basic auth => "basic 8438dfhjgdgdg"
+				- Token auth -> "Bearer tokenvalue"
+			
+	- Http Status Codes
+		- 2xx
+			- 200 OK
+			- 201 Created
+			- 204 No Content			
+		- 3xx
+			- Redirection
+			
+		- 4xx - Client Error
+			- 400 - Bad Request
+			- 401 - Unauthorized
+			- 403 - Access Denied
+			- 404 - not found
+		- 5xx - Server Error
+			- 500 - Internal server error
+			- Timeout
+Bootstrap
+	- Responsive UI
+	- Get Bootstrap using
+		- Source files
+		- CDN urls
+		- package managers - npm, nuget, yarn, bower etc.
+		
+	- Dependencies and DevDependencies
+		- npm install --save <package1@version> <package2> <package3> 
+			npm i -S package[@version]
+		- npm install --save-dev <package1@version> <package2> <package3> 
+			npm i -D package[@version]
+		
+TypeScript
+	- What is TypeScript?
+		- Is a superset of JavaScript
+		- It is compiled language 
+		- It is typesafe
+		- Fully compatible to ES6 features.
+		- File extension is .ts
+		- When compiled using 'tsc' it generate the JS files.
+		- Control the compiler configurations using tsconfig.json
+			- set the target version of JS in tsconfig.json.
+			- set whether source map file is required or not.
+		- Install typescript globally
+			npm install -g typescript
+		
+	- Module
+		- A typescript file that contains a set of exported members
+		- A exported member can be class, interface, function, constant.
+		- Export the members using export keyword and import them into 
+			another module using import keyword.
+		- Barrel is a way of importing modules into another files.
+		- A barrel use an index.ts file that exports a set of modules from a directory
+		and it can be imported using a single line. 
+	
+Angular
+	- What is SPA?
+	- How It works?
+	- Angular Cli
+		- npm install -g @angular/cli
+		- ng --version
+		- Use to create, test, run , build and deploy the project.
+	- Create the project
+		ng new <project-name>
+	- Angular module	
+		- it encapsulates the 
+			- components - UI for the application 
+				- home.component.ts
+				- home.component.html
+				- home.component.css
+				- home.component.spec.ts
+			- directives
+				- Used to add/remove behaviour of a DOM element.
+				- Used to change the appearance 
+			- pipes
+				- Used to format the data while printing in template file. 
+			- services
+				- These are injectable objects (Angular DI sytem creates and manages the service object)
+				- Reuable function codes.
+			- import submodules(builtin/custom)
+		- A module is a typescript class decorated with @NgModule()
+	- Run the application
+		ng serve -o 
+		ng s -o
+	- Creating components
+		ng generate component <components/nameofcomponent>
+		ng g c components/home
+	- Directives
+		- Structural directives
+			- starts with a * symbol.
+			- *ngFor, *ngIf, *ngSwitch
+		- Attribute directives
+		- Components
+		
+	- Bindings
+		- Interpolation - {{variable}}
+		- Property binding - input binding - []
+			eg: [value]="variable"
+		- Event binding - Output binding - ()
+			eg: (click)="show()"
+		- Two way binding -  [( )]
+	- Pipes
+		- Pipes are used for formating data in templates.
+		- pipes are applied using the pipe symbol - |
+		- Left side of the pipesymbol is the input value (Arg) for the pipe function.
+			eg: {{ value|pipename[:args] }}
+			eg: {{ name|uppercase}}
+				{{ today|date:'dd-MMM-yyyy'}}
+				{{ salary|currency:'INR':true:'5.2-3'}}
+		- Built-in pipes
+			- uppercase
+			- lowercase
+			- titlecase
+			- json
+			- number
+			- currency
+			- date
+			- async
+		- Custom pipes
+			- ng generate pipe [pipes/pipename]
+			- ng g p [pipes/pipename]
+		- Create project	
+			ng new <projectname> [options]
+			ng new eshop-spa --minimal --skip-tests
+		- Create models
+			ng g interface models/product
+			ng g interface models/category
+		- Create services
+			ng generate service services/servciename
+			ng g s services/product
+				- product.service.ts
+			- Services can be registered glboally and locally.
+			- Register globally in AppModule provider section. 
+	
+	- Observables and Promises
+		- Used for Asynchronous programming.
+		- Promises	
+			- It is a builtin feature of JavaScript
+			- USes request-response pattern			
+		- Observables
+			- Used for real-time data updations
+			- follows publish subscribe pattern
+			- Subscribe for the data once and it updates the changes utill you unsubscribe.
+			- Need to use RxJs library (ReactiveX ) 
+			
+	- Forms in Angular
+		- Two approaches for form creation: Template driven forms and Reactive Forms
+		- You can do Forms validation and submission.
+		- Template driven forms
+			- Import FormsModule into AppModule from '@angular/forms' package.
+			- We use HTML 5 valdiation attributes.
+			- Need to use ngModel directive for two way data binding.
+			- Every form control must have a name attribute if we use ngModel 
+			- A reference variable can also be used to access the form control.
+			- Every control have some properties that defines the state.
+				valid - invalid
+				dirty - pristine
+				touched - untouched
+			- Forms also have valid and invalid properties.
+		- Reactive Forms
+			- We use ReactiveFormsModule from '@angular/forms'
+			- We use services like FormBuilder to create a FormGroup
+			- A formGroup is a class used to create model for the form.
+			- We need to use the directives like formGroup and formControlName
+			- Valdiations are done in the model object (FormGroup) using Valdiations class.
+			- Form and control properties are applicable here also.
+Json Server
+	- npm install -g json-server
+	- json-server --port 3400 --watch eshop.json
+	
+Http Services
+	- We need to use the HttpClientModule that provides the HttpClient service.
+	- HttpClientModule is provided by @angular/common/http package.
+	- It allows you to connect and fetch data from backend API server.
+	- It provides GET, POST, PUT, DELETE ad PATCH methods
+	- These methods are generic methods and it returns observable objects
+	
+Lazy Loading
+
+	ng generate module customers --route customer-route --module app.module
+	
+	ng g c customers/components/profile
+	
+	ng g c customers/components/orders
+	
+		http://localhost:4200/customers  -> Home page of customer
+		http://localhost:4200/customers/profile  -> Profile page of customer
+		http://localhost:4200/customers/orders
+	
+MongoDB
+-----------
+	- Is a unstructured, NoSQL database.
+	- Stores the data in JSON format.
+	- Unstructured Data 
+		- Documents (JSON) - MongoDB, SQL API(DocumentDB)
+		- Key-Value Pair   - Azure Table API, Redis Database
+		- Graph	  		   - Gremlin, Neo4j
+		- Column family    - Cassandra
+	- MongoDB is open-source driven by MongoDB community.
+	- Onpremise NoSQL Database that follows documents data storage.
+	- Supports data indexing and partitioning (Sharding) for better performance.
+	- Highly secured
+	- It use BSON (Binary JSON) as the data storage format and JavaScript as procedure and fucntions.
+Installing MongoDB
+	- Install Binary file (Installable), Run as a windows Service.
+	- Portable executable is available, Download zip and extract. Need to run explicitly.
+	- In the bin folder we can see mongodb server and client.
+		- Server      - mongod.exe
+		- Client Tool - mongo.exe (CUI)
+		- GUI Client  - VS Code CosmosDB plugin, NoSQL Booster for MongoDB, MongoCompass
+		- Migration tools
+			- mongoexport.exe
+			- mongoimport.exe
+			- mongodump.exe
+			- mongorestore.exe
+			
+	- mongodb://[hostname/ipaddress]:27017
+	- mongodb://localhost:27017
+	
+	Relational Db vs NoSQL
+	database 	- database
+	Table		- Collection/Container
+	Row			- Document
+	Columns		- Attributes
+	- Every mongodb document have a unique identifier with the name _id.
+	- A unique identifier is a GUID objectId.
+	- MongoDB aggregation
+		- Combine data from multiple documents.
+		- 3 types of aggregation
+			- Single purpose aggregation functions.
+				count()
+				distinct()
+			- Aggregation pipeline.
+				- An array of operation that executes one after another.
+				- Result of one operation is the input of next operation.
+				- We use operators like $match, $project, $group, $sort, $unwind etc
+			- Map-Reduce Function (JavaScript code)
+	
+.NET Core
+-------------
+	- .NET Core Versions
+		- Version 1.0
+		- Version 1.1
+		- Version 2.0
+		- Version 2.1
+		- Version 2.2 (LTS)
+		- Version 3.0 (Current)
+	- .NET Core 
+		- Light weight
+		- Cross-platform support
+		- CLI support 
+		- Support various IDEs.
+		- Support developing Console, ASP.NET (MVC, Web API, SPA), Class Lib, UWP
+			- No Web forms
+			- No WPF and Winforms
+			- No WCF and WF
+			- In 3.0 version, it supports wpf 
+		- Built-in DI system.
+			- We can replace Built-in DI system with 3rd party DI system (Autofac).
+		- Tag Helpers are used instead of HTML helpers
+			- HTML helpers are not replaced.
+			<a action="Index" controller="Home" route-params="" area="" class="nav-item">Click Me</a>
+		- Razor page in .NET Core 2.0
+			Blazor in used in 3.0 version
+		- Configuration is JSON based.
+			- appSettings.json file.
+			- .NET Core can read config parameters from:
+				- Environment variables.
+				- Command line args
+				- JSON files.
+				- XML files
+				- INI files
+				- Key Vault 
+				- KeyPerFile
+		- Completely compatible to cloud deployment.
+
+Application templates	
+	- Console
+	- ASP.NET
+		- MVC
+		- Web API
+		- SPA
+	- Class library
+		- Standard libraries can be used with .NET Framework and .NET Core
+	- UWP
+	
+ASP.NET MVC
+	- .NET Core Web applications uses a builtin web server called Kestral.
+	- Kestral is a cross-platform lightweight web server.
+	
+	- Program.CS
+		- Contains a main method that starts the Host for MVC app.
+		- Creates and Starts a Web Host object.
+		- Web Host is resposible to host the application code.
+		- Type of Host in .NET Core
+			- WebHost (ASP.NET MVC, Web API)
+			- Generic Host - No Http request pipeline, used for Web Jobs
+	- Startup.cs
+		- Configrue the services for the application.
+			- ConfigureServices() method is used to configure the services required in the app.
+		- Creates a request pipeline for handling requests.
+			- Configure() method is used to configure the request pipeline.
+			- Request pipeline defines how to handle the Http Reqeust.
+			- It contains a set of middleware fucntions that process the reqeust and response.
+	- appsettings.json
+		- Configuration file that contains the appsettings and connection strings.
+	- wwwroot
+		- This folder is the default static files folder.
+	- .csproj file
+		- contains the framework version and package informations.
+		- Metapackage  - Microsoft.AspNetCore.App
+			- When developing MVC and API apps we need to use a bunch of dependencies.
+			- These packages are bundled into a virtual package(metapackage)
+			- Metapackage name is Microsoft.AspNetCore.App
+	- Controllers
+		- MVC controller and Web API controllers are created here.
+	- Models
+		- Database models and View Models are created here.
+	- Views
+		- All html templates(cshtml) are created here.
+		- _ViewImports.cshtml contains the common import statements required for views.
+		
+Middleware
+	- Can be cared using 
+		- Use() method
+			- Used to created custom middleware.
+			- It takes a function as arg, that has two params - httpcontext, ReqeustDelegate
+		- Run() method
+			- Request terminator ( Short-circuit middleware)
+		- Map() method
+			- Used to execute a pipline based on a route template.
+		- MapWhen() method
+	- Built-in middleware
+		- UseDeveloperExceptionPage()
+			- Used to display detailed error page while running in Development.
+			- Apply this middleware conditionally, while running in Development.
+		- UseExceptionHandler()
+			- Redirect the error responses to an error page.
+			- It can be used to send custom error details.
+		- UseHsts()
+			- Enable HTTP Strict Transport Security Protocol
+		- UseHttpsRedirection()
+			- Automatically redirects all HTTP requests to HTTPS.
+		- UseCookiePolicy()
+			- Adds one layer of security for cookie usage.
+			- Asks the user to allow or deny cookie creation.
+		- UseMvc() OR UseMvcWithDefaultRoute()
+			- Executes the Controller actions based on the route requested.
+			- Checks the Route Table and decides which controller and action need to be executed.
+			- Routing Url templates can be defined in the middleware.
+			- UseMvcWithDefaultRoute() applies a middleware with default route template.
+			- UseMvc() applies a routing middleware that allows custom routing template.
+		- UseStaticFiles()
+			- Is required to server the static files for the application.
+			- Default static file folder is wwwroot.
+			- This can be used multiple times in a request pipeline.
+			- Use parameters to define static file directories and options other than wwwroot.
+		- UseDirectoryBrowser()
+			- Enable directory browsing for a directory.
+		- UseDefaultFiles()
+			- Serve the default file when root URL is reqeusted.
+			- Can configure custom default documents also.
+		- UseFileServer()
+			- Is the combination of StaticFiles, DefaultDocuments and Directorybrowsing.
+	
+Services
+	- Services are reusable codes in an application.
+	- Services need to be registed in ConfigureServices method of Startup class.
+	- .NET Core DI System creates and inject the instance of a service whereever is required.
+	- IoC container will take care of the object life time and scope.
+	- Services are registered in the ServicesCollection object (services)
+	- Services can be registered with the following scopes and life time:
+		- Singleton
+			- A single instance of service is created and maintained till the end of application.
+			- services.AddSingleton() method to register a service as singleton.
+		- Scoped
+			- A single instance per request scope.			
+		- Transient
+			- It creates a new instance everytime whereever it is requested.
+			- Short lived objects.
+	- Builtin DI system can be replaced by third party IoC containers (eg: Autofac)
+
+Configuration Sources
+	- Configuration means the parameters passed to the application for exectuion.
+	- Such as application settings, Connection Strings etc
+	- Passed as Key-Value pair format.
+	- We have many configuration sources in .NET Core App:
+		- Command Line Args
+		- Environment variables
+		- In-Memory collections
+		- AppSettings.json (JSON files)
+		- XML files
+		- INI files
+		- Key Per File 
+		- Azure Key Vault
+	- When the Default WebHost Builder created a Web Host, it comes with some preconfigured
+	 configuration sources such as Cmd Line args, Env variables and Appsettings.json.
+
+Caching
+
+Statemanagement
+	- Query Strings
+	- Hidden fields
+	- Cookies
+	- TempData
+	- Session
+	- DI
+	- Cache
+	- HttpContext.Items
+	
+.NET Core App Deployment Types
+	- FDD - Framework Dependent Deployment.
+		- dotnet app.dll
+		- Shared libraries and framework are not part of app deployment.
+		- Runtime must be installed in machine
+		- Application can be run using "dotnet myapp.dll" command
+	- SCD - Self-Contained Deployment
+		- Runtime is also published into the deployment folder.
+		- No runtime required in the machine. 
+		- Specify the RID in the .csproj file.
+			<RuntimeIdentifiers>win10-x64</RuntimeIdentifiers>
+		- Publish using the following command.
+			syntax: dotnet publish -c Release -r <rid-value>
+			example: dotnet publish -c Release -r win10-x64
+	- FDE - Framework Dependent Executables
+		- Shared libraries and framework are not part of app deployment.
+		- Runtime must be installed in machine
+		- It creates a self executable exe file in the publish folder. 
+		- It can be run directly by command prompt or double click.
+		
+Entity Framework Core	
+	- Entity classes and DbContext class.
+	- Configure the DbContext Service in ConfigureServices method.
+	- For production we use SqlServer as database.
+	- Database sources:
+		- In-memory
+		- SqlServer
+	- Microsoft.EntityframeworkCore namespace.
+	
+---------------------------------------------------
+
+Developing Microservices
+----------------------
+	- What is monolithic architecture?
+		- All application modules are part of single project
+		- Features:	
+			- Old and easy approaches
+			- No headache of implementing communication
+			- Easy to deploy and develop.
+			- Tightly coupled
+			- Choice of languages and frameworks are less.
+			- Every time we need to redeploy the app when a change comes in any one module.
+			- Scaling of individual modules not possible.
+			- limitted/complex polyglot persistance
+		- SOA 
+			- Create each module of app is created as individually deployable projects
+			- We use a communication channel which is used by all modules. 
+				- ESB - Enterprise Service Bus (ESB Mule)
+			- All modules shares a common database.
+			
+		- Microservices
+			- Indivually developed, tested and deployed.
+			- They never share the database.
+			- Any service can communicate to any other service directly.
+			- Every service is exposing a well defiened end point - REST endpoint
+			- Communication pattersns:
+				- HTTP based - REST
+				- Message based - Queues
+	- Microservices 
+		- Communication patterns:
+			- REST based (HTTP)
+				- Nearly Real time 
+				- Synchrnous in nature
+				- One to one communication.
+				- For every request there is a response received.
+			- Queue based
+				- Not real time communication.
+				- Asynchronous in nature.
+				- One to many and one to one are supported
+				- No response required for message based 
+			- Event Based
+				- Nearly real time 
+				- Asynchronous
+				- One way communication
+				- No response received .
+				- One or more event handlers can catch the event data.
+		- Choice of languages and frameworks
+		- Database not shared 
+		- Independetly developed, deployed and tested.
+		- Independetly scalable services.
+	- .NET Core Web API	
+		- Every controller is inheriting from ControllerBase
+		- ControllerBase is a base class for MVC controller and Web API controller
+		- Every controller is decorated with [ApiController] attribute.
+		- No RoutePrefix for controller, Route() is used instead for defining prefix.
+		- No Route() attribute required for action, Http Method selector attribute
+		can define the template and Route name.
+		- Method return type:
+			- Void 
+			- Specific types such as string, boolen, integer etc
+			- HttpResponseMessage
+			- ActionResult<T> - Recommended
+			
+	- CORS Policies
+		- Cross Origin Resource Sharing 
+		- Defines a set of rules that tells the API to allow certain domain, methods and headers.		
+	- Open API Documentation
+		- For Web services we get service documentation using WSDL file.
+		- For RESTful services we can use Open API specification doc (Swagger doc).
+		- We can use Swashbucle.AspNetCore package to configure the Swagger Doc.
+		
+	- Enable Xml serializer
+		- Use the AddXmlDataContactSerilizerFormatters() method with services.AddMvc()		
+	- Authentication for Web API
+		- No Login GUI is provided for APIs
+		- Use tokens for authentication. (OAuth Token, JWT Token)
+		- A token is an encrypted text that contains the audience (api), issuer(identity provider), 
+		  claims (roles and other info), expiry time, Algorithm and secret code 
+	- Custom formatters
+	
+RabbitMQ
+	- Communication patterns:
+		- RESTful services - Synchrnous
+		- Message Based - Asynchronous, one to Many, Not real-time
+		- Event driven architecture - Asynchronous, one to many, real-time
+		
+	- Messaging
+		- Two applications can communicate asynchronously.
+		- A small text message is sent to a Message Broker. 
+		- A message broker is an agent that provides message based communication.
+			- Features:
+				- Provides storage for messages.
+				- Different message delivery patterns 
+					- Direct - One to one
+					- Topic - Pattern based (multicast)
+					- Fanout - Broadcasting to everyone
+				- Deliver message when recepient comes online.
+				- TTL - Time to Live - Undelivered messages can be moved to Dead letter queue.
+		- Azure Servcie Bus, Azure Storage Queue, RabbitMQ 		
+		rabbitmq-plugins enable rabbitmq_management
+		
+Docker
+	- Images and containers
+		- Containerized application is called image.
+		- Image is used to create instances of application
+		- the running instance is called container.
+		- Every container have a unique name and ID
+		- Every image also have unique name and ID
+		- Image name must be in <imagename>:<tag> format
+			- Tag is a version identifier or unique value that can be used to identify image.
+			eg: eshop-web:1.0
+				eshop-web:2.2
+				eshop-web:3.0
+		- If tag name is not supplied at the time of image creation, it will be assigned 
+			to 'latest' by default.
+			eg: eshop-web:latest
+		- An image contains a set of layers.
+			Every layer has unique iD
+	- Repositories (registries)
+		- Is a storage place for code and data.
+		- A docker image repository is a place to store images.
+		- Repositories can be:
+			Local
+				- Store locally in Dev machine.
+				- Local repo images name can be anything, without repo name
+				- local image=> calculator:latest
+			Cloud 
+				- Publiclly accessible repository.
+				- Anyone can access it from here.
+				- Two types:
+					- Public 
+						- When uploading into a public repo it is accessible to all without any credentials.
+						- DockerHub is an example for Public repo
+						- sonusathyadas/calculator:latest is uploaded by sonusathyadas
+						- chandan/calculator:latest uploaded by chandan.
+						= docker pull sonusathyadas/calculator:latest
+					- Private
+						- Secured repository
+						- It needs credentials to push and pull images.
+						- Azure Container Registry (ACR), Elastic Container Registry (ECR)
+	
+			
+	- Docker commands
+		docker images
+	- List all images located in local repo
+	
+	docker run -p host-port:container-port -d --name nameofcontainer --rm imagename
+	- --name = used to assign a name for the running container. If not used docker will asign
+	a random name to the container.
+	- -d = detached mode. 
+	- --rm = remove the container when stoped.
+	- -p  = map host machine port number to container app port.
+	
+	docker ps
+		List all running containers
+	
+	docker stop <containerID/container name>
+		- STop a running container
+	
+	docker ps -a
+		- List all running and stopped containers
+	
+	docker rm <containerID/name>
+		- Remove the stopped containers
+	
+	docker rm -f <containerID/name>
+		- Stop and remove running containers
+
+	Building images
+		- A set of commands need to be executed
+		- Commands can be written into a fiel called "Dockerfile"
+		- The instruction to build an image may start with the following keywords:
+			- FROM <baseimagename>
+				- Specify the base image for our application.
+				- eg: FROM nginx:latest
+				
+			- LABEL <key>=<value>
+				- USed to add meta information for image, such as author info, version, company etc
+				- LABEL author "Sonu Sathyadas"
+				- LABEL version 1.2.0
+			
+			- RUN <cmd> <args>
+				- Execute a command while building the image. 
+				- RUN dotnet restore && dotnet build && dotnet publish 
+			- WORKDIR <dir_path>
+				- Set the curret working directory inside the container.
+				= WORKDIR /usr/app
+				- WORKDIR C:\Users\myapp
+				
+			- COPY [-from <stage>]<source files/pattern> <dest_path>
+				- Copy files from local machine to docker image path.
+				- COPY ./*.jpg  /usr/app/		
+				
+			- ENV <envvariablename> <value>
+				- Used to set the environment variable value for the app.
+				
+			- EXPOSE <port-number>
+				- Specify the port number to opened
+				
+			- CMD <command> <args>
+				- Execute commands when the container is created.
+				- When image is running.
+				
+			- ENTRYPOINT <cmd> <args>
+				- Execute commands when the container is created.
+				- When image is running.
+				- It is used to specify the starting command of application. 
+			
+	- Building docker images
+		- docker build -t <imagename:tag> <dockerfilepath>
+		
+	- Containerizing .NET Core apps
+		- Download SDK and runtime images
+			docker pull mcr.microsoft.com/dotnet/core/aspnet:2.2.7-bionic
+			docker pull mcr.microsoft.com/dotnet/core/sdk:2.2.402-bionic
+		
+	- Remove docker images
+		docker rmi <imageid/name> 
+		docker rmi [-f] <imageid/name>
+		
+
+On-premise 
+	- Infrastructure cost - Compute, storage and network
+	- scaling
+		- Scale up - increase the size of existing instance.
+		- Scale out - increase the number of instances
+	- backup
+		- Explicit backup policies need tobe implemented.
+	- Security
+		- Security for application and network need to be configured explicitly.
+	- monitoring 
+		- configure monitoring services
+	- complaince to specifications
+
+Cloud
+	- No need to buy infrastructure - No Infra Cost.
+	- Scaling of app instances happens quickly.
+	- Backup - Inbuilt backup policies implemented.
+	- All levels security is enabled
+	- Monitoing is by default enabled.
+	- complaince - All kinds of apps can be deployed.
+	- Pay As you Go Model
+	- New frameworks and technologies are adopted .
+	
+Type of Clouds
+	- Private cloud
+		- Cloud infrastructure for a single customer.
+		- Cloud vendor provide service only for a single customer.		
+	- Public Cloud
+		- Any body can register and create an account.
+		- You can buy the subscription and start creating services.
+		- Multiple users share the same infrastructure.
+		- Cheaper compared to PRivate cloud.
+	- Hybrid cloud
+		- Combination of public and private cloud.
+		
+Cloud Models
+	- Cloud services include DB services, compute services, messaging services, serverless servcies
+		Storage services, Identity services, AI services, analytics servies and more
+	
+	- Three cloud service models
+		- IaaS - Infrastructure as a Service
+			- Cloud vendor offers infra services like compute (CPU, RAM), Storage, Network 
+			- You can set up your own app infrastructure using the IaaS servcies.
+			- This services are used by Admins (IT Pros)
+		- PaaS - Platform as a Service
+			- This is used by developers
+			- Developers will get a preconfigured platform where server, database and security is already configured.
+		- SaaS - Software as a Service.
+			- It is used by end users 
+			- Software is also provided by the cloud vendor.
+			- End user need to login and start using the application.
+		
+Azure Cloud
+	- Provides IaaS and PaaS services.
+	- Azure is having Datacenters in more than 50 regions. 
+	- Azure Subscription
+		- Free subscription
+			- Free trail - 13000Rs / 200$ for a month.
+			- MSDN subscription
+			- Azure Pass
+		- Pay As Yo Go	- Monthly bill
+		- Coportate accounts
+		
+	- Connecting Azure services
+		- Web Portal (https://portal.azure.com)
+		- Command line options
+			- PowerShell
+				- Powershell for Azure (Only for Windows) - AureRm Module
+				- PowerShell Core (Cross platform) - Az module
+			- Azure CLI - Cross platform 
+		- Azure SDK for Programming languages
+		- ARM templates (JSON file - declarative model) 
+		- REST Api
+	- Azure Resource Manager Model (ARM)
+		- Resource Group
+			- Grouping resources 
+			- Group wise deployment, Group deletion
+			- Assign permision for group of resouces (RBAC)
+			- Group wise billing
+	- ARM template
+		- JSON file that contains the list of resources need to be deployed.
+		- Sections:
+			- Parameters
+				- Any dynamic value accepeted from user at the time of deployment.
+			- Variables
+				- Used to store intermediate and reusable values.
+			- Resources
+				- The Azure resources such as VM, VNET , Storage acc, DB etc 
+			- Output
+				- Output need to be printed in the screen after the template execution.
+		
+	- Storage Account
+		- PaaS servcie for storing unstructured data/files in Azure.
+		- One Storage account can store maximum 500TB data.
+		- Maximum of 200 storage accounts per subscription.
+		- Every storage account has a unique name that is globally unique.
+			https://mystorageacc.blob.core.windows.net/
+		- A Storage account provides four types of storage options:
+			- Blob (Containers)
+				- Unstructured blob files such as audio, video, image, text files, documents etc
+			- File Share
+				- Used for storing unstructured files 
+				- It is possible to map a file share as a network drive in your machine. 
+				- It uses SMB 3.0 protocol				
+			- Queue
+				- It is used for message based communication between apps.
+				- One message max size is 64 Kb
+				- Message max TTL is 7 days.
+			- Table storage
+				- Key-value pair unstructured data storage (NoSQL)
+		- Replication 
+			- It always takes minimum 2 copies of storage account data.
+			- SLA of 99.99  on Availability
+			- Methods:
+				- LRS - Locally redundant storage
+				- ZRS - Zone Redundant storage
+				- GRS - Geo Redundant storage
+				- RA-GRS - Read Access - Geo Redundant storage
+				
+		- Kind
+			- Storage V1
+				- All four services are available
+				- Storage media as Standard/Premium
+				- No option for selecting Hot/Cool
+			- Storage V2
+				- Blob + Storage V1
+				- All service types are supported
+				- Hot and Cool is available
+				- Standard and Premium is available
+			- Blob
+				- Only blob type is allowed
+				- Hot and Cool is available
+				- No Premium support 
+		- Access tier
+			- Hot
+			- Cool
+			
+		- Media
+			- Standard (HDD)
+			- Premium  (SSD)
+		- Security 
+			- Access Keys
+				- Key1 and Key 2 is available
+				- Both the keys have admin privillages.
+			- SAS Tokens
+				- Shared Access Singnature 
+				- Granular pemission over the storage account
+			
+		- Blobs
+			- Page Blobs
+			- Block blobs 
+			- Append Blobs
+		- Queue
+			- Asynchronous message based communication.
+			- Message max size is 64 Kb
+			- One message max TTL is 7 Days
+		- Table
+			- Unstructured Key-Value storage.
+			- Data is stored as Entities.
+			- Every entity has a row key and a partition Key.
+			- An entity can have max of 256 keys
+			- For every entity there will 3 built-in keys- Row key, partition key and timestamp.
+			- Row key and partition key is used to uniquly identify a record
+		- File Share
+			- Is used to create Network file shares that can be mapped to your machine.
+			- It is used as an extended storage for your machine.
+			- It used the Blob storage concept behind .
+			- It used the SMB 3.0 protocol that provides network mapping facility.
+	
+	- Azure App Service
+		- Is a compute service.
+		- Is a PaaS service used to deploy Web, API and Mobile Apps.
+		- App Service Web App
+			- Is used to deploy web applications such as MVC, Web Forms etc.
+		- App Service API App
+			- used to deploy RESTful services and Web Services.
+		- App Service Mobile App
+			- Mobile App Backed service is deployed.
+			- Push notifications can be sent to mobile frontend.
+		- URL: https://[appservicename.azurewebsites.net
+		- Custom domain mapping
+		- Provides SLA of 99.9% on Availability
+		- App Service Plan.
+			- Defines the SKU (Capacity) + Location
+			- SKU (Plan)
+				- Free Plan
+					- No SLA  available
+					- Used for Testing purposes.
+					- No Custom domain mapping
+					- Shared infrastructure.
+				- Shared Plan
+					- No SLA
+					- Shared Infrastructure
+					- Custom Domain mapping supported.
+					- A minimal charge monthly.
+				- Basic (B1, B2) 
+					- SLA available
+					- Dedicated machine
+					- Custom domain mapping available
+					- Manual Scaling possible.
+					- Not recommended for production (uses a low machine)
+				- Standard
+					- Recommended for production
+					- All features of Basic included.
+					- Automatic scaling support.
+					- Staging slots support. (5 slots)
+					- Daily 10 times backup
+				- Premium
+					- More backup timing( 50 times in a day)
+					- Maximum 20 additional slots 
+				- ASE (App Service Environment)(Isolated)
+					- VM is created in an isolated network.
+	
+		- Deployment 
+			- Deploy from VS/VS Code
+			- Deployment Center
+				- FTP
+				- Github
+				- DropBox
+				- OneDrive
+		- Scale web apps
+			- Scale out - Horizontal scaling
+				- Increase the number of instances of the application.	
+				- Manual Scaling
+				- Automatic scaling - Scale based on some metric
+			- Scale Up - Vertical scaling
+				- Instance size is increased than the number
+				- Changing the App Service Plan
+		- Deployment slots
+			- Slots are created for testing, and staging environments.
+			- By default a production slot only available.
+			- We can created additional slots in Standard and Premium plans.
+			
+	- CosmosDB
+		- Database PaaS service.
+		- A multi-model, planet scale database that supports multiple database engines.
+			- Document Types
+				- DocumentDB (SQL API)
+				- MongoDB API
+			- Key-Value Pair
+				- Azure Table API
+			- Column-family 
+				- Cassandra
+			- Graph
+				- Gremlin
+		- It uses only SSD disk
+		- SLA - 99.9999999%
+			- Availability
+			- Durability
+			- Consistency
+			- Latency
+			
+		- CosmosDB Account
+			- Select DB model
+			- Database
+				- Collection/Containers
+					- Document/Data item
+		- Throughput
+			- Performance unit for a database and collection.
+			- RU - Request Unit
+			- 1 RU = One read of 1 KB data
+		- Multi-homing API
+		- Failover 
+			- Automatic failover.
+		- Consistency levels
+
+			
+		
+
+				
+
+		
+			
+			
+			
+			
+			
+			
+			
+			
+			
+	
+
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+			
