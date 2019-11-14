@@ -730,6 +730,13 @@ Docker
 	- Remove docker images
 		docker rmi <imageid/name> 
 		docker rmi [-f] <imageid/name>
+	
+	- Multi-stage building 
+		- create dockerfile and .dockerignore file
+		- Build image using "docker build -t <imagename> ."
+		- run the image using "docker run -p hostport:containerport <imagename>"
+		
+		
 		
 
 On-premise 
@@ -998,10 +1005,193 @@ Azure Cloud
 			- Automatic failover.
 		- Consistency levels
 
-			
-		
-
+	AKS
+		- Azure Kubernetes Service
+		- Orchestrtors
+			- Which do monitoring and management of cluster 
+			- Automatic patching
+			- automatic upgrade
+			- Disaster recorvery
+			- Automatic scaling
+			- Securing applications
+		- User can give instruction to the cluster orchestrator
+		- Orchestror recives instruction from user and executes within cluster.
+		- Orchestrors (Clustered Services) in Azure
+			- AKS
+				- Master - Worker node architecture
+				- Master machine is running the orchestrator
+				- Master does not runs the client applications.
+				- Client apps are running in worker machines.
+				- Master machine contains system services such as clustermanager, storage service, network service etc
+				- AKS cluster can run only containerized services. (It is container cluster)
+				- We can deploy microservices and monolithic apps
+			- SF - Service Fabric
+				- It is a microservices cluster.
+				- Application can be containerized or non-containerized.
+				- It can deploy apps that is developed using Service Fabric SDK.
+				- In SF Cluster there is no master, all machines are worker nodes.
+				- Orchestrator name is Service Fabric.
 				
+		- Container clusters
+			- Kubernetes Cluster - Orchestrator name is Kubernetes (K8S)
+			- Docker Swarm cluster - Orchestrator is Docker Swarm			
+			- DC/OS Cluster - Orchestrator name is DC/OS
+			
+	- Kubernetes is the Orchestrator running in Cluster.
+	- Kubernetes CLI (kubectl.exe)
+	- Install kubectl using "az aks install-cli"
+	- Kubernetes Service types
+		- LoadBalancer 
+			- Service with Public IP and Private IP
+		- Cluster IP
+			- Service Without Public IP 
+				
+	API Gateway Management 
+		- Also called APIM 
+		- Components
+			- Publisher Portal
+				- API Developer(Publisher) is configuring policies.
+				- Policy is the set of configuration done on APIs
+				- Azure Portal itself is used as Publisher Portal
+			- Gateway
+				- API configuration are done in Gateway.
+				- Monitoing is done in gateway.
+				- Gateway receives the reqeust from the Client and forward it to API.
+				- Gateway forward the responses sent by the API to the client.
+			- Developer portal
+				- API consumers (client app developers) subscribe for the APIs
+				- Once subscribed they will get a subscription key.
+				- Key must be sent to API gateway along with request in headers.
+				- Header Ocp-Apim-Subscription-Key is used to send the key.
+				
+		- Products, API and Operations
+		- Policies
+			- BackendUrl policy
+			- mocking
+			- reqeust limit by key
+			- ip filter
+			- set header
+			- cors
+			- find and replace
+			
+	- Logic Apps
+		- It is a PaaS service used for application integration.
+		- You can integrate multiple SaaS solution in a single workflow.
+		- Used to create a workflow
+		- A workflow contains one trigger and mutiple actions.
+		- A Logic App uses Connectors to connect to the SaaS solutions.
+		- Types of triggers
+			- Push triggers
+				- HttpTrigger
+			- Pull triggers
+				- Mail connectors
+			- Recurring triggers
+				- Timer trigger
+
+	- ACI - Azure Container Instance
+		- This is a serverles computing service.
+		- Container deployment options in Azure
+			- Web App for Containers 
+				- App Service plan is created.(Pre provision resources)
+				- One app per service. (Single container deployment)
+			- AKS
+				- Cluster based deployment.
+				- Multiple apps within the cluster service.
+				- Orchestrator required - Kubernetes
+			- Service Fabric
+				- Cluster based deployment.
+				- Only for microservices.
+				- Contaienrized apps need to deployed as SF project.
+			- ACI - Azure Container Instances
+				- Serverless architecture
+				- No need to provision any resource before deployment.
+				- Single container deployment.
+		- Try https://aksworkshop.io/ for Virtual nodes demo
+		
+	- Azure Functions App
+		- Serverless computing solution.
+		- A function starts executing with a trigger. 
+			- Timer Trigger
+			- Http Trigger
+			- Blob Trigger
+			- Queue Trigger
+		- A function app is a piece of code that performs a single operation.
+		- We need to write the code in C#, F#, Js, PHP, Python, Java etc.
+		- Bindings	
+			- Input bindings
+			- Output bindings
+			- Trigger Binding ( A type of Input binding)
+		- Hosting plan	
+			- Consumption plan
+			- AppService Plan
+
+		- Function App and Function
+			- Fucntion is a piece of code that does an atomic task.
+			- Function App contains one or more functions.
+			- Two versions of FunctionApp - V1 and V2.
+		- Develop functions locally using Azure Function Cli
+			- npm i -g azure-functions-core-tools
+			
+	- DevOps
+		- Development and Operations.
+		- SDLC 
+			- Requirement analysis
+				- Collect client requirements
+				- Prioritise jobs
+				- Assigning task to Developers and Designers
+			- Designing phase
+				- ER Diagrams
+				- UML diagrams
+			- Development	
+				- Unit testing by developers
+			- Testing 
+				- Integration testing
+				- System testing
+				- Load testing 
+				- UAT
+				- Bug reporting/Defect identification
+				- Modification
+			- Deployment 
+			
+		- DevOps
+			- Prioritise jobs - Top managers/Project managers
+			- Job Allocation - Top managers/Project managers
+			- Code management - Developers
+			- Testing -Testers
+			- Automated build and deployment - Deployment engineers. (CI/CD)
+		- Pipelines
+			- Build pipeline (CI)
+			- Release pipeline (CD- Continues Delivery/Deployment)
+		
+	- Event Grid
+		- Communication Patterns
+			- RESTful services
+				- Sender and receiver must be online.
+				- Request -response pattern
+				- Synchrnous in nature
+				- Real time communication
+				- One to one communication
+				- Protocol is HTTP
+			- Message communication
+				- Messages are send by the sender to a Queue, and receiver receives the message from Queue.
+				- Message broker service is used such as RabbitMQ and Azure Storage Queue, Serice Bus Queue
+				- Receiver can be offline
+				- Asynchronous and not real time
+				- This can be one to one or one to many 
+			- Event driven architecture
+				- This is asynchronus 
+				- Supports one to many communication.
+				- Real time communication
+		- Event Grid in Azure is a Fully managed Event ingestion system.
+		- 
+		
+		
+		
+		
+		
+		
+		
+		
 
 		
 			
