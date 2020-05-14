@@ -1,0 +1,621 @@
+
+.NET Core
+	- What is .NET Core?
+		- Open-source, cross platform framework for developing Web Applications
+			- MVC, RESTful services, Single Page Apps, Blazor apps and Razor apps
+			- Support WPF apps and Windows Forms apps
+		- Community driven framework
+		- Cloud based
+		- Open-source standards
+			- Lightweight
+			- CLI based
+			- containerzable
+			- cross-platform (don't confuse with platform independent)
+			- community driven
+			- Restorable Packages
+				- Add necessary packages from internet
+				- No need to carry the packages when project is copied to other machines
+				- Restore the packages any time ( dotnet restore)
+				- packages list will be maintained in a file (.csproj)(node apps it is package.json)(python we have requirements.txt)
+	- Why .NET Core?
+	- How to create .NET Core Project?
+		- We can use dotnet core CLI to create, run and test projects
+		- Use visual studio to create , run and test projects
+	- Dotnet CLI
+		- Provides a base command as 'dotnet' 
+		- We can create, restore packages, compile projects, run project and publish using CLI
+			- Create  -> dotnet new <templatetype> [Options]
+						eg: dotnet new mvc -n SampleProject -o MyProjectDir
+						eg: dotnet new webapi
+						eg: dotnet new web
+						eg: dotnet new console
+			- Restore - > dotnet restore
+			- Build - dotnet build [options] 
+			- Run - dotnet run [options]
+			- Publish - dotnet publish [options]
+
+Hosting model
+	- Host is used to run and serve the application.
+	- Host is responsible to start, serve and stop the application.
+	- Self-Hosting and Web Server Hosting (IIS) available.
+	- .NET Core runtime comes with an integrated web server called Kestral.
+		- Kestral is light-weight, open-source and cross-platform web server.
+	- In production use Kestral with other web servers for entiprise web server features
+		- We can use IIS, Tomcat, NGINX as reverse proxy for Kestral.
+	- Host Configuration is required
+		- Listening port config
+		- SSL supported or not
+		- Request body Max Size
+		- Services configured in Application 
+			- Configuration sources such as CmdLine args, Env variables, Appsettings.json are already configured
+	- WebHost/GenericHost [ only Generic Host]
+
+App Life cycle
+	- Program.cs -> Main() method
+		- create and start a web server host
+	- Startup.cs 
+		-> ConfigureServices()
+			- Configure the services required by the application
+			- DI services are registered here
+		-> Configure()
+			- Used to create the Request Pipeline
+			- It defines which of the middleware need to be executed when a request is received.
+			- IApplicationBuilder instance is used to configure the pipeline 
+			- Order of the middleware is important. 
+		
+Request pipeline
+	- Run()
+		- Called using the IApplicationBuilder object.
+		- Run method is used as a short-circuit method, which terminates the request and send response.
+	- Use()
+		- It is used to create the middleware for our request pipeline	
+	- Map()
+		- 
+	- MapWhen()
+	
+Configuration Sources
+	- In .NET Framework web apps it allows us to read config from web.config only.
+	- .NET Core web apps supports multiple configuration sources in one application. 
+		- Cmd Line args 
+		- Environment variables
+			[Company]="Synergetics"
+		- Json files
+			- appsettings.json  + appsettings.Development.json
+			- Assume we have a key value pair [Company] ="Hexaware"
+		- Xml files
+		- Ini Files
+		- In memory objects (dictionary type)
+		- Key per file
+		- Cloud key vault
+	- One configuration source can override other if same key exists.
+
+Dependency Injection
+	- .NET Framework DI can be implemented using Ninject or Unity 
+	- DI is a pattern that helps us to develop loosly coupled application.
+	- Removes the dependency on classes.
+	- Typically in application user is responsible to create, manage and dispose the dependent service objects
+		eg: In EmployeeController we use a service class SqlDataManager
+			SqlDataManager provides function to insert, delete, update and read employee objects. 
+			
+			interface IDataManager
+			{
+				Employee AddEmployee(Employee emp);
+				Employee GetByEmail(string email);
+				IEnumerable<Employee> GetEmployees();
+				Employee GetEmployee(int id);
+				Employee UpdateEmployee(int id, Employee emp);
+				Employee DeleteEmployee(int id);
+			}
+			
+			class SqlDataManager:IDataManager
+			{
+				Employee AddEmployee(Employee emp);
+				IEnumerable<Employee> GetEmployees();
+				Employee GetEmployee(int id);
+				Employee UpdateEmployee(int id, Employee emp);
+				Employee DeleteEmployee(int id);
+			}
+			
+			class PostgreDataManager:IDataManager
+			{
+				Employee AddEmployee(Employee emp);
+				IEnumerable<Employee> GetEmployees();
+				Employee GetEmployee(int id);
+				Employee UpdateEmployee(int id, Employee emp);
+				Employee DeleteEmployee(int id);
+			}
+			
+			class EmployeeController:Controller
+			{
+				private IDataManager dm;
+				private ValidationService vs;
+				
+				public EmployeeController(IDataManager datamanager, ValidationService v)
+				{
+					this.vs=v;
+					this.dm=datamanager;
+				}
+				
+				public IActionResult Index()
+				{
+					
+					var data = dm.GetEmployees();
+					return View(data);
+				}
+				
+				[HttpPost]
+				public IActionResult Create(Employee e)
+				{
+					
+					var isValid= vs.Validate(e);
+					if(isValid)
+					{
+						dm.AddEmployee(e);
+						return RedirectToAction("Index");
+					}
+					else{
+						return View(e);
+					}
+				}
+			}
+			
+			class ValidationService
+			{
+				private IDataManager dm;
+				
+				public ValidationService(IDataManager d)
+				{
+					dm= d;
+				}
+				public bool Validate(Employee e)
+				{
+					var item=dm.GetByEmail(e.email)
+					if(item!=null)
+						return false;
+					else
+						return true;
+				}
+				
+			}
+	
+			class Startup
+			{
+				public void ConfigureServices(IServicesCollection services)
+				{
+					services.AddTransient<IDataManager, PostgreDataManager>(); //only one instance
+					services.AddScoped<>();
+					services.AddTransient<>();
+				}
+			}
+	- DI is a built-in feature in .NET Core
+	- The default IoC container can be replaced by third-party IoC containers.
+		eg: Autofac
+
+Built-in middleware
+	- UseStaticFiles()
+		- used to serve static files from the configured location
+		- As per the default configuration in GenericHost 'wwwroot' folder is considered as static files folder. 
+	- UseDirectoryBrowser()
+	- UseDefealtFiles()
+	- UseFileServer() - Combine features of StaticFiles, DirectoryBrowser and Defaultfiles
+	
+Tag Helpers
+	- Is an alternate for HTML Helpers
+		- Html Helpers are used to generate HTML code from C# functions
+		- @Html.TextBoxFor() -> Used to generate a textbox for binding
+		- @Html.ActionLink() -> Creates a hyperlink
+		- @Html.Partial() -> Includes a partial page
+		- @Url.Action() -> Used to generate Url from given args
+		- @Ajax.ActionLink() -> Create ajax enabled hyperlink
+	- Tag helpers looks exactly like html tags
+	- But Tag Helpers are actual C# class implementations
+		<hello name="Sonu" />  can render to <p class="highlight">Hello Sonu</p>
+	
+Caching
+	- Is used to improve the performance of application. 
+	- Instead of accessing data from a datasource everytime, we can cache the data once in the cache storage and access it frequently.
+	- Types of caching
+		- Response Caching
+			- The action result can be cached for a period of time.
+			- Use [ResponseCache] annotation will be used on top of the action method
+			- We need to use caching service in ConfigureServices method using services.AddResponseCaching()
+			- We also need to use the caching middleware for enabling caching. we need to configure the app.UseResponseCaching() middleware.
+		- InMemory Caching
+			- We use in-memory cache to store data that is frequently accessed in out application.
+			- We need to enable Inmemory cache service in configureserices method
+			- IMemoryCache is the DI service interface that provide access to the cache storage. 
+			- the cached data is stored in the application servers memory. 
+			- Stick sessions or ARR (automatic Request routing) must be enable when running in distributed environment like server farms.
+		- Distributed Caching
+			- Store the cached data outside the app/server memory
+			- Stored in a commonly accessible location such as SQL Server DB, Redis DB, NCacahe Server
+			- We can use the IDistributedCache interface to access the cache storage
+			- .NET Core is providing an in memory implementation of IDistributedCache for dev and test purposes.
+			
+State management 
+	- Query String - Not Implementing
+	- Hidden fields - Not Implementing	
+	- Cookies - Not Implementing
+	- Cache - Done
+	- Session 
+		- One of the Distributed caching must be enabled to use session.
+		- services.AddSession() method must be called in ConfigureServices to configure Session service.
+		- Use the app.UseSession() middleware to enable session in the application
+		- Get, GetString for reading data
+		- Set, SetString for storing data
+		- By using Microsoft.AspNetCore.Http namespace we can use GetInt32, GetBoolean etc functions are availalbe.
+	- TempData
+		- Can persist data even in redirection
+		- It can persist data untill it consumes or the request is completed.
+		- Two providers - CookieTempDataProvider and SessionStateTempDataProvider
+		- CookieTempData provider is the default 
+		- Configure services.AddControllersWithViews().AddSessionStateTempDataProvider() to enable Session baed tempdata provider.
+	- HttpContext.Items
+		
+Routing
+	- Use Routing middleware
+	- UseEndpoint
+	- Use of Route annotation for route prefix and route template
+	- Http method annotations
+	- Passing URL Parameters using route templates
+	
+Entity Framework Core
+	- EF is an ORM tool that helps us to perform DB operations
+	- Model class objects are mapped to table entities
+	- Microsoft.EntityframeworkCore package is used for EF operations
+	- We can create a DbContext class that allows db operations 
+	- Data annotations can be used in models for validation and schema definition.
+	- EF Core supports DB First and Code first approaches
+		- Code first is recommended appraoch for new applications
+			- Allows us to do Database migration based on model changes
+		- Db first is better when upgrading an existing application
+			- While modernizing apps to run in cloud 
+	
+	
+Web API
+	- What is Web API?
+		- Its a framework or technology to develop RESTful services
+		- RESTful services are similar to SOAP based web services
+		- Now, the front-end frameworks mostly use REST services, becoz it can be invoked directly using the URL. 
+		- REST services are using the features of HTTP protocol
+	- RESTful services
+		- Representational State Transfer
+		- Completely HTTP Based
+			- It used HTTP protocol as communication protocol
+			- Uses HTTP methods and URL to identify the action to invoke 
+			- Supports different content types - XML and JSON (also can support other formats like CSV)
+			- Http Headers can be used for deciding the data format - Accept and Content-Type
+	- Endpoints
+		- It is the combination of HTTP method and Url that points to an action
+		- HTTP methods
+			GET  -> Read data from server (Reqeust data from server)
+			POST -> Create a new entry or file in server
+			PUT  -> Replace and exiting file / entry in server. (Usually used in update )
+			PATCH -> Update the entry in server.
+			DELETE -> Remove an entry/file from server.
+			OPTIONS -> Used to check the support for operations(Check which of the Http operations are supported) 
+		- What is REST endpoints?
+			GET http://localhost:5000/api/Products -> ProductController/GetProducts()
+				Read all products
+			POST http://localhost:5000/api/Products -> ProductController/AddProduct()
+				Add a new product to stock
+			GET http://localhost:5000/api/Products/10 -> ProductController/GetProduct(int id)
+				Read a single product from server with id 10
+			PUT http://localhost:5000/api/Products/10 -> ProductController/UpdateProduct(int id)
+				Updates an exiting record with Id 10
+			DELETE http://localhost:5000/api/Products/10 -> ProductController/DeleteProduct(int id)
+				Deleting a single product with id 10
+			GET http://localhost:5000/api/Products/brand/samsung -> ProductController/Search(string brand)
+				Search products by brand name
+		- What is Http Status Codes?
+			- Status codes indicates the process execution status or response status.
+			- Before processing the response data we need to evaluate the status code.
+			2xx -> Success operations
+				200 - OK
+				201 - Created 
+				204 - No Content 
+			3xx - Redirection (used in web sites)
+				304 - Temporary redirection
+				305 - Cached redirection
+				307 - Permenent redirection
+			4xx - Client side error
+				404 - Not Found
+				401 - Unauthorized
+				403 - Access Denied
+				400 - BadRequest
+			5xx - Server side error
+				500 - Internal Server Error
+				501 - Timed out
+		- Http Headers
+			- The reqeust and response contains headers 
+			- Headers are key-value pair entries
+			- Used to specify the metadata or additional informations about request or respose data.
+				Content-Type 
+					Present in Request and Response
+					Specifies the type of the data you sent or receive. 
+					Content-Type : application/json
+					Content-Type : text/xml
+					Content-Type : text/html 
+				Accept
+					Determines the Response content-type
+					It is present in reqeust header only
+				
+	- Return type in API Actions
+		- Primary types  - String, int, boolean, float 
+		- User defined types - classes and structures
+		- Collections - IEnumerable
+		- ActionResult<T> 
+		- Task<ActionResult<T>> for Async
+Content Negotiation
+	- By default the API server send the response using the default formatter.
+	- In .NET Core it uses application/json or text/json as the default formatters.
+	- Client can request for a specific content format using Accept header.
+	- API server checks the valid formatter available to format the data in requested content type. 
+	- Response - If the foratter is not available it uses the default formatter.
+	- Request - If incoming data format is not supported the api will return 415-Media Type not supported
+			
+CORS
+	- Cross Origin Resource Sharing
+	- It is a security policy implied by the framework to protect APIs from external domains. 
+	- PRovide access to APIs from configured domains with controlled access.
+	- Limit the access to operations by defining allowed methods.
+	- Microsoft.AspNetCore.Cors package is used to configure the CORS policy.
+	- Configure the CORS service and CORS middleware.
+			
+Microservices
+	- What is Pattern?
+		Solution for the problems that continues occurs in out app development
+		Some architectural patterns are - monolithic, SOA and Microservices
+	- What is Monolithic applications and its disadvantages?
+		Tightly coupled applications that inplements all project modules in single project. 
+		- Cannot choose different frameworks and technologies
+		- Module level scaling not possible. NEed to scale the entire project.
+		- Deployment time is higher, becoz we need to deploy the entire application.(app size is larger)
+		- Error in one module leads to the downtime of the application. Becoz entire app crashes.
+		- Using polyglot persistence is complex
+		- Redeployment of single module without affecting entire app downtime is not possible.
+		- Containerization become difficult as the application size increases 
+	- What is the advantage of SOA?
+		- SOA is an architecture that helps developers to develop loosely coupled applications.
+		- Each module of the project is developed as individual services.
+		- modules are created as reusable services that can be integrated into any client applications
+			SOAP Web services
+			RESTful services
+	- What is Microservices?
+		- Microservices are independently project that can be tested independently and deployed independently.
+		- Each module is created as reusable services
+		- Different languages and frameworks can be used
+		- Each service has its own database, they never share database
+		- Scaling of individual services are possible
+		- Can deploy a service without affecting other services
+	- How Microservices are different from SOA?
+		- DB not shared
+		- Services can communicate each other
+		- No ESB required
+		
+Communication patterns in microservices
+	- REST endpoint (Http based communication)
+		- Sender and receiver must be online.
+		- nearly Real time communication	
+		- One-to-one communication
+		- By default synchronous type
+		- Communication ends when a response is received, a response indicates communication ends. 
+	- Message based communication 
+		- Sender and receiver need not to be online at same time.
+		- A message broker service provides a temporary storage queue to persist messages for a period of time. 
+		- Supports one-to-one and one-to-many communication.
+		- Not real time communication
+		- It is asynchronous
+		- No response expected to complete the communication.
+	- Event-Driven architecture
+		- it is real time communication. 
+		- it can be handled by multiple receivers(event handlers)
+		- No response expected 
+		- it can be asynchronous
+	
+Authentication schemes
+	- Windows Authentication
+	- Basic 
+	- Bearer 
+	- We use 'Authorization' header in reqeust.
+		- Authorization : <schemename> <credentials>
+		-eg: Authorization : Basic jdsfkjenjfkw3kfjfjd
+		-eg: Authorization : Bearer kdkjsdfjhfjdshfsfhfhsdgsdjgsklg.ljhskhsjhdsfjksfsdjfs.lkjshfsfhh
+		
+		
+Docker
+	- The packaged application file is called image.
+	- We can start multiple instances of the application by using the same image.
+	- First step towards containerization of application is creating an image of the application.
+	- Images are the base for running containers. The packed application code is called image.
+	- A container is a running instance of an image.
+	- An image name comes in the format <imagename:tagvalue>
+		- imagename - is a friendly name to identify the image.
+		- tag - is used to identify the version of image. 
+			- A tag name can be any value to specify the version. eg: 1.0, 2.0, v1, v2, 1.0v,
+			- I tag value is not specified, it uses 'latest' as the tag value.
+			- eg: samplewebapp:latest
+	- Docker CLI
+		- Docker commands
+			- Run a new container from image
+				docker run
+				eg: docker run --name App1 -d --rm -p 8080:80   samplewebapp:latest
+			- Stop container
+				docker stop containername/id
+			- Remove stopped container
+				docker rm containername/id
+			- Remove running container
+				docker rm -f containername/id
+			- List all running containers (only running containers)
+				docker ps  
+			- List all containers including stopped
+				docker ps -a
+			- List all images 
+				docker images
+			- Remove image
+				docker rmi <imageid>
+			- Tag an image
+				docker tag <src imagename> <dest imagename>
+			- List the networks 
+				docker network
+	- Types of Docker images
+		- Docker container engine supports - Windows and Linux containers.
+		- If a docker image is using Linux as its base image it is called Linux image
+		- If the base image is Windows OS it is called Windows image.
+		- Linux containers cannot run on windows host and windows containers cannot run on Linux Host
+		
+	Docker Hub
+		- Repository for docker images
+		- It provides public repos and private repos
+		- Download precreated images from docker hub using 'docker pull' command.
+		- Upload image using 'docker push' command.
+		- Demo:
+			docker pull postgres
+			docker run --name mypostgres -p 8500:5432 -e POSTGRES_PASSWORD=Password@123 postgres
+			
+			docker pull nginx
+			docker run --name mynginx -p 34000:80 -d nginx
+		
+			docker inspect mypostgres
+			docker inspect postgres
+				
+	Dockerfile
+		- Dockerfile contains the instructions to create an image.
+		- When we run the 'docker build' command it executes the instructions from Dockerfile
+		- Commands used in Dockerfile are:
+			FROM <baseimagename>
+				Name of the base image for our custom docker image
+			WORKDIR <path>
+				Set a working directory inside the image
+			COPY <sourcefiles/dir> <dest-path>
+				Copy files and directories from local machine or other image to current image folder.
+			ENV <key>=<value>
+				Set environment variables in key-value format
+			LABEL <key> <value>
+				Set metadata info such as author name, creation date etc
+			RUN <cmd> [args]
+				Execute the command at the time of building the image (image creation time)
+			EXPOSE <port>
+				Expose port number for port forwarding
+			CMD <cmd> [args]
+				Executing the command at the time of creating the container.(executes when a new container is created)
+			ENTRYPOINT <cmd> [args]
+				Executing the command at the time of creating the container. It is usually used to start the application. 
+				
+	Building  static web app image using nginx
+		- Create dockerfile
+		- Build image 
+			docker build -t sampleweb:1.0 .
+		- List images
+			docker images
+		- Run a container
+			docker run --name myapp1 -p 7080:80 -d --rm sampleweb:1.0
+		- Check process list
+			docker ps
+		- Open browser and navigate to http://localhost:7080
+
+	- Registry
+		- What is an image registry (repositories)?
+			It is a place to store the docker images. A registry can contain repositories which stores different versions of images.
+			- Different types of registries available
+				- local repository
+					The images stored in your local machine.
+				- Public repositories/registries
+					DockerHub is an example for public repo. Any image uploaded into public repo is accessible to all other users. Docker hub also allows to create private repositories for paid users.					
+				- Private repositories/registries
+					Additional credentials required to download images. Secure and accessible from anywhere. eg: ECR (Elastic Container Registry), ACR(Azure Container Registry) 
+					
+			- How to push images to public and private repos?
+				- Before pushing images to public and private repos we need to follow some naming standards. While creating public or private repo account we gets an account name (repository name). We need to use the account name as the prefix of out image.
+				eg: if we have an image sampleapp:latest in out local repository. If you want to push to docker hub, we need to create an account in docker hub. if docker hub account name is 'sonusathyadas' then we need to rename the image to 'sonusathyadas/sampleapp:latest'
+				- Login to docker account:
+					docker login [servername] -u <username> -p <password>				
+					eg: to login to docker hub 
+					docker login -u <username> -p <password>				
+				- To create image with account name either tag image or create new image
+					Tagging an existing image.
+						syntax: docker tag <imagename> <accountname/imagename>
+						eg: docker tag sampleapp:1.0 sonusathyadas/sampleapp:latest
+					Creating a new image
+						docker build -t sonusathyadas/sampleapp:latest .					
+				- Push image to docker hub
+					docker push <imagename>
+
+AWS - Amazon Web Services
+	Cloud services
+		- Microsoft Azure 
+		- Amazon Web Servics (AWS)
+		- Google Cloud Computing 
+	Cloud Service Models
+		- IaaS (Infrastrucure as a Service)
+			- Provides the core services like compute, storage and networking
+			- User is responsible to create the deployment platform
+			- User is responsibility to ensure the security, backup, DR and monitoring.
+			- IT administrors are using IaaS services.
+			- VPC (Virtual Private Cloud), Security Group, EC2(Virtual Machine service from AMI), Load Balancer(ALB, NLB) 
+		- PaaS (Platform as a Service)
+			- Cloud provides a preconfigured platform for deploying data and applications.
+			- Cloud vendor is responsible to provide security, monitoring, backup and DR.
+			- User is only responsible to deploy the application
+			- Used by developers 
+			- Fargate, RDS, ECS (Elastic Contaier Services), ECR (Elastic Container Registry), EKS (Elastic Kubernetes Services)
+		- SaaS (Software as a Service)
+			- Cloud vendor is providing the application also.
+			- User need not to do any intallation or deployment
+			- User need to consume the services 
+			- Office 365 is an example
+ECS
+	- Fully managed container cluster service.
+	- Orchestror will take care of monitoring, deployment, scaling, backup and DR
+	- ECS cluster is a collection of compute resources
+	- ECS cluster can be created as serverless cluster (Fargate) or server  based cluster( EC2)
+	- Task defenition
+		- The instruction set for deploying containers
+	- Task	
+		- The running instance of a container is called Task 
+	- Service
+		- Service is used to manage a group of related Tasks. It provides loadbalancing of request to tasks
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			
+			
+			
+			
+			
+			
+					
+					
+					
+					
+					
+					
+					
+	
+		
+		
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				
